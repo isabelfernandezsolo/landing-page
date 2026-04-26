@@ -17,6 +17,10 @@
     --green-mid:#3d8a72;
     --gold:#d4a24a;
     --gold-soft:#f6ecd5;
+    --sage:#dfece5;
+    --mint:#edf6f1;
+    --blush:#fbf2e7;
+    --blue-soft:#eef3f6;
     --cream:#f6f1e8;
     --paper:#fbf8f2;
     --line:#1a2e26;
@@ -84,8 +88,8 @@
     box-shadow:0 10px 30px rgba(11,20,16,.06);
   }
   .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);}
-  .brand-mark{width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:16px;letter-spacing:-1px;position:relative;}
-  .brand-mark::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px dashed var(--gold);opacity:.6;}
+  .brand-mark{width:38px;height:38px;border-radius:50%;background:var(--green-deep);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:16px;letter-spacing:-1px;position:relative;flex-shrink:0;}
+  .brand-mark::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px dashed var(--gold);opacity:.85;}
   .brand-name{font-family:'Fraunces',serif;font-size:16px;font-weight:600;line-height:1;}
   .brand-name span{display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
   .nav-links{display:flex;gap:4px;list-style:none;align-items:center;}
@@ -112,15 +116,6 @@
   }
   @media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:48px;}}
 
-  .award-pill{
-    display:inline-flex;align-items:center;gap:10px;
-    background:rgba(11,20,16,.05);border:1px solid rgba(11,20,16,.1);
-    padding:7px 14px 7px 8px;border-radius:999px;
-    font-size:12px;font-weight:500;color:var(--ink);margin-bottom:24px;
-  }
-  .award-pill .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(212,162,74,.2);animation:pulse 2s infinite;}
-  .award-pill em{font-family:'Fraunces',serif;font-style:italic;font-weight:600;}
-
   .hero h1{
     font-family:'Fraunces',serif;font-weight:300;
     font-size:clamp(46px,8vw,108px);
@@ -135,6 +130,11 @@
   }
   .hero-sub{font-size:18px;color:var(--ink-2);max-width:520px;margin-bottom:36px;line-height:1.6;}
   .hero-sub em{font-family:'Fraunces',serif;font-style:italic;color:var(--green-deep);font-weight:500;}
+  .hero-statement{
+    max-width:560px;margin:0 0 22px;
+    font-family:'Fraunces',serif;font-size:clamp(24px,3vw,36px);line-height:1.12;
+    color:var(--green-deep);letter-spacing:-.02em;
+  }
 
   .hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
   .chip{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;padding:6px 11px;border:1px solid rgba(11,20,16,.18);border-radius:999px;color:var(--ink);background:rgba(255,255,255,.5);}
@@ -158,20 +158,50 @@
 
   /* Hero visual */
   .hero-visual{
-    position:relative;aspect-ratio:1/1.05;max-width:480px;justify-self:end;width:100%;
+    position:relative;aspect-ratio:1/1;max-width:540px;justify-self:end;width:100%;
+    display:flex;align-items:center;justify-content:center;
   }
-  @media(max-width:960px){.hero-visual{justify-self:center;max-width:420px;}}
+  @media(max-width:960px){.hero-visual{justify-self:center;max-width:460px;}}
+  .hero-visual::before,
+  .hero-visual::after{
+    content:'';position:absolute;border-radius:50%;pointer-events:none;
+  }
+  .hero-visual::before{
+    inset:-2%;border:2px dashed rgba(212,162,74,.75);
+  }
+  .hero-visual::after{
+    inset:4%;border:10px solid rgba(31,93,73,.16);
+    box-shadow:0 0 0 1px rgba(212,162,74,.45), 0 0 0 16px rgba(212,162,74,.08), 0 0 0 30px rgba(31,93,73,.06);
+  }
   .portrait{
-    position:absolute;inset:0;
+    position:relative;width:88%;height:88%;
     background:var(--grad-hero);
-    border-radius:32% 68% 30% 70% / 40% 35% 65% 60%;
+    border-radius:50%;
     overflow:hidden;
     box-shadow:var(--shadow-2);
+    z-index:1;
+    border:8px solid var(--paper);
   }
   .portrait::before{
     content:'';position:absolute;inset:0;
-    background:radial-gradient(80% 70% at 30% 20%, rgba(212,162,74,.25), transparent 60%);
+    background:linear-gradient(180deg,transparent 45%,rgba(11,20,16,.24) 100%);
+    z-index:1;
   }
+  .portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+  .orbit-line{position:absolute;border-radius:50%;pointer-events:none;z-index:0;}
+  .orbit-line.o1{inset:10%;border:3px solid rgba(31,93,73,.28);}
+  .orbit-line.o2{inset:-5%;border:1px solid rgba(31,93,73,.38);}
+  .orbit-line.o3{inset:17%;border:6px solid rgba(31,93,73,.09);}
+  .portrait-logo{
+    position:absolute;right:12%;top:8%;z-index:3;
+    width:58px;height:58px;border-radius:50%;
+    background:var(--green-deep);color:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:800;font-size:22px;
+    border:3px solid var(--paper);
+    box-shadow:0 12px 28px rgba(11,20,16,.2);
+  }
+  .portrait-logo::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px dashed var(--gold);}
   .portrait-mark{
     position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
     font-family:'Fraunces',serif;font-weight:700;font-size:clamp(120px,20vw,200px);
@@ -210,7 +240,7 @@
   @media(max-width:600px){.marquee-label{display:none;}.marquee span{font-size:18px;padding:0 22px;}}
 
   /* SOBRE */
-  #sobre{background:var(--white);}
+  #sobre{background:linear-gradient(180deg,var(--white) 0%,var(--mint) 100%);}
   .section-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:64px;}
   @media(max-width:720px){.section-head{grid-template-columns:1fr;gap:18px;margin-bottom:40px;}}
   .section-title{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(36px,5.5vw,68px);line-height:1;letter-spacing:-.025em;color:var(--ink);}
@@ -266,7 +296,7 @@
   .stat-cell .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:8px;}
 
   /* SERVICIOS — bento */
-  #servicios{background:var(--paper);}
+  #servicios{background:linear-gradient(180deg,var(--blush) 0%,var(--paper) 100%);}
   .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;}
   @media(max-width:900px){.bento{grid-template-columns:repeat(6,1fr);}}
   @media(max-width:600px){.bento{grid-template-columns:1fr;}}
@@ -370,7 +400,7 @@
   @media(max-width:760px){.duo-details{grid-template-columns:1fr;gap:22px;}}
 
   /* TALLERES */
-  #talleres{background:var(--white);}
+  #talleres{background:linear-gradient(180deg,var(--white) 0%,#fff8e8 100%);}
   .taller-hero{
     position:relative;border-radius:var(--radius-lg);overflow:hidden;
     background:var(--ink);color:var(--paper);
@@ -416,7 +446,7 @@
   details[open] .more{transform:rotate(45deg);background:var(--gold-soft);}
 
   /* INVESTIGACIÓN */
-  #investigacion{background:var(--paper);}
+  #investigacion{background:linear-gradient(180deg,var(--sage) 0%,var(--paper) 100%);}
   .inv-hero{
     background:var(--grad-hero);color:var(--paper);
     border-radius:var(--radius-lg);padding:56px;
@@ -424,6 +454,10 @@
   }
   .inv-hero::before{content:'∑';position:absolute;right:-30px;top:-60px;font-family:'Fraunces',serif;font-size:300px;opacity:.04;line-height:1;}
   .inv-hero > *{position:relative;}
+  .inv-hero summary{list-style:none;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;}
+  .inv-hero summary::-webkit-details-marker{display:none;}
+  .inv-hero summary h3{margin-bottom:0;}
+  .inv-hero summary .more{background:rgba(255,255,255,.08);color:var(--gold);}
   .inv-hero .badge-new{display:inline-flex;align-items:center;gap:8px;background:rgba(212,162,74,.16);border:1px solid rgba(212,162,74,.32);color:var(--gold);padding:7px 14px;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
   .inv-hero h3{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.05;letter-spacing:-.02em;color:var(--paper);margin-bottom:14px;}
   .inv-hero .lede{font-size:16px;color:rgba(255,255,255,.7);max-width:680px;line-height:1.7;margin-bottom:24px;}
@@ -433,25 +467,41 @@
 
   .step-title{font-family:'Fraunces',serif;font-size:28px;font-weight:600;margin:50px 0 22px;letter-spacing:-.01em;}
 
-  .steps{display:grid;gap:10px;counter-reset:step;}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;counter-reset:step;}
+  @media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:620px){.steps{grid-template-columns:1fr;}}
   .step{
     display:grid;grid-template-columns:90px 1fr;gap:0;
     background:var(--white);border-radius:18px;
     border:1px solid rgba(11,20,16,.07);overflow:hidden;
     transition:transform .3s,box-shadow .3s;
   }
+  details.step{cursor:pointer;display:block;}
+  .step summary{list-style:none;display:grid;grid-template-columns:64px 1fr auto;align-items:stretch;min-height:92px;}
+  .step summary::-webkit-details-marker{display:none;}
+  .step summary .step-body{display:flex;align-items:center;padding:16px 12px;}
+  .step summary .more{align-self:center;margin-right:12px;width:24px;height:24px;font-size:16px;}
   .step:hover{transform:translateY(-2px);box-shadow:var(--shadow-1);}
   .step-num{
     background:var(--green);color:var(--paper);
     display:flex;flex-direction:column;align-items:center;justify-content:center;
-    padding:18px 8px;
+    padding:14px 6px;
   }
   .step.ai .step-num{background:var(--ink);}
-  .step-num .n{font-family:'Fraunces',serif;font-size:36px;font-weight:700;line-height:1;}
-  .step-num .ph{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:4px;text-align:center;}
+  .step-num .n{font-family:'Fraunces',serif;font-size:30px;font-weight:700;line-height:1;}
+  .step-num .ph{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:4px;text-align:center;}
   .step-body{padding:20px 26px;}
   .step-body h4{font-size:15.5px;font-weight:600;margin-bottom:4px;}
+  .step summary .step-body h4{margin-bottom:0;}
   .step-body p{font-size:14px;color:var(--muted);line-height:1.65;}
+  .step-detail{padding:0 18px 20px 82px;}
+  @media(max-width:620px){
+    .step summary{grid-template-columns:68px 1fr auto;}
+    .step-num{padding:14px 6px;}
+    .step-num .n{font-size:28px;}
+    .step summary .step-body{padding:16px;}
+    .step-detail{padding:0 18px 18px 84px;}
+  }
   .ia-tag{display:inline-block;background:var(--green-soft);color:var(--green-deep);font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;letter-spacing:.08em;padding:4px 10px;border-radius:6px;margin-top:10px;}
   .ia-tag.dark{background:var(--ink);color:var(--gold);}
 
@@ -490,6 +540,11 @@
   }
 
   /* Vacío FP — revista */
+  .research-extra{margin-top:80px;}
+  .research-extra details{cursor:pointer;}
+  .research-extra summary{list-style:none;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;}
+  .research-extra summary::-webkit-details-marker{display:none;}
+  .research-extra summary h3,.research-extra summary h4{margin:0;}
   .gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px;}
   @media(max-width:760px){.gap-grid{grid-template-columns:1fr;}}
   .gap-card{padding:32px;border-radius:18px;}
@@ -551,7 +606,7 @@
   .media-block ul li:last-child{border-bottom:none;}
 
   /* PUBLICACIONES */
-  #publicaciones{background:var(--white);}
+  #publicaciones{background:linear-gradient(180deg,var(--blue-soft) 0%,var(--white) 100%);}
   .pub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
   @media(max-width:880px){.pub-grid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:540px){.pub-grid{grid-template-columns:1fr;}}
@@ -587,7 +642,7 @@
   @media(max-width:600px){.cong-row{grid-template-columns:60px 1fr;gap:16px;padding:16px 18px;}.cong-loc{display:none;}.cong-y{font-size:24px;}}
 
   /* HITOS */
-  #hitos{background:var(--paper);}
+  #hitos{background:linear-gradient(180deg,var(--gold-soft) 0%,var(--paper) 100%);}
   .hitos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
   @media(max-width:880px){.hitos-grid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:520px){.hitos-grid{grid-template-columns:1fr;}}
@@ -688,7 +743,6 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="award-pill reveal"><span class="dot"></span><em>Nominada Mejor Divulgadora de FP</em> · Premios FP 2025</div>
         <h1 class="reveal">
           Isabel <span class="accent">Fernández</span>
           <strong>Solo de Zaldívar.</strong>
@@ -697,11 +751,11 @@
           Doctora, investigadora y formadora con <em>25 años en el aula de FP</em>.
           No soy consultora externa — soy una de vosotros. Con evidencia científica detrás.
         </p>
+        <p class="hero-statement reveal">Ayudo a centros y docentes de FP a transformar lo que ya hacen en innovación medible, transferible y con impacto real.</p>
         <div class="hero-meta reveal">
           <span class="chip">Doctora UNED</span>
           <span class="chip">25 años en FP</span>
           <span class="chip">+20 publicaciones</span>
-          <span class="chip">88 citas</span>
         </div>
         <div class="cta-row reveal">
           <a href="#servicios" class="btn btn-primary">Ver servicios <span class="arrow">→</span></a>
@@ -710,20 +764,12 @@
       </div>
 
       <div class="hero-visual reveal">
+        <span class="orbit-line o1"></span>
+        <span class="orbit-line o2"></span>
+        <span class="orbit-line o3"></span>
+        <div class="portrait-logo">IF</div>
         <div class="portrait">
-          <div class="portrait-mark">IF<sup>·</sup></div>
-        </div>
-        <div class="float-card fc-1">
-          <div class="label">Horas en el aula</div>
-          <div class="value">4K<sub>+</sub></div>
-        </div>
-        <div class="float-card fc-2">
-          <div class="label">Citas académicas</div>
-          <div class="value">88</div>
-        </div>
-        <div class="float-card fc-3">
-          <div class="label">Publicaciones</div>
-          <div class="value">20<sub>+</sub></div>
+          <img src="ChatGPT%20Image%2023%20abr%202026,%2010_27_04.png" alt="Isabel Fernández Solo de Zaldívar">
         </div>
       </div>
     </div>
@@ -747,24 +793,26 @@
         <div class="eyebrow">01 / Quién soy</div>
         <h2 class="section-title">25 años <em>dentro</em>.<br>No mirando <strong>desde fuera</strong>.</h2>
       </div>
-      <p class="section-lede">Doctora por la UNED con tesis Sobresaliente. Funcionaria de carrera desde 2000. Sigo en el aula cada semana — eso me hace diferente.</p>
+      <p class="section-lede">Entré en la FP desde el aula y sigo ahí: entre alumnos, equipos docentes, proyectos, calidad, empresa e investigación. Desde 2010 también acompaño a futuros profesores en su salto a la docencia.</p>
     </div>
 
     <div class="about-grid reveal">
       <div class="about-text">
-        <p>Soy doctora por la UNED (2016) con tesis <em>Sobresaliente</em> sobre metodologías para el desarrollo de competencias de empleabilidad en FP. Licenciada en Psicopedagogía, Ciencias de la Educación y Ciencias del Trabajo.</p>
-        <p>Funcionaria de carrera desde 2000, he sido jefa de departamento, asesora y responsable de calidad en la ESTNA durante más de 15 años. Eso me da una visión 360 de la organización escolar que ningún consultor externo puede tener.</p>
-        <div class="pull-quote">No teorizo sobre la FP. La vivo cada semana en el aula, con alumnos reales, en un centro real. Lo que enseño lo practico.</div>
-        <p>Pionera en la implantación del primer ciclo de FP Dual de Prevención de Riesgos Laborales en Navarra. Investigadora en proyectos del Ministerio de Educación. Más de 20 publicaciones científicas, 88 citas académicas y presencia en los principales medios nacionales.</p>
+        <p>Llevo 25 años viendo la FP desde dentro: la primera clase que no sale como esperabas, el alumno que necesita otra manera de aprender, el claustro que quiere cambiar pero no encuentra el cómo, la empresa que quiere colaborar y el proyecto que puede convertirse en evidencia.</p>
+        <p>Soy doctora por la UNED (2016), licenciada en Psicopedagogía, Ciencias de la Educación y Ciencias del Trabajo, y diplomada en Relaciones Laborales.</p>
+        <p>Funcionaria de carrera desde 2000, sigo siendo jefa de departamento en ESTNA. Desde 2010 formo profesorado en la UNIR, acompañando a quienes se preparan para entrar en Secundaria y FP con una mirada práctica, rigurosa y conectada con el aula real.</p>
+        <p>También he sido asesora y responsable de calidad durante más de 15 años. Esa trayectoria me permite leer un centro por dentro: aula, gestión, innovación, empresa y evidencia.</p>
+        <div class="pull-quote">No llego con recetas. Escucho el centro, traduzco el problema y construyo una respuesta que pueda sostenerse en el aula.</div>
+        <p>Pionera en la implantación del primer ciclo de FP Dual de Prevención de Riesgos Laborales en Navarra. Investigadora en proyectos del Ministerio de Educación, con publicaciones científicas y presencia en medios nacionales.</p>
       </div>
 
       <div class="creds">
-        <div class="cred"><div class="cred-num">01</div><div class="cred-text"><strong>Doctora UNED</strong><span>Tesis Sobresaliente sobre empleabilidad en FP</span></div><div class="cred-year">2016</div></div>
-        <div class="cred"><div class="cred-num">02</div><div class="cred-text"><strong>Funcionaria de carrera</strong><span>Docente FP en la ESTNA · Navarra</span></div><div class="cred-year">2000</div></div>
-        <div class="cred"><div class="cred-num">03</div><div class="cred-text"><strong>Profesora universitaria</strong><span>UNIR · Máster Secundaria</span></div><div class="cred-year">Activo</div></div>
+        <div class="cred"><div class="cred-num">01</div><div class="cred-text"><strong>Doctora UNED</strong><span>Tesis sobre empleabilidad en FP</span></div><div class="cred-year">2016</div></div>
+        <div class="cred"><div class="cred-num">02</div><div class="cred-text"><strong>Funcionaria de carrera</strong><span>Docente FP en ESTNA · Navarra</span></div><div class="cred-year">2000</div></div>
+        <div class="cred"><div class="cred-num">03</div><div class="cred-text"><strong>Formadora de profesorado</strong><span>UNIR · Máster Secundaria y FP</span></div><div class="cred-year">Desde 2010</div></div>
         <div class="cred"><div class="cred-num">04</div><div class="cred-text"><strong>Asesora · Responsable Calidad</strong><span>ESTNA · Sistemas ISO / EFQM</span></div><div class="cred-year">2006-15</div></div>
-        <div class="cred"><div class="cred-num">05</div><div class="cred-text"><strong>Jefa de Departamento</strong><span>ESTNA · 19 años de gestión</span></div><div class="cred-year">2003-22</div></div>
-        <div class="cred"><div class="cred-num">06</div><div class="cred-text"><strong>★ Nominada Mejor Divulgadora FP</strong><span>Premios El Periódico Español</span></div><div class="cred-year">2025</div></div>
+        <div class="cred"><div class="cred-num">05</div><div class="cred-text"><strong>Jefa de Departamento</strong><span>ESTNA · Cargo actual</span></div><div class="cred-year">Actual</div></div>
+        <div class="cred"><div class="cred-num">06</div><div class="cred-text"><strong>Diplomada en Relaciones Laborales</strong><span>Perfil educativo, laboral y organizativo</span></div><div class="cred-year">RRLL</div></div>
       </div>
     </div>
   </div>
@@ -930,26 +978,25 @@
       <p class="section-lede">La nueva Ley de FP exige investigación aplicada. La mayoría de docentes no saben cómo abordarla. Yo sí — y puedo enseñároslo.</p>
     </div>
 
-    <div class="inv-hero reveal">
-      <div class="badge-new">⌬ Nuevo · LOIFP</div>
-      <h3>De lo que ya haces en el aula<br>a investigación aplicada real.</h3>
-      <p class="lede">La nueva Ley de FP incluye la investigación aplicada como eje estratégico obligatorio para los centros. El problema: la mayoría de los docentes no saben cómo abordarla. Yo sí. Y puedo enseñároslo.</p>
+    <details class="inv-hero reveal">
+      <summary><div><div class="badge-new">⌬ Nuevo · LOIFP</div><h3>De lo que ya haces en el aula<br>a investigación aplicada real.</h3></div><span class="more">+</span></summary>
+      <p class="lede">La mayoría de docentes ya tiene prácticas con valor investigador. Yo ayudo a convertirlas en método, evidencia y transferencia.</p>
       <div class="promesa">Lo que hacéis cada día en el aula tiene valor científico. Lo que falta es el método para convertirlo en conocimiento que sirva a otros.</div>
       <div class="ley">
         <strong>¿Qué dice la nueva Ley de FP?</strong>
         La LOIFP establece que los centros de FP deben desarrollar <strong>proyectos de investigación aplicada</strong> en colaboración con empresas, generar transferencia de conocimiento y contribuir a la innovación en los sectores productivos. Esto incluye ABP con retos reales, FP dual investigadora y digitalización aplicada. La mayoría de los centros aún no saben cómo cumplir este mandato.
       </div>
-    </div>
+    </details>
 
-    <h3 class="step-title reveal">El proceso: de la práctica docente a la investigación publicable.</h3>
+    <h3 class="step-title reveal">De la práctica a la evidencia.</h3>
 
     <div class="steps reveal">
-      <div class="step"><div class="step-num"><div class="n">01</div><div class="ph">Punto de partida</div></div><div class="step-body"><h4>Identificamos lo que ya estás haciendo</h4><p>Cada docente tiene prácticas que funcionan. El primer paso es hacer un inventario honesto: qué metodologías aplicas, en qué módulos, con qué resultados percibidos. Muchos descubren que ya tienen material para una investigación sin saberlo.</p><span class="ia-tag">IA: analiza tu programación y detecta qué es investigable</span></div></div>
-      <div class="step"><div class="step-num"><div class="n">02</div><div class="ph">Diseño</div></div><div class="step-body"><h4>Formulamos la pregunta de investigación</h4><p>El salto de "esto funciona bien" a "esto funciona mejor que X porque Y" requiere formular una pregunta precisa. Trabajamos juntos para definir qué quieres saber, qué variables importan y cómo medirlas sin complicar tu día a día.</p><span class="ia-tag">IA: revisa literatura existente y refina la pregunta</span></div></div>
-      <div class="step ai"><div class="step-num"><div class="n">03</div><div class="ph">Recogida</div></div><div class="step-body"><h4>Diseñamos los instrumentos de recogida</h4><p>No necesitas un laboratorio. Con encuestas bien diseñadas, rúbricas de observación y registros de aula tienes suficiente. Te ayudo a crear instrumentos válidos y fiables que puedas aplicar sin interrumpir tu docencia normal.</p><span class="ia-tag dark">IA: borradores de encuestas, rúbricas y protocolos</span></div></div>
-      <div class="step ai"><div class="step-num"><div class="n">04</div><div class="ph">Análisis</div></div><div class="step-body"><h4>Analizamos los datos con IA y los interpretamos</h4><p>La IA permite analizar datos cualitativos y cuantitativos rápido. Te enseño a usar herramientas accesibles para encontrar patrones, comparar grupos y sacar conclusiones sólidas. Sin estadística compleja — con sentido pedagógico real.</p><span class="ia-tag dark">IA: codificación cualitativa, patrones, visualización</span></div></div>
-      <div class="step"><div class="step-num"><div class="n">05</div><div class="ph">Transferencia</div></div><div class="step-body"><h4>Convertimos los resultados en conocimiento transferible</h4><p>Los resultados pueden convertirse en un artículo, una comunicación a un congreso, una buena práctica para el claustro o un proyecto con empresas. Te acompaño en ese último paso — el más importante y el que más se abandona.</p><span class="ia-tag">IA: ayuda a redactar y adaptar para distintos formatos</span></div></div>
-      <div class="step"><div class="step-num"><div class="n">06</div><div class="ph">Conexión</div></div><div class="step-body"><h4>Conectamos con empresas para investigación real</h4><p>La nueva FP exige investigación en colaboración con el tejido productivo. Te ayudo a identificar qué pueden aportar las empresas de tu entorno, cómo formular proyectos conjuntos y cómo cumplir el mandato legal generando valor real.</p><span class="ia-tag">IA: diseña propuestas de colaboración empresa-centro</span></div></div>
+      <details class="step"><summary><div class="step-num"><div class="n">01</div><div class="ph">Detectar</div></div><div class="step-body"><h4>Qué haces ya</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Ordenamos prácticas reales para ver qué puede investigarse.</p><span class="ia-tag">IA: detecta qué es investigable</span></div></details>
+      <details class="step"><summary><div class="step-num"><div class="n">02</div><div class="ph">Preguntar</div></div><div class="step-body"><h4>Qué quieres demostrar</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Convertimos “esto funciona” en una pregunta medible.</p><span class="ia-tag">IA: refina la pregunta</span></div></details>
+      <details class="step ai"><summary><div class="step-num"><div class="n">03</div><div class="ph">Medir</div></div><div class="step-body"><h4>Cómo recoger datos</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Encuestas, rúbricas y registros asumibles para el aula.</p><span class="ia-tag dark">IA: instrumentos y protocolos</span></div></details>
+      <details class="step ai"><summary><div class="step-num"><div class="n">04</div><div class="ph">Analizar</div></div><div class="step-body"><h4>Qué dicen los datos</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Buscamos patrones y conclusiones con sentido pedagógico.</p><span class="ia-tag dark">IA: patrones y visualización</span></div></details>
+      <details class="step"><summary><div class="step-num"><div class="n">05</div><div class="ph">Contar</div></div><div class="step-body"><h4>Cómo transferirlo</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Artículo, comunicación, buena práctica o proyecto.</p><span class="ia-tag">IA: adapta formatos</span></div></details>
+      <details class="step"><summary><div class="step-num"><div class="n">06</div><div class="ph">Conectar</div></div><div class="step-body"><h4>Con quién hacerlo</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Sumamos empresas y entorno productivo cuando aporta valor.</p><span class="ia-tag">IA: propuestas centro-empresa</span></div></details>
     </div>
 
     <h3 class="step-title reveal" style="margin-top:60px;">Cursos específicos de Investigación Aplicada en FP.</h3>
@@ -993,9 +1040,14 @@
     </div>
 
     <!-- VACÍO FP -->
-    <div style="margin-top:80px;" class="reveal">
-      <div class="eyebrow">El gran vacío del ecosistema FP</div>
-      <h3 class="section-title" style="font-size:clamp(28px,4vw,46px);margin-top:8px;">La FP no tiene voz<br>científica propia. <em>Eso tiene que cambiar.</em></h3>
+    <details class="research-extra reveal">
+      <summary>
+        <div>
+          <div class="eyebrow">El gran vacío del ecosistema FP</div>
+          <h3 class="section-title" style="font-size:clamp(28px,4vw,46px);margin-top:8px;">La FP no tiene voz<br>científica propia. <em>Eso tiene que cambiar.</em></h3>
+        </div>
+        <span class="more">+</span>
+      </summary>
 
       <div class="gap-grid">
         <div class="gap-card gap-problem">
@@ -1057,7 +1109,7 @@
         </div>
         <a href="#contacto" class="btn btn-gold">Contactar para medios →</a>
       </div>
-    </div>
+    </details>
 
   </div>
 </section>
@@ -1144,7 +1196,7 @@
 
     <div class="hitos-grid reveal">
       <div class="hito gold"><div class="ico">👑</div><h4>Visita de S.M. la Reina Letizia</h4><p>Organización del role-playing de entrevistas de trabajo ante S.M. la Reina Letizia (entonces Princesa de Asturias). Ejemplo de ABP con impacto real.</p></div>
-      <div class="hito"><div class="ico">🏭</div><h4>Pionera FP Dual PRL en Navarra</h4><p>Liderazgo en el primer ciclo de FP Dual de Prevención de Riesgos Laborales en la ESTNA. Pionera en integración empresa-centro.</p></div>
+      <div class="hito"><div class="ico">🏭</div><h4>Pionera FP Dual PRL en Navarra</h4><p>Liderazgo en el primer ciclo de FP Dual de Prevención de Riesgos Laborales en ESTNA. Pionera en integración empresa-centro.</p></div>
       <div class="hito"><div class="ico">🏆</div><h4>II Premio Plan de Empresa · CEIN</h4><p>Premio por compromiso con el fomento del espíritu emprendedor entre el alumnado. CEIN y Gobierno de Navarra, 2013.</p></div>
       <div class="hito gold"><div class="ico">🌱</div><h4>Proyecto Équilicuá</h4><p>Coordinación del proyecto pionero del Gobierno de Navarra y Fundación Caja Navarra para desarrollar la capacidad emprendedora.</p></div>
       <div class="hito"><div class="ico">★</div><h4>Top 3 Innovación FP Navarra</h4><p>Proyecto "Cuidando desde Casa" (INICIIA 24-25) seleccionado en el Top 3 de los mejores proyectos de Innovación y Emprendimiento.</p></div>
@@ -1203,7 +1255,7 @@
 
 <footer>
   <div><strong>Isabel Fernández Solo de Zaldívar</strong> · Doctora · Formadora FP · Consultora Educativa · Investigadora</div>
-  <div class="award">★ Nominada Mejor Divulgadora FP · 2025</div>
+  <div class="award">Formadora FP · Consultora Educativa · Investigadora</div>
 </footer>
 
 <script>
