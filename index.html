@@ -250,6 +250,16 @@
 
   .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start;}
   @media(max-width:840px){.about-grid{grid-template-columns:1fr;}}
+  .about-summary{
+    background:var(--white);border:1px solid rgba(11,20,16,.08);
+    border-radius:var(--radius-lg);padding:34px 38px;
+    box-shadow:var(--shadow-1);
+  }
+  .about-summary summary{list-style:none;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;cursor:pointer;}
+  .about-summary summary::-webkit-details-marker{display:none;}
+  .about-summary h3{font-family:'Fraunces',serif;font-size:clamp(24px,3vw,38px);font-weight:500;line-height:1.15;letter-spacing:-.02em;color:var(--green-deep);}
+  .about-summary .about-grid{margin-top:34px;}
+  @media(max-width:620px){.about-summary{padding:24px 20px;}.about-summary .about-grid{margin-top:24px;}}
 
   .about-text p{margin-bottom:18px;color:var(--ink-2);font-size:16px;line-height:1.75;}
   .pull-quote{
@@ -796,25 +806,31 @@
       <p class="section-lede">Entré en la FP desde el aula y sigo ahí: entre alumnos, equipos docentes, proyectos, calidad, empresa e investigación. Desde 2010 también acompaño a futuros profesores en su salto a la docencia.</p>
     </div>
 
-    <div class="about-grid reveal">
-      <div class="about-text">
-        <p>Llevo 25 años viendo la FP desde dentro: la primera clase que no sale como esperabas, el alumno que necesita otra manera de aprender, el claustro que quiere cambiar pero no encuentra el cómo, la empresa que quiere colaborar y el proyecto que puede convertirse en evidencia.</p>
-        <p>Soy doctora por la UNED (2016), licenciada en Psicopedagogía, Ciencias de la Educación y Ciencias del Trabajo, y diplomada en Relaciones Laborales.</p>
-        <p>Funcionaria de carrera desde 2000, sigo siendo jefa de departamento en ESTNA. Desde 2010 formo profesorado en la UNIR, acompañando a quienes se preparan para entrar en Secundaria y FP con una mirada práctica, rigurosa y conectada con el aula real.</p>
-        <p>También he sido asesora y responsable de calidad durante más de 15 años. Esa trayectoria me permite leer un centro por dentro: aula, gestión, innovación, empresa y evidencia.</p>
-        <div class="pull-quote">No llego con recetas. Escucho el centro, traduzco el problema y construyo una respuesta que pueda sostenerse en el aula.</div>
-        <p>Pionera en la implantación del primer ciclo de FP Dual de Prevención de Riesgos Laborales en Navarra. Investigadora en proyectos del Ministerio de Educación, con publicaciones científicas y presencia en medios nacionales.</p>
-      </div>
+    <details class="about-summary reveal">
+      <summary>
+        <h3>Conozco la FP desde el aula, desde la gestión y desde la investigación.</h3>
+        <span class="more">+</span>
+      </summary>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Llevo 25 años viendo la FP desde dentro: la primera clase que no sale como esperabas, el alumno que necesita otra manera de aprender, el claustro que quiere cambiar pero no encuentra el cómo, la empresa que quiere colaborar y el proyecto que puede convertirse en evidencia.</p>
+          <p>Soy doctora por la UNED (2016), licenciada en Psicopedagogía, Ciencias de la Educación y Ciencias del Trabajo, y diplomada en Relaciones Laborales.</p>
+          <p>Funcionaria de carrera desde 2000, sigo siendo jefa de departamento en ESTNA. Desde 2010 formo profesorado en la UNIR, acompañando a quienes se preparan para entrar en Secundaria y FP con una mirada práctica, rigurosa y conectada con el aula real.</p>
+          <p>También he sido asesora y responsable de calidad durante más de 15 años. Esa trayectoria me permite leer un centro por dentro: aula, gestión, innovación, empresa y evidencia.</p>
+          <div class="pull-quote">No llego con recetas. Escucho el centro, traduzco el problema y construyo una respuesta que pueda sostenerse en el aula.</div>
+          <p>Pionera en la implantación del primer ciclo de FP Dual de Prevención de Riesgos Laborales en Navarra. Investigadora en proyectos del Ministerio de Educación, con publicaciones científicas y presencia en medios nacionales.</p>
+        </div>
 
-      <div class="creds">
-        <div class="cred"><div class="cred-num">01</div><div class="cred-text"><strong>Doctora UNED</strong><span>Tesis sobre empleabilidad en FP</span></div><div class="cred-year">2016</div></div>
-        <div class="cred"><div class="cred-num">02</div><div class="cred-text"><strong>Funcionaria de carrera</strong><span>Docente FP en ESTNA · Navarra</span></div><div class="cred-year">2000</div></div>
-        <div class="cred"><div class="cred-num">03</div><div class="cred-text"><strong>Formadora de profesorado</strong><span>UNIR · Máster Secundaria y FP</span></div><div class="cred-year">Desde 2010</div></div>
-        <div class="cred"><div class="cred-num">04</div><div class="cred-text"><strong>Asesora · Responsable Calidad</strong><span>ESTNA · Sistemas ISO / EFQM</span></div><div class="cred-year">2006-15</div></div>
-        <div class="cred"><div class="cred-num">05</div><div class="cred-text"><strong>Jefa de Departamento</strong><span>ESTNA · Cargo actual</span></div><div class="cred-year">Actual</div></div>
-        <div class="cred"><div class="cred-num">06</div><div class="cred-text"><strong>Diplomada en Relaciones Laborales</strong><span>Perfil educativo, laboral y organizativo</span></div><div class="cred-year">RRLL</div></div>
+        <div class="creds">
+          <div class="cred"><div class="cred-num">01</div><div class="cred-text"><strong>Doctora UNED</strong><span>Tesis sobre empleabilidad en FP</span></div><div class="cred-year">2016</div></div>
+          <div class="cred"><div class="cred-num">02</div><div class="cred-text"><strong>Funcionaria de carrera</strong><span>Docente FP en ESTNA · Navarra</span></div><div class="cred-year">2000</div></div>
+          <div class="cred"><div class="cred-num">03</div><div class="cred-text"><strong>Formadora de profesorado</strong><span>UNIR · Máster Secundaria y FP</span></div><div class="cred-year">Desde 2010</div></div>
+          <div class="cred"><div class="cred-num">04</div><div class="cred-text"><strong>Asesora · Responsable Calidad</strong><span>ESTNA · Sistemas ISO / EFQM</span></div><div class="cred-year">2006-15</div></div>
+          <div class="cred"><div class="cred-num">05</div><div class="cred-text"><strong>Jefa de Departamento</strong><span>ESTNA · Cargo actual</span></div><div class="cred-year">Actual</div></div>
+          <div class="cred"><div class="cred-num">06</div><div class="cred-text"><strong>Diplomada en Relaciones Laborales</strong><span>Perfil educativo, laboral y organizativo</span></div><div class="cred-year">RRLL</div></div>
+        </div>
       </div>
-    </div>
+    </details>
   </div>
 </section>
 
