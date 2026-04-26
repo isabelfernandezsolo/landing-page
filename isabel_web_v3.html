@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isabel Fernández Solo de Zaldívar · Formadora FP · Consultora Educativa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #2d6b56;
+    --verde-oscuro: #1e4a3a;
+    --verde-claro: #eef5f2;
+    --verde-medio: #4a8c73;
+    --dorado: #c9943a;
+    --dorado-claro: #fdf6e8;
+    --crema: #f8f5f0;
+    --negro: #111810;
+    --gris: #5a6b62;
+    --borde: #d8e6df;
+    --blanco: #ffffff;
+    --rojo-suave: #8b2635;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--crema); color:var(--negro); font-family:'Jost',sans-serif; font-size:15px; line-height:1.7; overflow-x:hidden; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+  .fu1{animation:fadeUp .7s ease both}
+  .fu2{animation:fadeUp .7s .15s ease both}
+  .fu3{animation:fadeUp .7s .3s ease both}
+  .fu4{animation:fadeUp .7s .45s ease both}
+  .fi{animation:fadeIn 1s .2s ease both}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,245,240,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--borde);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--verde-oscuro);}
+  .nav-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;line-height:1.2;}
+  .nav-name span{display:block;font-size:10px;font-family:'Jost',sans-serif;font-weight:400;letter-spacing:2px;text-transform:uppercase;color:var(--verde-medio);margin-top:1px;}
+  .nav-links{display:flex;gap:24px;list-style:none;}
+  .nav-links a{text-decoration:none;font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--gris);transition:color .2s;}
+  .nav-links a:hover{color:var(--verde);}
+  .nav-cta{background:var(--verde) !important;color:white !important;padding:8px 18px !important;}
+  .nav-cta:hover{background:var(--verde-oscuro) !important;}
+  @media(max-width:700px){.nav-links{display:none;}nav{padding:0 20px;}}
+
+  /* PREMIO BANNER */
+  .banner{background:var(--dorado);padding:14px 40px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:64px;}
+  .banner p{font-size:13px;font-weight:600;color:var(--negro);}
+  .banner em{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;}
+
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 100px);}
+  .hero-left{background:var(--verde-oscuro);padding:72px 52px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+  .hero-left::before{content:'IF';position:absolute;bottom:-60px;right:-20px;font-family:'Cormorant Garamond',serif;font-size:280px;font-weight:700;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;}
+  .hero-tag{display:inline-block;background:var(--dorado);color:var(--negro);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:6px 14px;margin-bottom:28px;width:fit-content;}
+  .hero-nombre{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,54px);font-weight:300;color:white;line-height:1.05;margin-bottom:6px;}
+  .hero-nombre strong{font-weight:700;display:block;}
+  .hero-titulo{font-size:12px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:#8abda5;margin-bottom:28px;margin-top:10px;}
+  .hero-desc{font-size:15px;color:rgba(255,255,255,.75);line-height:1.8;max-width:400px;margin-bottom:36px;}
+  .hero-desc em{color:#a8d4be;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:17px;}
+  .hero-lema{background:rgba(255,255,255,.07);border-left:3px solid var(--dorado);padding:14px 18px;margin-bottom:32px;font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:rgba(255,255,255,.85);}
+  .hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn-p{background:var(--dorado);color:var(--negro);text-decoration:none;padding:13px 26px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:background .2s,transform .15s;display:inline-block;}
+  .btn-p:hover{background:#e0a83f;transform:translateY(-1px);}
+  .btn-s{background:transparent;color:white;text-decoration:none;padding:13px 26px;font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;border:1px solid rgba(255,255,255,.25);transition:border-color .2s,transform .15s;display:inline-block;}
+  .btn-s:hover{border-color:rgba(255,255,255,.6);transform:translateY(-1px);}
+
+  .hero-right{background:var(--verde);display:flex;flex-direction:column;justify-content:flex-end;padding:52px 44px;position:relative;overflow:hidden;}
+  .hero-right::before{content:'';position:absolute;top:40px;right:40px;width:160px;height:160px;border:1px solid rgba(255,255,255,.1);border-radius:50%;}
+
+  /* FOTO */
+  .hero-foto{width:100%;max-width:260px;margin:0 auto 20px;display:block;object-fit:cover;}
+  .hero-foto-wrap{display:flex;justify-content:center;margin-bottom:20px;}
+  .foto-circle{width:200px;height:200px;border-radius:50%;overflow:hidden;border:4px solid var(--dorado);margin:0 auto 24px;}
+  .foto-circle img{width:100%;height:100%;object-fit:cover;object-position:top;}
+
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:100%;margin-bottom:2px;}
+  .stat{background:rgba(0,0,0,.15);padding:24px 20px;}
+  .stat-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:white;line-height:1;margin-bottom:3px;}
+  .stat-label{font-size:10px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);}
+  .hero-quote{background:var(--dorado);padding:24px 20px;width:100%;}
+  .hero-quote p{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--negro);line-height:1.5;}
+
+  @media(max-width:820px){.hero{grid-template-columns:1fr;}.hero-left{padding:52px 24px;}.hero-right{padding:36px 24px;}}
+
+  /* SECCIONES */
+  section{padding:88px 0;}
+  .container{max-width:960px;margin:0 auto;padding:0 36px;}
+  @media(max-width:600px){.container{padding:0 20px;}}
+  .sec-tag{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--verde-medio);margin-bottom:6px;}
+  .sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,38px);font-weight:700;line-height:1.1;margin-bottom:12px;}
+  .sec-line{width:44px;height:2px;background:var(--verde);margin-bottom:32px;}
+
+  /* MEDIOS */
+  .medios-banner{background:var(--negro);padding:28px 40px;margin-top:0;}
+  .medios-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--dorado);text-align:center;margin-bottom:16px;}
+  .medios-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 32px;}
+  .medio-chip{background:rgba(255,255,255,.07);color:rgba(255,255,255,.75);font-size:12px;font-weight:600;padding:7px 16px;letter-spacing:.5px;}
+
+  /* SOBRE */
+  #sobre{background:white;}
+  .sobre-grid{display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start;}
+  @media(max-width:720px){.sobre-grid{grid-template-columns:1fr;gap:28px;}}
+  .sobre-logo-box{width:120px;height:120px;background:var(--verde-oscuro);display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+  .cred-list{list-style:none;}
+  .cred-list li{font-size:12px;padding:8px 10px;border-left:2px solid var(--borde);margin-bottom:5px;color:var(--gris);}
+  .cred-list li strong{display:block;color:var(--negro);font-weight:600;font-size:13px;}
+  .sobre-texto p{margin-bottom:16px;color:#3a4a41;font-size:15px;line-height:1.75;}
+  .sobre-highlight{background:var(--verde-claro);border-left:3px solid var(--verde);padding:18px 22px;margin:24px 0;font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--verde-oscuro);line-height:1.5;}
+
+  /* NÚMEROS IMPACTO */
+  .numeros{background:var(--verde-oscuro);padding:56px 0;}
+  .numeros-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;}
+  .num-item{background:rgba(255,255,255,.05);padding:32px 20px;text-align:center;}
+  .num-item:hover{background:rgba(255,255,255,.1);}
+  .num-big{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:var(--dorado);line-height:1;}
+  .num-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:6px;}
+
+  /* SERVICIOS */
+  #servicios{background:var(--crema);}
+
+  /* PROGRAMA 360 — ESTRELLA */
+  .prog360{background:var(--negro);color:white;padding:48px;margin-bottom:28px;position:relative;overflow:hidden;}
+  .prog360::before{content:'360°';position:absolute;right:-10px;top:-20px;font-family:'Cormorant Garamond',serif;font-size:200px;font-weight:700;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;}
+  .p360-badge{display:inline-block;background:var(--dorado);color:var(--negro);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;margin-bottom:16px;}
+  .prog360 h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;margin-bottom:8px;line-height:1.2;}
+  .prog360 .sub{font-size:13px;opacity:.6;margin-bottom:20px;}
+  .p360-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;}
+  @media(max-width:600px){.p360-grid{grid-template-columns:1fr;}}
+  .p360-col h4{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dorado);margin-bottom:10px;}
+  .p360-col ul{list-style:none;font-size:13px;opacity:.85;}
+  .p360-col ul li{padding:5px 0;padding-left:16px;position:relative;border-bottom:1px solid rgba(255,255,255,.07);}
+  .p360-col ul li:last-child{border-bottom:none;}
+  .p360-col ul li::before{content:'→';position:absolute;left:0;color:var(--dorado);font-size:11px;}
+  .p360-promesa{background:rgba(255,255,255,.07);border-left:3px solid var(--dorado);padding:14px 18px;font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;line-height:1.5;margin-bottom:20px;}
+
+  /* SERVICIOS GRID */
+  .servicios-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px;}
+  @media(max-width:640px){.servicios-grid{grid-template-columns:1fr;}}
+  .serv-card{background:white;border:1px solid var(--borde);padding:28px;position:relative;transition:transform .2s,box-shadow .2s;}
+  .serv-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(45,107,86,.09);}
+  .sc-top{position:absolute;top:0;left:0;right:0;height:3px;background:var(--verde);}
+  .sc-top.gold{background:var(--dorado);}
+  .sc-top.dark{background:var(--negro);}
+  .sc-icon{font-size:22px;margin-bottom:12px;}
+  .serv-card h4{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;margin-bottom:6px;line-height:1.2;}
+  .serv-card p{font-size:13px;color:var(--gris);line-height:1.65;}
+  .sc-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--verde-medio);margin-top:12px;}
+
+  /* TALLERES */
+  #talleres{background:white;}
+  .taller-estrella{background:var(--negro);color:white;padding:44px;margin-bottom:20px;position:relative;overflow:hidden;}
+  .taller-estrella::after{content:'★';position:absolute;right:30px;top:16px;font-size:90px;opacity:.04;}
+  .te-badge{display:inline-block;background:var(--dorado);color:var(--negro);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;margin-bottom:14px;}
+  .taller-estrella h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;margin-bottom:6px;line-height:1.2;}
+  .taller-estrella .te-sub{font-size:13px;opacity:.6;margin-bottom:18px;}
+  .te-promesa{background:rgba(255,255,255,.07);border-left:3px solid var(--dorado);padding:12px 16px;font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;margin-bottom:18px;line-height:1.5;}
+  .te-meta{font-size:11px;opacity:.4;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);}
+
+  .talleres-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:640px){.talleres-grid{grid-template-columns:1fr;}}
+  .tc{background:var(--crema);border:1px solid var(--borde);padding:24px;position:relative;transition:transform .2s,box-shadow .2s;}
+  .tc:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,107,86,.08);}
+  .tc-barra{position:absolute;top:0;left:0;right:0;height:3px;background:var(--verde);}
+  .tc-barra.g{background:var(--dorado);}
+  .tc-barra.d{background:var(--negro);}
+  .tc h4{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;margin-bottom:5px;line-height:1.25;}
+  .tc p{font-size:12.5px;color:var(--gris);line-height:1.6;}
+  .tc-dur{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--verde-medio);margin-top:10px;}
+
+  /* ANA CORDERO */
+  .ana-block{background:var(--verde-claro);border:1px solid var(--borde);padding:36px 40px;margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+  @media(max-width:640px){.ana-block{grid-template-columns:1fr;}}
+  .ana-block h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:8px;}
+  .ana-block p{font-size:13.5px;color:#3a4a41;line-height:1.7;}
+  .ana-badge{display:inline-block;background:var(--dorado);color:var(--negro);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;margin-bottom:12px;}
+
+  /* INVESTIGACION APLICADA */
+  #investigacion{background:white;}
+  .inv-hero{background:var(--negro);color:white;padding:48px;margin-bottom:2px;position:relative;overflow:hidden;}
+  .inv-hero::before{content:'∑';position:absolute;right:-10px;top:-30px;font-size:240px;opacity:.03;line-height:1;pointer-events:none;}
+  .inv-badge{display:inline-block;background:var(--dorado);color:var(--negro);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;margin-bottom:14px;}
+  .inv-hero h3{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,32px);font-weight:700;margin-bottom:8px;line-height:1.2;}
+  .inv-hero .inv-sub{font-size:13px;opacity:.6;margin-bottom:20px;max-width:560px;line-height:1.7;}
+  .inv-promesa{background:rgba(255,255,255,.07);border-left:3px solid var(--dorado);padding:14px 18px;font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;line-height:1.5;margin-bottom:20px;}
+  .inv-ley{background:rgba(201,148,58,.12);border:1px solid rgba(201,148,58,.3);padding:14px 18px;font-size:13px;color:rgba(255,255,255,.8);line-height:1.65;}
+  .inv-ley strong{color:var(--dorado);}
+  .proceso-titulo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin:36px 0 20px;color:var(--negro);}
+  .paso-inv{display:grid;grid-template-columns:72px 1fr;background:white;border:1px solid var(--borde);margin-bottom:2px;overflow:hidden;transition:box-shadow .2s;}
+  .paso-inv:hover{box-shadow:0 6px 20px rgba(45,107,86,.1);}
+  .paso-num-box{background:var(--verde);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 8px;gap:4px;}
+  .paso-num-box .pn{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:white;line-height:1;}
+  .paso-num-box .pa{font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);text-align:center;}
+  .paso-num-box.ia-box{background:var(--negro);}
+  .paso-content{padding:18px 22px;}
+  .paso-content h4{font-size:14px;font-weight:600;margin-bottom:4px;color:var(--negro);}
+  .paso-content p{font-size:13px;color:var(--gris);line-height:1.65;}
+  .ia-tag{display:inline-block;background:var(--negro);color:white;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;margin-top:8px;}
+  .ia-tag.verde{background:var(--verde);}
+  .cursos-inv-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
+  @media(max-width:640px){.cursos-inv-grid{grid-template-columns:1fr;}}
+  .curso-inv{background:var(--crema);border:1px solid var(--borde);padding:24px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+  .curso-inv:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,107,86,.09);}
+  .curso-inv::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--verde);}
+  .curso-inv.gold::before{background:var(--dorado);}
+  .curso-inv.dark::before{background:var(--negro);}
+  .curso-inv h4{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;margin-bottom:6px;line-height:1.25;}
+  .curso-inv p{font-size:13px;color:var(--gris);line-height:1.65;margin-bottom:10px;}
+  .cv-dur{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--verde-medio);}
+  .cv-llevas{margin-top:10px;padding-top:10px;border-top:1px solid var(--borde);font-size:12px;color:#3a4a41;}
+  .cv-llevas strong{display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gris);margin-bottom:4px;}
+
+  /* PUBLICACIONES */
+  #publicaciones{background:var(--crema);}
+  .pub-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px;}
+  @media(max-width:640px){.pub-grid{grid-template-columns:1fr;}}
+  .pub-card{background:white;border:1px solid var(--borde);padding:22px 24px;}
+  .pub-titulo{font-size:14px;font-weight:600;margin-bottom:4px;line-height:1.4;}
+  .pub-revista{font-size:12px;color:var(--gris);margin-bottom:8px;}
+  .pub-citas{display:inline-block;background:var(--verde-claro);color:var(--verde);font-size:11px;font-weight:700;padding:3px 10px;border-radius:2px;}
+  .pub-year{font-size:11px;color:var(--gris);}
+
+  /* CONGRESOS */
+  .cong-list{margin-top:8px;}
+  .cong-item{padding:14px 0;border-bottom:1px solid var(--borde);display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;}
+  .cong-item:last-child{border-bottom:none;}
+  .cong-year{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--borde);min-width:52px;}
+  .cong-titulo{font-size:13px;font-weight:600;margin-bottom:2px;}
+  .cong-donde{font-size:12px;color:var(--gris);}
+
+  /* HITOS */
+  .hitos{background:white;}
+  .hitos-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px;}
+  @media(max-width:640px){.hitos-grid{grid-template-columns:1fr;}}
+  .hito-card{border:1px solid var(--borde);padding:24px;position:relative;overflow:hidden;}
+  .hito-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--verde);}
+  .hito-card.gold::before{background:var(--dorado);}
+  .hito-icono{font-size:24px;margin-bottom:10px;}
+  .hito-card h4{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;margin-bottom:6px;}
+  .hito-card p{font-size:12.5px;color:var(--gris);line-height:1.6;}
+
+  /* CONTACTO */
+  #contacto{background:var(--verde-oscuro);color:white;}
+  #contacto .sec-tag{color:#8abda5;}
+  #contacto .sec-title{color:white;}
+  #contacto .sec-line{background:var(--dorado);}
+  .contacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  @media(max-width:700px){.contacto-grid{grid-template-columns:1fr;gap:36px;}}
+  .contacto-info p{color:rgba(255,255,255,.7);margin-bottom:28px;font-size:15px;line-height:1.75;}
+  .ci{display:flex;align-items:center;gap:14px;margin-bottom:12px;padding:14px 18px;background:rgba(255,255,255,.06);text-decoration:none;color:white;transition:background .2s;}
+  .ci:hover{background:rgba(255,255,255,.11);}
+  .ci-icon{width:38px;height:38px;background:var(--dorado);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .ci-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1px;}
+  .ci-value{font-size:13.5px;font-weight:500;}
+  .form{display:flex;flex-direction:column;gap:12px;}
+  .form input,.form textarea,.form select{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:white;padding:13px 16px;font-family:'Jost',sans-serif;font-size:13px;outline:none;transition:border-color .2s;resize:none;width:100%;}
+  .form input::placeholder,.form textarea::placeholder{color:rgba(255,255,255,.32);}
+  .form input:focus,.form textarea:focus,.form select:focus{border-color:var(--dorado);}
+  .form select option{background:#1e4a3a;color:white;}
+  .form-btn{background:var(--dorado);color:var(--negro);border:none;padding:14px 28px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .15s;align-self:flex-start;}
+  .form-btn:hover{background:#e0a83f;transform:translateY(-1px);}
+
+  /* FOOTER */
+  footer{background:var(--negro);color:rgba(255,255,255,.4);padding:28px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;}
+  footer strong{color:rgba(255,255,255,.7);}
+
+  /* UTIL */
+  .mt-24{margin-top:24px;}
+  .servicios-cta{margin-top:32px;background:var(--verde-claro);border:1px solid var(--borde);padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+  .servicios-cta p{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--verde-oscuro);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <rect width="40" height="40" fill="#1e4a3a"/>
+      <text x="5" y="28" font-family="Georgia,serif" font-size="22" font-weight="700" fill="white">IF</text>
+      <line x1="32" y1="20" x2="38" y2="20" stroke="#c9943a" stroke-width="2"/>
+      <polyline points="35,16 39,20 35,24" fill="none" stroke="#c9943a" stroke-width="2"/>
+    </svg>
+    <div class="nav-name">Isabel Fernández<span>Formadora FP · Consultora · Doctora</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Quién soy</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#talleres">Talleres</a></li>
+    <li><a href="#investigacion">Investigación FP</a></li>
+    <li><a href="#publicaciones">Publicaciones</a></li>
+    <li><a href="#contacto" class="nav-cta">Contactar</a></li>
+  </ul>
+</nav>
+
+<!-- BANNER -->
+<div class="banner">
+  <p>🏆 <em>Nominada a Mejor Divulgadora de FP</em> · Premios FP El Periódico Español · Mayo 2025</p>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag fu1">Doctora · Investigadora · Formadora · Consultora</div>
+    <h1 class="hero-nombre fu2"><strong>Isabel Fernández</strong>Solo de Zaldívar</h1>
+    <p class="hero-titulo fu2">Transformando la FP desde dentro · 25 años</p>
+    <div class="hero-lema fu3">"If I can build the future, I do not need to predict it."</div>
+    <p class="hero-desc fu3">Sigo en el aula. Lo que enseño lo aplico cada semana. <em>No soy consultora externa — soy una de vosotros.</em> Con evidencia científica detrás.</p>
+    <div class="hero-btns fu4">
+      <a href="#servicios" class="btn-p">Ver servicios</a>
+      <a href="#contacto" class="btn-s">Contactar</a>
+    </div>
+  </div>
+
+  <div class="hero-right fi">
+    <div class="foto-circle">
+      <img src="https://via.placeholder.com/200x200/2d6b56/ffffff?text=IF" alt="Isabel Fernández Solo de Zaldívar" onerror="this.style.display='none'">
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">&gt;4K</div><div class="stat-label">Horas impartidas</div></div>
+      <div class="stat"><div class="stat-num">&gt;20</div><div class="stat-label">Publicaciones</div></div>
+      <div class="stat"><div class="stat-num">&gt;15</div><div class="stat-label">Congresos</div></div>
+      <div class="stat"><div class="stat-num">88</div><div class="stat-label">Citas académicas</div></div>
+    </div>
+    <div class="hero-quote"><p>"Divulgación basada en la <strong>evidencia científica</strong> para dar prestigio a la FP."</p></div>
+  </div>
+</div>
+
+<!-- MEDIOS -->
+<div class="medios-banner">
+  <div class="medios-label">Presencia en medios nacionales</div>
+  <div class="medios-logos">
+    <div class="medio-chip">Antena 3 · Espejo Público</div>
+    <div class="medio-chip">El País</div>
+    <div class="medio-chip">ABC</div>
+    <div class="medio-chip">El Economista</div>
+    <div class="medio-chip">Cadena SER</div>
+    <div class="medio-chip">Onda Cero</div>
+    <div class="medio-chip">El Correo</div>
+    <div class="medio-chip">Europa Press</div>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div>
+        <div class="sobre-logo-box">
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
+            <text x="4" y="50" font-family="Georgia,serif" font-size="42" font-weight="700" fill="white">IF</text>
+            <line x1="56" y1="35" x2="68" y2="35" stroke="#c9943a" stroke-width="3"/>
+            <polyline points="62,28 70,35 62,42" fill="none" stroke="#c9943a" stroke-width="3"/>
+          </svg>
+        </div>
+        <ul class="cred-list">
+          <li><strong>Doctora UNED (2016)</strong>Sobresaliente · Tesis Cum Laude</li>
+          <li><strong>Funcionaria carrera</strong>Docente FP desde 2000</li>
+          <li><strong>Profesora universitaria</strong>UNIR · Máster Secundaria</li>
+          <li><strong>Asesora y Resp. Calidad</strong>ESTNA · 2006–2015</li>
+          <li><strong>Jefa de Departamento</strong>ESTNA · 2003–2022</li>
+          <li><strong>🏆 Nominada Premio</strong>Mejor Divulgadora FP</li>
+        </ul>
+      </div>
+      <div class="sobre-texto">
+        <div class="sec-tag">Quién soy</div>
+        <h2 class="sec-title">25 años dentro.<br>No mirando desde fuera.</h2>
+        <div class="sec-line"></div>
+        <p>Soy doctora por la UNED (2016) con tesis <em>Sobresaliente</em> sobre metodologías para el desarrollo de competencias de empleabilidad en FP. Licenciada en Psicopedagogía, Ciencias de la Educación y Ciencias del Trabajo.</p>
+        <p>Funcionaria de carrera desde 2000, he sido jefa de departamento, asesora y responsable de calidad en la ESTNA durante más de 15 años. Eso me da una visión 360° de la organización escolar que ningún consultor externo puede tener.</p>
+        <div class="sobre-highlight">"No teorizo sobre la FP. La vivo cada semana en el aula, con alumnos reales, en un centro real. Lo que enseño lo practico. Eso es lo que diferencia mi formación."</div>
+        <p>Pionera en la implantación del primer ciclo de FP Dual de Prevención de Riesgos Laborales en Navarra (ESTNA). Investigadora en proyectos financiados por el Ministerio de Educación. Más de 20 publicaciones científicas, 88 citas académicas y presencia en los principales medios nacionales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NÚMEROS -->
+<div class="numeros">
+  <div class="container">
+    <div class="numeros-grid">
+      <div class="num-item"><div class="num-big">&gt;4.000</div><div class="num-label">Horas lectivas impartidas</div></div>
+      <div class="num-item"><div class="num-big">&gt;20</div><div class="num-label">Publicaciones científicas</div></div>
+      <div class="num-item"><div class="num-big">88</div><div class="num-label">Citas en gamificación</div></div>
+      <div class="num-item"><div class="num-big">&gt;15</div><div class="num-label">Congresos y ponencias</div></div>
+      <div class="num-item"><div class="num-big">&gt;10</div><div class="num-label">Proyectos de innovación</div></div>
+      <div class="num-item"><div class="num-big">25</div><div class="num-label">Años en el aula</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container">
+    <div class="sec-tag">Servicios</div>
+    <h2 class="sec-title">¿Qué puedo hacer<br>por tu centro u organización?</h2>
+    <div class="sec-line"></div>
+
+    <!-- PROGRAMA 360 -->
+    <div class="prog360">
+      <div class="p360-badge">⭐ Servicio insignia</div>
+      <h3>Programa de Formación Docente 360°<br><em style="font-style:italic;opacity:.7;font-size:22px;">¿Qué necesita tu claustro? Yo te lo doy.</em></h3>
+      <p class="sub">Porque la formación genérica no funciona. Los profesores están descontentos con cursos que no cambian nada. Esto es diferente.</p>
+      <div class="p360-promesa">"No es una formación más. Es un diagnóstico, un plan a medida y un acompañamiento real hasta que los cambios se consolidan en el aula."</div>
+      <div class="p360-grid">
+        <div class="p360-col">
+          <h4>Cómo funciona</h4>
+          <ul>
+            <li>Diagnóstico inicial del claustro: qué necesitan de verdad</li>
+            <li>Diseño del programa a medida del centro</li>
+            <li>Formación en metodologías activas + IA educativa</li>
+            <li>Acompañamiento en la implementación en el aula</li>
+            <li>Evaluación de impacto: ¿funcionó o no?</li>
+            <li>Seguimiento posterior — no desaparezco al terminar</li>
+          </ul>
+        </div>
+        <div class="p360-col">
+          <h4>Qué lo hace diferente</h4>
+          <ul>
+            <li>Soy docente activa — entiendo exactamente vuestros problemas</li>
+            <li>Combino práctica real con rigor investigador</li>
+            <li>No vendo metodologías — enseño a saber cuándo usarlas</li>
+            <li>Genero evidencia: los docentes aprenden a medir si funciona</li>
+            <li>Presencial, online o mixto — me adapto al centro</li>
+            <li>Disponible para centros de FP, IES y universidades</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICIOS GRID -->
+    <div class="servicios-grid">
+      <div class="serv-card">
+        <div class="sc-top gold"></div>
+        <div class="sc-icon">🔬</div>
+        <h4>Consultoría e Investigación-Acción</h4>
+        <p>¿Tu centro quiere saber si sus metodologías realmente funcionan? Diseño e implemento procesos de investigación-acción en el aula. Los docentes aprenden a generar evidencia propia — no solo a aplicar recetas.</p>
+        <div class="sc-tag">Para centros FP · Grupos de trabajo · CEPs</div>
+      </div>
+      <div class="serv-card">
+        <div class="sc-top dark"></div>
+        <div class="sc-icon">📋</div>
+        <h4>Gestión de Calidad en Centros FP</h4>
+        <p>15 años como responsable de calidad en la ESTNA. Implantación y mejora de sistemas de gestión (ISO, EFQM), puesta en orden de procesos, documentación y acreditaciones. Desde dentro, no desde una auditoría externa.</p>
+        <div class="sc-tag">Para equipos directivos · Responsables de calidad</div>
+      </div>
+      <div class="serv-card">
+        <div class="sc-top"></div>
+        <div class="sc-icon">🎤</div>
+        <h4>Ponencias y Conferencias</h4>
+        <p>Voz experta en FP para jornadas, congresos y eventos educativos y empresariales. Temas: metodologías activas, IA en FP, FP dual, investigación educativa, el futuro de la FP en España. Disponible también para medios.</p>
+        <div class="sc-tag">Eventos educativos · Medios · Jornadas empresariales</div>
+      </div>
+      <div class="serv-card">
+        <div class="sc-top"></div>
+        <div class="sc-icon">🏢</div>
+        <h4>Consultoría FP Dual para Empresas</h4>
+        <p>Ayudo a empresas a diseñar e implementar programas de FP dual que funcionen de verdad. Qué comprometerse a hacer, cómo tutorizar, cómo evaluar, cómo conectar con los centros sin que sea burocracia pura.</p>
+        <div class="sc-tag">Para RRHH · Responsables de formación · Fundaciones</div>
+      </div>
+    </div>
+
+    <!-- ANA CORDERO -->
+    <div class="ana-block">
+      <div>
+        <div class="ana-badge">Producto conjunto · Diferenciado</div>
+        <h3>Orientación Profesional de Alto Impacto</h3>
+        <p>En colaboración con <strong>Ana Cordero</strong>, especialista en orientación profesional. Un servicio diferenciado para alumnos de FP y profesionales en transición: no orientación genérica, sino un acompañamiento real hacia el empleo que encaja con cada persona.</p>
+        <p style="margin-top:10px;font-size:12px;color:var(--gris);">Combinamos metodología educativa (Isabel) con orientación profesional experta (Ana). Un enfoque que no existe en el mercado.</p>
+      </div>
+      <div>
+        <div class="sec-tag" style="margin-bottom:12px;">Lo que ofrecemos</div>
+        <ul style="list-style:none;font-size:13px;color:#3a4a41;">
+          <li style="padding:7px 0;padding-left:16px;position:relative;border-bottom:1px solid var(--borde);">
+            <span style="position:absolute;left:0;color:var(--verde);">→</span> Diagnóstico de empleabilidad individual
+          </li>
+          <li style="padding:7px 0;padding-left:16px;position:relative;border-bottom:1px solid var(--borde);">
+            <span style="position:absolute;left:0;color:var(--verde);">→</span> Plan de carrera personalizado post-FP
+          </li>
+          <li style="padding:7px 0;padding-left:16px;position:relative;border-bottom:1px solid var(--borde);">
+            <span style="position:absolute;left:0;color:var(--verde);">→</span> Talleres IPE para centros de FP
+          </li>
+          <li style="padding:7px 0;padding-left:16px;position:relative;">
+            <span style="position:absolute;left:0;color:var(--verde);">→</span> Formación de tutores en orientación
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="servicios-cta">
+      <p>"No hay dos centros iguales. Cuéntame qué necesitas y lo diseñamos juntos."</p>
+      <a href="#contacto" class="btn-p">Solicitar propuesta</a>
+    </div>
+  </div>
+</section>
+
+<!-- TALLERES -->
+<section id="talleres">
+  <div class="container">
+    <div class="sec-tag">Formación para docentes</div>
+    <h2 class="sec-title">Talleres que dejan algo<br>concreto en las manos</h2>
+    <div class="sec-line"></div>
+
+    <div class="taller-estrella">
+      <div class="te-badge">⭐ El más demandado</div>
+      <h3>El Módulo de Proyecto: de la angustia a la programación</h3>
+      <p class="te-sub">El taller que todo docente de FP necesita y nadie había diseñado bien hasta ahora</p>
+      <div class="te-promesa">"Entras con la angustia del módulo de proyecto. Sales con la programación completa, lista para defender."</div>
+      <p style="font-size:13px;opacity:.75;line-height:1.7;">Diseño de la programación paso a paso · Criterios de evaluación que se sostienen · Cómo orientar al alumno sin hacer su trabajo · Integración de IA en el proceso · Plantillas editables que te llevas</p>
+      <div class="te-meta">⏱ 6h presencial / 8h online · También en 2 sesiones de 3h · Formato mixto disponible</div>
+    </div>
+
+    <div class="talleres-grid mt-24">
+      <div class="tc"><div class="tc-barra g"></div><div style="font-size:20px;margin-bottom:10px;">🎮</div><h4>Gamificación en FP</h4><p>De la teoría al aula en un día. Mecánicas reales, no puntos decorativos. Con publicación científica de 88 citas detrás.</p><div class="tc-dur">6–8h · Presencial / Online</div></div>
+      <div class="tc"><div class="tc-barra d"></div><div style="font-size:20px;margin-bottom:10px;">🤖</div><h4>IA en el aula de FP</h4><p>Diseño de experiencias de aprendizaje con IA. No herramientas — pedagogía. Cómo que la IA amplíe al alumno en vez de sustituirle.</p><div class="tc-dur">6h · Presencial / Online</div></div>
+      <div class="tc"><div class="tc-barra"></div><div style="font-size:20px;margin-bottom:10px;">📐</div><h4>ABP en FP</h4><p>Aprendizaje Basado en Proyectos con rigor individual. Sin abandonar al alumno en el grupo, sin proyectos de cartón piedra.</p><div class="tc-dur">6–10h · Presencial / Online</div></div>
+      <div class="tc"><div class="tc-barra"></div><div style="font-size:20px;margin-bottom:10px;">🔄</div><h4>Flipped Classroom</h4><p>El aula invertida aplicada a FP. Cómo liberar tiempo de clase para lo que realmente importa y qué hacer con ese tiempo.</p><div class="tc-dur">4–6h · Presencial / Online</div></div>
+      <div class="tc"><div class="tc-barra g"></div><div style="font-size:20px;margin-bottom:10px;">🤝</div><h4>Aprendizaje-Servicio</h4><p>Proyectos reales para entidades reales. Impartido recientemente en Galicia. Proyectos Top 3 de innovación en FP Navarra.</p><div class="tc-dur">6h · Presencial / Online</div></div>
+      <div class="tc"><div class="tc-barra d"></div><div style="font-size:20px;margin-bottom:10px;">⚡</div><h4>Metodologías Ágiles en FP</h4><p>Scrum, Kanban y Lean Startup en el aula. Las metodologías que usan las empresas, aplicadas desde el primer día de clase.</p><div class="tc-dur">6h · Presencial / Online</div></div>
+      <div class="tc"><div class="tc-barra"></div><div style="font-size:20px;margin-bottom:10px;">🏭</div><h4>FP Dual: cómo hacerla bien</h4><p>Pionera en el primer ciclo FP Dual de PRL en Navarra. Para centros y empresas que quieren implementarla de verdad, no de papel.</p><div class="tc-dur">8h · Presencial / Online</div></div>
+      <div class="tc"><div class="tc-barra g"></div><div style="font-size:20px;margin-bottom:10px;">🧭</div><h4>IPE y Orientación Laboral</h4><p>Itinerario Personal para la Empleabilidad. Taller presentado en Galicia 2024. Herramientas reales para que el alumno gestione su propio camino al empleo.</p><div class="tc-dur">6h · Presencial / Online</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTIGACIÓN APLICADA EN FP -->
+<section id="investigacion">
+  <div class="container">
+    <div class="sec-tag">Investigación Aplicada en FP</div>
+    <h2 class="sec-title">Tu centro ya investiga.<br>Solo necesita saberlo.</h2>
+    <div class="sec-line"></div>
+
+    <!-- BLOQUE INTRO -->
+    <div class="inv-hero">
+      <div class="inv-badge">🔬 Nuevo servicio · Ley Orgánica FP</div>
+      <h3>De lo que ya haces en el aula<br>a investigación aplicada real</h3>
+      <p class="inv-sub">La nueva Ley de FP incluye la investigación aplicada como eje estratégico obligatorio para los centros. El problema: la mayoría de los docentes no saben cómo abordarla. Yo sí. Y puedo enseñároslo.</p>
+      <div class="inv-promesa">"Lo que hacéis cada día en el aula tiene valor científico. Lo que falta es el método para convertirlo en conocimiento que sirva a otros."</div>
+      <div class="inv-ley">
+        <strong>¿Qué dice la nueva Ley de FP?</strong>
+        La LOIFP establece que los centros de FP deben desarrollar <strong>proyectos de investigación aplicada</strong> en colaboración con empresas, generar transferencia de conocimiento y contribuir a la innovación en los sectores productivos. Esto incluye ABP con retos reales, FP dual investigadora y digitalización aplicada. La mayoría de los centros aún no saben cómo cumplir este mandato.
+      </div>
+    </div>
+
+    <!-- PROCESO PASO A PASO -->
+    <p class="proceso-titulo">El proceso: de la práctica docente a la investigación publicable</p>
+
+    <div class="paso-inv">
+      <div class="paso-num-box"><div class="pn">01</div><div class="pa">Punto de partida</div></div>
+      <div class="paso-content">
+        <h4>Identificamos lo que ya estás haciendo</h4>
+        <p>Cada docente tiene prácticas que funcionan. El primer paso es hacer un inventario honesto: qué metodologías aplicas, en qué módulos, con qué resultados percibidos. Muchos descubren que ya tienen material para una investigación sin saberlo.</p>
+        <span class="ia-tag verde">IA: analiza tu programación y detecta qué es investigable</span>
+      </div>
+    </div>
+
+    <div class="paso-inv">
+      <div class="paso-num-box"><div class="pn">02</div><div class="pa">Diseño</div></div>
+      <div class="paso-content">
+        <h4>Formulamos la pregunta de investigación</h4>
+        <p>El salto de "esto funciona bien" a "esto funciona mejor que X porque Y" requiere formular una pregunta precisa. Trabajamos juntos para definir qué quieres saber, qué variables importan y cómo vas a medirlas sin complicar tu día a día en el aula.</p>
+        <span class="ia-tag verde">IA: ayuda a revisar literatura existente y refinar la pregunta</span>
+      </div>
+    </div>
+
+    <div class="paso-inv">
+      <div class="paso-num-box ia-box"><div class="pn">03</div><div class="pa">Recogida</div></div>
+      <div class="paso-content">
+        <h4>Diseñamos los instrumentos de recogida de datos</h4>
+        <p>No necesitas un laboratorio. Con encuestas bien diseñadas, rúbricas de observación y registros de aula tienes suficiente. Te ayudo a crear instrumentos válidos y fiables que puedas aplicar sin interrumpir tu docencia normal.</p>
+        <span class="ia-tag">IA: genera borradores de encuestas, rúbricas y protocolos de observación</span>
+      </div>
+    </div>
+
+    <div class="paso-inv">
+      <div class="paso-num-box ia-box"><div class="pn">04</div><div class="pa">Análisis</div></div>
+      <div class="paso-content">
+        <h4>Analizamos los datos con IA y los interpretamos</h4>
+        <p>La IA permite analizar datos cualitativos y cuantitativos de forma rápida. Te enseño a usar herramientas accesibles para encontrar patrones, comparar grupos y sacar conclusiones que tengan solidez. Sin estadística compleja — con sentido pedagógico real.</p>
+        <span class="ia-tag">IA: codificación cualitativa, análisis de patrones, visualización de resultados</span>
+      </div>
+    </div>
+
+    <div class="paso-inv">
+      <div class="paso-num-box"><div class="pn">05</div><div class="pa">Transferencia</div></div>
+      <div class="paso-content">
+        <h4>Convertimos los resultados en conocimiento transferible</h4>
+        <p>Los resultados de tu investigación pueden convertirse en un artículo, una comunicación a un congreso, una buena práctica para el claustro o un proyecto con empresas. Te acompaño en ese último paso — el más importante y el que más se abandona.</p>
+        <span class="ia-tag verde">IA: ayuda a redactar, estructurar y adaptar para distintos formatos</span>
+      </div>
+    </div>
+
+    <div class="paso-inv">
+      <div class="paso-num-box"><div class="pn">06</div><div class="pa">Conexión</div></div>
+      <div class="paso-content">
+        <h4>Conectamos con empresas para investigación aplicada real</h4>
+        <p>La nueva FP exige investigación en colaboración con el tejido productivo. Te ayudo a identificar qué pueden aportar las empresas de tu entorno, cómo formular proyectos conjuntos y cómo cumplir el mandato legal generando valor real para todos.</p>
+        <span class="ia-tag verde">IA: ayuda a diseñar propuestas de colaboración empresa-centro</span>
+      </div>
+    </div>
+
+    <!-- CURSOS ESPECÍFICOS -->
+    <p class="proceso-titulo" style="margin-top:48px;">Cursos específicos de Investigación Aplicada en FP</p>
+
+    <div class="cursos-inv-grid">
+      <div class="curso-inv gold">
+        <div style="font-size:22px;margin-bottom:10px;">🔬</div>
+        <h4>Introducción a la Investigación-Acción en FP</h4>
+        <p>Para docentes sin experiencia investigadora. Aprenden a diseñar un pequeño estudio sobre su propia práctica, recoger datos y extraer conclusiones aplicables. El punto de entrada para convertir la intuición en evidencia.</p>
+        <div class="cv-dur">8–10 horas · Presencial / Online · Para claustros o grupos</div>
+        <div class="cv-llevas">
+          <strong>Te llevas</strong>
+          Un diseño de investigación sobre tu propia práctica · Instrumentos listos para aplicar · Plan de análisis con IA
+        </div>
+      </div>
+
+      <div class="curso-inv dark">
+        <div style="font-size:22px;margin-bottom:10px;">🤖</div>
+        <h4>IA para la Investigación Educativa en FP</h4>
+        <p>Cómo usar herramientas de IA para revisar literatura, diseñar instrumentos, analizar datos cualitativos y redactar resultados. Para docentes que ya investigan o quieren empezar y quieren hacerlo de forma eficiente.</p>
+        <div class="cv-dur">6–8 horas · Online / Presencial</div>
+        <div class="cv-llevas">
+          <strong>Te llevas</strong>
+          Flujo de trabajo con IA para investigación · Prompts específicos para cada fase · Plantillas de análisis
+        </div>
+      </div>
+
+      <div class="curso-inv">
+        <div style="font-size:22px;margin-bottom:10px;">🏭</div>
+        <h4>Proyectos de Investigación Aplicada con Empresas</h4>
+        <p>Cómo diseñar proyectos de investigación que cumplan con la nueva ley de FP y generen valor real para las empresas del entorno. Transferencia de conocimiento, ABP con retos empresariales reales y documentación del proceso.</p>
+        <div class="cv-dur">8 horas · Presencial recomendado · Para equipos directivos + docentes</div>
+        <div class="cv-llevas">
+          <strong>Te llevas</strong>
+          Modelo de proyecto empresa-centro · Protocolo de colaboración · Guía de documentación
+        </div>
+      </div>
+
+      <div class="curso-inv">
+        <div style="font-size:22px;margin-bottom:10px;">📝</div>
+        <h4>Cómo publicar lo que haces en el aula</h4>
+        <p>Muchos docentes de FP hacen cosas publicables y no lo saben. Este taller enseña a identificar qué tiene valor científico, cómo estructurarlo como artículo o comunicación y dónde enviarlo. Con IA como asistente de escritura.</p>
+        <div class="cv-dur">6 horas · Online / Presencial</div>
+        <div class="cv-llevas">
+          <strong>Te llevas</strong>
+          Borrador de artículo o comunicación sobre tu práctica · Listado de revistas y congresos FP · Proceso con IA
+        </div>
+      </div>
+
+      <div class="curso-inv gold" style="grid-column:1/-1;">
+        <div style="font-size:22px;margin-bottom:10px;">🗺️</div>
+        <h4>Programa completo: Tu centro, centro investigador<br><span style="font-size:14px;font-weight:400;color:var(--gris);">El camino completo de la práctica a la publicación</span></h4>
+        <p>Un programa de 3–6 meses para centros que quieren implantar una cultura de investigación real. Combina todos los módulos anteriores con acompañamiento continuo, grupos de trabajo entre docentes y conexión con empresas. Al terminar, el centro tiene al menos un proyecto de investigación activo y los docentes tienen herramientas para seguir solos.</p>
+        <div class="cv-dur" style="margin-top:8px;">3–6 meses · Formato mixto · Para el equipo docente completo o grupos piloto</div>
+        <div class="cv-llevas">
+          <strong>El centro se lleva</strong>
+          Cultura de investigación instalada · Al menos 1 proyecto activo con empresa · Docentes formados · Documentación del proceso publicable · Plan de continuidad
+        </div>
+      </div>
+    </div>
+
+    <div class="servicios-cta" style="margin-top:28px;">
+      <p>"¿Tu centro quiere cumplir con la investigación aplicada de la nueva ley y que sirva de verdad? Hablemos."</p>
+      <a href="#contacto" class="btn-p">Solicitar información</a>
+    </div>
+
+    <!-- EL VACÍO: REVISTAS Y CONGRESOS FP -->
+    <div style="margin-top:64px;">
+      <div class="sec-tag">El gran vacío del ecosistema FP</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;margin-bottom:16px;line-height:1.2;">La FP no tiene voz científica propia.<br><em style="color:var(--verde);">Eso tiene que cambiar.</em></h3>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
+        <div style="background:white;border:1px solid var(--borde);padding:28px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gris);margin-bottom:12px;">El problema</div>
+          <p style="font-size:14px;color:#3a4a41;line-height:1.75;">Las revistas científicas de educación están pensadas para la universidad. El docente de FP que quiere publicar sus prácticas encuentra barreras metodológicas, de lenguaje y de enfoque que no tienen sentido para su contexto.</p>
+          <p style="font-size:14px;color:#3a4a41;line-height:1.75;margin-top:12px;">El resultado: la FP produce conocimiento valiosísimo que se pierde en el aula. Los congresos educativos ignoran mayoritariamente a la FP. Y los medios, cuando hablan de FP, buscan titulares sin fondo.</p>
+        </div>
+        <div style="background:var(--negro);color:white;padding:28px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dorado);margin-bottom:12px;">La oportunidad</div>
+          <p style="font-size:14px;opacity:.85;line-height:1.75;">En España no existe una revista científica de referencia específica para la Formación Profesional. Las que existen son generalistas o universitarias. Ese vacío es una oportunidad única para quien tenga la trayectoria, las publicaciones y la comunidad para liderarla.</p>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;margin-top:16px;color:rgba(255,255,255,.9);border-left:3px solid var(--dorado);padding-left:14px;line-height:1.5;">"No falta investigación en FP. Falta el espacio donde publicarla y la comunidad que la lea."</p>
+        </div>
+      </div>
+
+      <!-- PROYECTO REVISTA -->
+      <div style="background:var(--dorado-claro);border:1px solid var(--dorado);padding:40px;margin-bottom:16px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-20px;right:-20px;font-size:180px;opacity:.05;font-family:'Cormorant Garamond',serif;font-weight:700;line-height:1;">FP</div>
+        <div style="display:inline-block;background:var(--dorado);color:var(--negro);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;margin-bottom:16px;">🚀 Proyecto en desarrollo</div>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;margin-bottom:8px;color:var(--negro);">Revista de Investigación en Formación Profesional</h4>
+        <p style="font-size:13px;color:#7a5800;margin-bottom:20px;">La primera publicación científica española dedicada exclusivamente a la FP — accesible para los docentes que investigan desde el aula, rigurosa para ser indexada, y útil para el sistema.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dorado);margin-bottom:8px;">Para quién</div>
+            <ul style="list-style:none;font-size:13px;color:#5a4000;">
+              <li style="padding:4px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;">→</span>Docentes de FP que investigan</li>
+              <li style="padding:4px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;">→</span>Equipos directivos innovadores</li>
+              <li style="padding:4px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;">→</span>Investigadores universitarios de FP</li>
+              <li style="padding:4px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;">→</span>Responsables de política educativa</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dorado);margin-bottom:8px;">Secciones previstas</div>
+            <ul style="list-style:none;font-size:13px;color:#5a4000;">
+              <li style="padding:4px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;">→</span>Investigación-acción en el aula</li>
+              <li style="padding:4px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;">→</span>Metodologías activas con evidencia</li>
+              <li style="padding:4px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;">→</span>FP dual y empresa</li>
+              <li style="padding:4px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;">→</span>Política y sistema FP</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dorado);margin-bottom:8px;">Modelo</div>
+            <ul style="list-style:none;font-size:13px;color:#5a4000;">
+              <li style="padding:4px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;">→</span>Acceso abierto (open access)</li>
+              <li style="padding:4px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;">→</span>Revisión por pares simplificada</li>
+              <li style="padding:4px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;">→</span>Lenguaje accesible + rigor</li>
+              <li style="padding:4px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;">→</span>Periodicidad semestral</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(201,148,58,.3);font-size:13px;color:#7a5800;">
+          <strong>¿Te interesa colaborar, participar en el consejo editorial o publicar?</strong> Este proyecto está en fase de diseño. Si trabajas en FP y compartes esta visión, escríbeme.
+        </div>
+      </div>
+
+      <!-- CONGRESOS FP -->
+      <div style="background:var(--verde-claro);border:1px solid var(--borde);padding:32px;margin-bottom:16px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--verde);margin-bottom:10px;">También trabajo en</div>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:12px;">Fomentar la presencia de la FP en congresos</h4>
+        <p style="font-size:13.5px;color:#3a4a41;line-height:1.75;margin-bottom:16px;">Los docentes de FP tienen experiencias e investigaciones que merecen estar en los congresos educativos más importantes — pero muchos no saben cómo dar el paso o no tienen el respaldo para hacerlo. Ofrezco acompañamiento para preparar y presentar comunicaciones.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="background:white;border:1px solid var(--borde);padding:16px;">
+            <div style="font-size:12px;font-weight:600;color:var(--negro);margin-bottom:6px;">🎤 Para docentes individuales</div>
+            <p style="font-size:12px;color:var(--gris);">Te acompaño desde la idea hasta la presentación: selección del congreso, diseño de la comunicación, revisión del texto y preparación de la ponencia.</p>
+          </div>
+          <div style="background:white;border:1px solid var(--borde);padding:16px;">
+            <div style="font-size:12px;font-weight:600;color:var(--negro);margin-bottom:6px;">🏫 Para centros FP</div>
+            <p style="font-size:12px;color:var(--gris);">Programa de acompañamiento para que el centro lleve una comunicación colectiva a un congreso. Fortalece la identidad investigadora del equipo y da visibilidad externa al centro.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARGUMENTARIO PARA PERIODISTAS -->
+      <div style="background:var(--negro);color:white;padding:40px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dorado);margin-bottom:12px;">Para periodistas y medios</div>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;margin-bottom:16px;line-height:1.3;">La FP merece divulgación con fondo.<br>No solo titulares de empleabilidad.</h4>
+        <p style="font-size:13.5px;opacity:.75;line-height:1.75;margin-bottom:24px;">Soy la fuente que une la práctica real con el rigor científico. No hablo de la FP desde fuera — la vivo cada día en el aula y la investigo con metodología. Disponible para entrevistas, artículos, debates y colaboraciones estables.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dorado);margin-bottom:10px;">Temas en los que soy fuente</div>
+            <ul style="list-style:none;font-size:13px;opacity:.85;">
+              <li style="padding:5px 0;padding-left:14px;position:relative;border-bottom:1px solid rgba(255,255,255,.07);"><span style="position:absolute;left:0;color:var(--dorado);">→</span>La brecha entre lo que se hace en FP y lo que se sabe que funciona</li>
+              <li style="padding:5px 0;padding-left:14px;position:relative;border-bottom:1px solid rgba(255,255,255,.07);"><span style="position:absolute;left:0;color:var(--dorado);">→</span>El problema de la FP online: pedagógico, no tecnológico</li>
+              <li style="padding:5px 0;padding-left:14px;position:relative;border-bottom:1px solid rgba(255,255,255,.07);"><span style="position:absolute;left:0;color:var(--dorado);">→</span>La nueva Ley de FP: qué cambia y qué falta todavía</li>
+              <li style="padding:5px 0;padding-left:14px;position:relative;border-bottom:1px solid rgba(255,255,255,.07);"><span style="position:absolute;left:0;color:var(--dorado);">→</span>IA en el aula: lo que funciona y lo que es marketing</li>
+              <li style="padding:5px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:var(--dorado);">→</span>Por qué la FP no tiene revistas científicas propias — y qué hacer</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dorado);margin-bottom:10px;">Lo que me hace diferente como fuente</div>
+            <ul style="list-style:none;font-size:13px;opacity:.85;">
+              <li style="padding:5px 0;padding-left:14px;position:relative;border-bottom:1px solid rgba(255,255,255,.07);"><span style="position:absolute;left:0;color:var(--dorado);">→</span>Doctora con publicaciones reales — no solo opinión</li>
+              <li style="padding:5px 0;padding-left:14px;position:relative;border-bottom:1px solid rgba(255,255,255,.07);"><span style="position:absolute;left:0;color:var(--dorado);">→</span>Sigo en el aula — no hablo desde el pasado</li>
+              <li style="padding:5px 0;padding-left:14px;position:relative;border-bottom:1px solid rgba(255,255,255,.07);"><span style="position:absolute;left:0;color:var(--dorado);">→</span>Voz crítica y honesta — sin romanticismos</li>
+              <li style="padding:5px 0;padding-left:14px;position:relative;border-bottom:1px solid rgba(255,255,255,.07);"><span style="position:absolute;left:0;color:var(--dorado);">→</span>Experiencia previa: Antena 3, El País, ABC, Cadena SER...</li>
+              <li style="padding:5px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:var(--dorado);">→</span>Disponible y ágil — respondo rápido</li>
+            </ul>
+          </div>
+        </div>
+        <a href="#contacto" style="display:inline-block;background:var(--dorado);color:var(--negro);text-decoration:none;padding:12px 24px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">Contactar para medios →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PUBLICACIONES E INVESTIGACIÓN -->
+<section id="publicaciones">
+  <div class="container">
+    <div class="sec-tag">Rigor científico</div>
+    <h2 class="sec-title">No intuyo. Investigo<br>y publico lo que encuentro.</h2>
+    <div class="sec-line"></div>
+    <p style="color:var(--gris);margin-bottom:28px;max-width:600px;">Más de 20 publicaciones científicas en revistas indexadas. Lo que enseño tiene respaldo académico — no solo experiencia de aula.</p>
+
+    <div class="pub-grid">
+      <div class="pub-card">
+        <div class="pub-titulo">Juego serio: gamificación y aprendizaje</div>
+        <div class="pub-revista">Comunicación y Pedagogía · 2015</div>
+        <span class="pub-citas">88 citas</span>
+      </div>
+      <div class="pub-card">
+        <div class="pub-titulo">Mejora de competencias: gestión de calidad en nuevas metodologías educativas</div>
+        <div class="pub-revista">Profesorado: Revista de currículum · 2017 · Scopus</div>
+        <span class="pub-citas">30 citas</span>
+      </div>
+      <div class="pub-card">
+        <div class="pub-titulo">Metodologías ágiles para mejorar competencias en FP</div>
+        <div class="pub-revista">Padres y Maestros · 2015</div>
+        <span class="pub-citas">3 citas</span>
+      </div>
+      <div class="pub-card">
+        <div class="pub-titulo">Medio siglo de transformación de la FP en España</div>
+        <div class="pub-revista">Revista de Educación · <span style="background:#e8f4f0;color:var(--verde);padding:1px 6px;font-size:11px;font-weight:600;">En prensa 2025</span></div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-titulo">Desafíos estructurales del Módulo 'Digitalización aplicada a los sectores productivos' en FP</div>
+        <div class="pub-revista">Revista Comunicar · <span style="background:#e8f4f0;color:var(--verde);padding:1px 6px;font-size:11px;font-weight:600;">En prensa 2026</span></div>
+      </div>
+      <div class="pub-card" style="display:flex;align-items:center;justify-content:center;background:var(--verde-claro);border-style:dashed;">
+        <div style="text-align:center;">
+          <div style="font-size:28px;margin-bottom:8px;">🎓</div>
+          <div style="font-size:13px;font-weight:600;color:var(--verde);">Ver perfil completo</div>
+          <div style="font-size:12px;color:var(--gris);">Google Scholar</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Congresos recientes -->
+    <div style="margin-top:48px;">
+      <div class="sec-tag">Últimos congresos</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;margin-bottom:20px;">Transferencia de conocimiento activa</h3>
+      <div class="cong-list">
+        <div class="cong-item"><div class="cong-year">2026</div><div><div class="cong-titulo">Innovagogía · VIII Congreso Internacional Innovación Pedagógica</div><div class="cong-donde">Sevilla · Praxis Educativa</div></div></div>
+        <div class="cong-item"><div class="cong-year">2026</div><div><div class="cong-titulo">FUTUREDUCA · Aprender a cuidar, IA y Metodologías activas en FP Sanitaria</div><div class="cong-donde">Congreso internacional</div></div></div>
+        <div class="cong-item"><div class="cong-year">2025</div><div><div class="cong-titulo">EDUNOVATIC · Personalización de la orientación profesional con IA generativa en FP</div><div class="cong-donde">Congreso internacional</div></div></div>
+        <div class="cong-item"><div class="cong-year">2025</div><div><div class="cong-titulo">CONCLIMA · Educación para la Sostenibilidad en FP</div><div class="cong-donde">Congreso internacional</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HITOS -->
+<section class="hitos">
+  <div class="container">
+    <div class="sec-tag">Trayectoria</div>
+    <h2 class="sec-title">Hitos que no se improvisan</h2>
+    <div class="sec-line"></div>
+    <div class="hitos-grid">
+      <div class="hito-card gold">
+        <div class="hito-icono">👑</div>
+        <h4>Visita de S.M. la Reina Letizia</h4>
+        <p>Organización del role-playing de entrevistas de trabajo ante S.M. la Reina Letizia (entonces Princesa de Asturias). Ejemplo de ABP con impacto real en el alumnado.</p>
+      </div>
+      <div class="hito-card">
+        <div class="hito-icono">🏭</div>
+        <h4>Pionera FP Dual PRL en Navarra</h4>
+        <p>Liderazgo en el primer ciclo de FP Dual de Prevención de Riesgos Laborales en la ESTNA (Navarra). Pionera en integración empresa-centro.</p>
+      </div>
+      <div class="hito-card">
+        <div class="hito-icono">🏆</div>
+        <h4>II Premio Plan de Empresa · CEIN</h4>
+        <p>Premio por compromiso con el fomento del espíritu emprendedor entre el alumnado. Otorgado por el CEIN y el Gobierno de Navarra, 2013.</p>
+      </div>
+      <div class="hito-card gold">
+        <div class="hito-icono">🌱</div>
+        <h4>Proyecto Équilicuá</h4>
+        <p>Coordinación del proyecto pionero del Gobierno de Navarra y Fundación Caja Navarra para desarrollar la capacidad emprendedora como valor añadido al desarrollo económico.</p>
+      </div>
+      <div class="hito-card">
+        <div class="hito-icono">⭐</div>
+        <h4>Top 3 Innovación FP Navarra</h4>
+        <p>Proyecto "Cuidando desde Casa" (INICIIA 24-25) seleccionado en el Top 3 de los mejores proyectos de Innovación y Emprendimiento en la FP de Navarra.</p>
+      </div>
+      <div class="hito-card">
+        <div class="hito-icono">🎓</div>
+        <h4>Experta Erasmus+ Sport · Europa</h4>
+        <p>Mesa redonda como experta en gamificación en el proyecto GOAL (Gamified and Online Activities for Learning), colaboración con el Programa Erasmus+ Sport de la Comisión Europea.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div class="sec-tag">Contacto</div>
+    <h2 class="sec-title">Hablemos</h2>
+    <div class="sec-line"></div>
+    <div class="contacto-grid">
+      <div class="contacto-info">
+        <p>Si trabajas en FP, en formación del profesorado, en empresa o en medios — cuéntame tu proyecto. Diseño propuestas a medida.</p>
+        <a href="tel:+34629489015" class="ci"><div class="ci-icon">📞</div><div><div class="ci-label">Teléfono</div><div class="ci-value">629 489 015</div></div></a>
+        <a href="mailto:isabelfernandezsolo@gmail.com" class="ci"><div class="ci-icon">✉️</div><div><div class="ci-label">Email</div><div class="ci-value">isabelfernandezsolo@gmail.com</div></div></a>
+        <a href="https://wa.me/34629489015" class="ci" target="_blank"><div class="ci-icon">💬</div><div><div class="ci-label">WhatsApp</div><div class="ci-value">Escríbeme directamente</div></div></a>
+        <a href="https://linkedin.com/in/isabel-fernandez-solo-de-zaldivar" class="ci" target="_blank"><div class="ci-icon" style="font-size:13px;font-weight:700;">in</div><div><div class="ci-label">LinkedIn</div><div class="ci-value">isabel-fernandez-solo-de-zaldivar</div></div></a>
+      </div>
+      <div>
+        <p style="color:rgba(255,255,255,.5);font-size:12px;margin-bottom:16px;">Cuéntame qué necesitas y te preparo una propuesta:</p>
+        <form class="form" onsubmit="handleForm(event)">
+          <input type="text" placeholder="Nombre y apellidos" required>
+          <input type="text" placeholder="Centro / Empresa / Organización">
+          <input type="email" placeholder="Email de contacto" required>
+          <select>
+            <option value="" disabled selected>¿Qué te interesa?</option>
+            <option>Programa 360° para mi claustro</option>
+            <option>Taller específico (módulo proyecto, gamificación...)</option>
+            <option>Investigación aplicada en mi centro (nueva ley FP)</option>
+            <option>Curso IA para investigación educativa</option>
+            <option>Publicar en congreso — acompañamiento</option>
+            <option>Proyecto Revista FP — colaborar o publicar</option>
+            <option>Consultoría de calidad para mi centro</option>
+            <option>FP Dual — empresa o centro</option>
+            <option>Orientación profesional (con Ana Cordero)</option>
+            <option>Ponencia o conferencia</option>
+            <option>Entrevista o colaboración con medios</option>
+            <option>Otro</option>
+          </select>
+          <textarea rows="4" placeholder="Cuéntame brevemente tu situación y qué necesitas..."></textarea>
+          <button type="submit" class="form-btn">Enviar →</button>
+        </form>
+        <div id="form-ok" style="display:none;color:#8abda5;margin-top:12px;font-size:14px;">✓ Recibido. Te respondo en menos de 48h.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><strong>Isabel Fernández Solo de Zaldívar</strong> · Doctora · Formadora FP · Consultora Educativa · Investigadora</div>
+  <div>🏆 Nominada Mejor Divulgadora FP · El Periódico Español · 2025</div>
+</footer>
+
+<script>
+function handleForm(e){
+  e.preventDefault();
+  document.getElementById('form-ok').style.display='block';
+  e.target.style.opacity='.4';e.target.style.pointerEvents='none';
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+</script>
+</body>
+</html>
