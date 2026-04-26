@@ -278,7 +278,11 @@
     transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s,border-color .3s;
   }
   .bento-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-2);border-color:rgba(11,20,16,.14);}
+  details.bento-card{cursor:pointer;}
+  .bento-card summary{list-style:none;display:grid;grid-template-columns:48px 1fr auto;gap:18px;align-items:center;}
+  .bento-card summary::-webkit-details-marker{display:none;}
   .bento-card h3{font-family:'Fraunces',serif;font-size:24px;font-weight:600;line-height:1.15;margin-bottom:10px;letter-spacing:-.01em;}
+  .bento-card summary h3{margin-bottom:0;}
   .bento-card p{font-size:14.5px;color:var(--muted);line-height:1.65;}
   .bento-card .ico{
     width:48px;height:48px;border-radius:14px;
@@ -286,6 +290,7 @@
     display:flex;align-items:center;justify-content:center;font-size:22px;
     margin-bottom:18px;
   }
+  .bento-card summary .ico{margin-bottom:0;}
   .bento-card .tag{
     display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;
     letter-spacing:.1em;text-transform:uppercase;color:var(--green-mid);margin-top:18px;
@@ -337,6 +342,8 @@
   .b-dark h3{color:var(--paper);}
   .b-dark p{color:rgba(255,255,255,.7);}
   .b-dark .tag{color:var(--gold);}
+  .b-dark .more{background:rgba(255,255,255,.08);color:var(--gold);}
+  .b-gold .more{background:rgba(11,20,16,.12);color:var(--ink);}
 
   /* Ana Cordero */
   .duo-block{
@@ -355,6 +362,12 @@
   .duo-list{list-style:none;display:grid;gap:8px;}
   .duo-list li{padding:12px 16px;background:rgba(255,255,255,.6);border-radius:12px;font-size:14px;color:var(--ink);display:flex;align-items:center;gap:12px;}
   .duo-list li::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;flex-shrink:0;}
+  details.duo-block{cursor:pointer;display:block;}
+  .duo-block summary{list-style:none;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;}
+  .duo-block summary::-webkit-details-marker{display:none;}
+  .duo-block summary h3{margin-bottom:0;}
+  .duo-details{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:22px;}
+  @media(max-width:760px){.duo-details{grid-template-columns:1fr;gap:22px;}}
 
   /* TALLERES */
   #talleres{background:var(--white);}
@@ -387,13 +400,20 @@
     transition:transform .35s,box-shadow .35s,background .35s;
     position:relative;overflow:hidden;
   }
+  details.tcard{cursor:pointer;}
   .tcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-1);background:var(--white);}
+  .tcard summary{list-style:none;display:grid;grid-template-columns:42px 1fr auto;gap:14px;align-items:center;}
+  .tcard summary::-webkit-details-marker{display:none;}
   .tcard .ico{font-size:24px;margin-bottom:14px;display:inline-block;width:42px;height:42px;border-radius:12px;background:var(--green-soft);display:flex;align-items:center;justify-content:center;}
+  .tcard summary .ico{margin-bottom:0;}
   .tcard.gold .ico{background:var(--gold-soft);}
   .tcard.dark .ico{background:var(--ink);color:var(--gold);}
   .tcard h4{font-family:'Fraunces',serif;font-size:18px;font-weight:600;line-height:1.2;margin-bottom:6px;}
-  .tcard p{font-size:13.5px;color:var(--muted);line-height:1.6;}
+  .tcard summary h4{margin-bottom:0;}
+  .tcard p{font-size:13.5px;color:var(--muted);line-height:1.6;margin-top:18px;}
   .tcard .dur{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--green-mid);margin-top:14px;display:block;}
+  .more{width:28px;height:28px;border-radius:50%;background:rgba(11,20,16,.06);display:flex;align-items:center;justify-content:center;color:var(--green-deep);font-size:18px;line-height:1;transition:transform .25s,background .25s;}
+  details[open] .more{transform:rotate(45deg);background:var(--gold-soft);}
 
   /* INVESTIGACIÓN */
   #investigacion{background:var(--paper);}
@@ -442,17 +462,32 @@
     border:1px solid rgba(11,20,16,.07);position:relative;overflow:hidden;
     transition:transform .3s,box-shadow .3s;
   }
+  details.course{cursor:pointer;}
   .course:hover{transform:translateY(-3px);box-shadow:var(--shadow-1);}
   .course::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);}
   .course.gold::before{background:var(--gold);}
   .course.dark::before{background:var(--ink);}
   .course .ico{font-size:24px;margin-bottom:14px;}
+  .course summary{list-style:none;display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:center;}
+  .course summary::-webkit-details-marker{display:none;}
+  .course summary .ico{margin-bottom:0;}
   .course h4{font-family:'Fraunces',serif;font-size:20px;font-weight:600;line-height:1.2;margin-bottom:8px;}
-  .course p{font-size:14px;color:var(--muted);line-height:1.65;}
+  .course summary h4{margin-bottom:0;}
+  .course p{font-size:14px;color:var(--muted);line-height:1.65;margin-top:18px;}
   .course .dur{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--green-mid);margin-top:12px;}
   .course .takeaway{margin-top:14px;padding-top:14px;border-top:1px solid rgba(11,20,16,.08);font-size:13px;color:var(--ink-2);}
   .course .takeaway strong{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;font-weight:500;}
   .course.full{grid-column:1/-1;}
+  @media(max-width:520px){
+    .taller-hero{padding:34px 22px;}
+    .taller-hero .te-bullets{display:none;}
+    .tcard,.course{padding:18px;}
+    .tcard summary,.course summary{grid-template-columns:38px 1fr auto;gap:12px;}
+    .tcard .ico{width:38px;height:38px;font-size:21px;}
+    .tcard h4{font-size:17px;}
+    .course h4{font-size:17px;}
+    .course .dur,.tcard .dur{font-size:10px;line-height:1.5;}
+  }
 
   /* Vacío FP — revista */
   .gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px;}
@@ -712,7 +747,7 @@
         <div class="eyebrow">01 / Quién soy</div>
         <h2 class="section-title">25 años <em>dentro</em>.<br>No mirando <strong>desde fuera</strong>.</h2>
       </div>
-      <p class="section-lede">Doctora por la UNED con tesis Sobresaliente Cum Laude. Funcionaria de carrera desde 2000. Sigo en el aula cada semana — eso me hace diferente.</p>
+      <p class="section-lede">Doctora por la UNED con tesis Sobresaliente. Funcionaria de carrera desde 2000. Sigo en el aula cada semana — eso me hace diferente.</p>
     </div>
 
     <div class="about-grid reveal">
@@ -724,7 +759,7 @@
       </div>
 
       <div class="creds">
-        <div class="cred"><div class="cred-num">01</div><div class="cred-text"><strong>Doctora UNED · Cum Laude</strong><span>Tesis Sobresaliente sobre empleabilidad en FP</span></div><div class="cred-year">2016</div></div>
+        <div class="cred"><div class="cred-num">01</div><div class="cred-text"><strong>Doctora UNED</strong><span>Tesis Sobresaliente sobre empleabilidad en FP</span></div><div class="cred-year">2016</div></div>
         <div class="cred"><div class="cred-num">02</div><div class="cred-text"><strong>Funcionaria de carrera</strong><span>Docente FP en la ESTNA · Navarra</span></div><div class="cred-year">2000</div></div>
         <div class="cred"><div class="cred-num">03</div><div class="cred-text"><strong>Profesora universitaria</strong><span>UNIR · Máster Secundaria</span></div><div class="cred-year">Activo</div></div>
         <div class="cred"><div class="cred-num">04</div><div class="cred-text"><strong>Asesora · Responsable Calidad</strong><span>ESTNA · Sistemas ISO / EFQM</span></div><div class="cred-year">2006-15</div></div>
@@ -762,9 +797,8 @@
 
     <div class="bento">
 
-      <div class="bento-card b-hero reveal">
-        <div class="ico">★</div>
-        <h3 class="serif">Programa de Formación Docente 360<br><em style="opacity:.65;font-weight:400;font-size:.7em;">¿Qué necesita tu claustro? Yo te lo doy.</em></h3>
+      <details class="bento-card b-hero reveal">
+        <summary><span class="ico">★</span><h3 class="serif">Programa de Formación Docente 360</h3><span class="more">+</span></summary>
         <p>Porque la formación genérica no funciona. Los profesores están descontentos con cursos que no cambian nada. Esto es diferente.</p>
         <div class="promesa">No es una formación más. Es un diagnóstico, un plan a medida y un acompañamiento real hasta que los cambios se consolidan en el aula.</div>
         <div class="pillar-grid">
@@ -791,56 +825,59 @@
             </ul>
           </div>
         </div>
-      </div>
+      </details>
 
-      <div class="bento-card b-6 reveal">
-        <div class="ico">⌬</div>
-        <h3>Consultoría e Investigación-Acción</h3>
-        <p>¿Tu centro quiere saber si sus metodologías realmente funcionan? Diseño e implemento procesos de investigación-acción en el aula. Los docentes aprenden a generar evidencia propia — no solo a aplicar recetas.</p>
+      <details class="bento-card b-6 reveal">
+        <summary><span class="ico">⌬</span><h3>Consultoría e Investigación-Acción</h3><span class="more">+</span></summary>
+        <p>Diseño procesos para comprobar qué funciona en el aula y convertirlo en evidencia.</p>
         <span class="tag">Centros FP · Grupos de trabajo · CEPs</span>
-      </div>
+      </details>
 
-      <div class="bento-card b-6 b-dark reveal">
-        <div class="ico">✓</div>
-        <h3>Gestión de Calidad en Centros FP</h3>
-        <p>15 años como responsable de calidad en la ESTNA. Implantación y mejora de sistemas (ISO, EFQM), procesos, documentación y acreditaciones. Desde dentro, no desde una auditoría externa.</p>
+      <details class="bento-card b-6 b-dark reveal">
+        <summary><span class="ico">✓</span><h3>Gestión de Calidad en Centros FP</h3><span class="more">+</span></summary>
+        <p>Implantación y mejora de sistemas, procesos y documentación desde experiencia real en centro.</p>
         <span class="tag">Equipos directivos · Calidad</span>
-      </div>
+      </details>
 
-      <div class="bento-card b-6 reveal">
-        <div class="ico">◉</div>
-        <h3>Ponencias y Conferencias</h3>
-        <p>Voz experta en FP para jornadas, congresos y eventos educativos y empresariales. Metodologías activas, IA en FP, FP dual, investigación educativa, futuro de la FP. Disponible también para medios.</p>
+      <details class="bento-card b-6 reveal">
+        <summary><span class="ico">◉</span><h3>Ponencias y Conferencias</h3><span class="more">+</span></summary>
+        <p>Voz experta para jornadas, congresos, eventos educativos, empresas y medios.</p>
         <span class="tag">Eventos · Medios · Jornadas</span>
-      </div>
+      </details>
 
-      <div class="bento-card b-6 b-gold reveal">
-        <div class="ico">⬢</div>
-        <h3>Consultoría FP Dual para Empresas</h3>
-        <p>Ayudo a empresas a diseñar e implementar programas de FP dual que funcionen de verdad. Qué comprometerse, cómo tutorizar, cómo evaluar, cómo conectar con los centros sin que sea burocracia pura.</p>
+      <details class="bento-card b-6 b-gold reveal">
+        <summary><span class="ico">⬢</span><h3>Consultoría FP Dual para Empresas</h3><span class="more">+</span></summary>
+        <p>Diseño de programas de FP dual: compromisos, tutorización, evaluación y conexión con centros.</p>
         <span class="tag">RRHH · Formación · Fundaciones</span>
-      </div>
+      </details>
     </div>
 
     <!-- ANA CORDERO -->
-    <div class="duo-block reveal">
-      <div>
-        <div class="duo-avatars">
-          <div class="duo-avatar">IF</div>
-          <div class="duo-avatar">AC</div>
+    <details class="duo-block reveal">
+      <summary>
+        <div>
+          <div class="duo-avatars">
+            <div class="duo-avatar">IF</div>
+            <div class="duo-avatar">AC</div>
+          </div>
+          <div class="eyebrow" style="margin-bottom:10px;">Producto conjunto · Diferenciado</div>
+          <h3>Orientación Profesional<br>de Alto Impacto</h3>
         </div>
-        <div class="eyebrow" style="margin-bottom:10px;">Producto conjunto · Diferenciado</div>
-        <h3>Orientación Profesional<br>de Alto Impacto</h3>
-        <p>En colaboración con <strong>Ana Cordero</strong>, especialista en orientación profesional. Un servicio diferenciado para alumnos de FP y profesionales en transición: no orientación genérica, sino acompañamiento real hacia el empleo que encaja con cada persona.</p>
-        <p style="margin-top:10px;font-size:13.5px;color:var(--muted);">Combinamos metodología educativa (Isabel) con orientación profesional experta (Ana). Un enfoque que no existe en el mercado.</p>
+        <span class="more">+</span>
+      </summary>
+      <div class="duo-details">
+        <div>
+          <p>Servicio para alumnos de FP y profesionales en transición: acompañamiento real hacia el empleo que encaja con cada persona.</p>
+          <p style="margin-top:10px;font-size:13.5px;color:var(--muted);">Con metodología educativa de Isabel y orientación profesional experta de Ana Cordero.</p>
+        </div>
+        <ul class="duo-list">
+          <li>Diagnóstico de empleabilidad individual</li>
+          <li>Plan de carrera personalizado post-FP</li>
+          <li>Talleres IPE para centros de FP</li>
+          <li>Formación de tutores en orientación</li>
+        </ul>
       </div>
-      <ul class="duo-list">
-        <li>Diagnóstico de empleabilidad individual</li>
-        <li>Plan de carrera personalizado post-FP</li>
-        <li>Talleres IPE para centros de FP</li>
-        <li>Formación de tutores en orientación</li>
-      </ul>
-    </div>
+    </details>
 
     <div class="cta-banda reveal">
       <p>“No hay dos centros iguales. Cuéntame qué necesitas y lo diseñamos juntos.”</p>
@@ -870,14 +907,14 @@
     </div>
 
     <div class="talleres-grid reveal">
-      <div class="tcard gold"><div class="ico">🎮</div><h4>Gamificación en FP</h4><p>De la teoría al aula en un día. Mecánicas reales, no puntos decorativos. Con publicación científica de 88 citas detrás.</p><span class="dur">6–8h · Presencial / Online</span></div>
-      <div class="tcard dark"><div class="ico">🤖</div><h4>IA en el aula de FP</h4><p>Diseño de experiencias de aprendizaje con IA. No herramientas — pedagogía. Que la IA amplíe al alumno en vez de sustituirle.</p><span class="dur">6h · Presencial / Online</span></div>
-      <div class="tcard"><div class="ico">📐</div><h4>ABP en FP</h4><p>Aprendizaje Basado en Proyectos con rigor individual. Sin abandonar al alumno en el grupo, sin proyectos de cartón piedra.</p><span class="dur">6–10h · Presencial / Online</span></div>
-      <div class="tcard"><div class="ico">🔄</div><h4>Flipped Classroom</h4><p>El aula invertida aplicada a FP. Cómo liberar tiempo de clase para lo que realmente importa y qué hacer con ese tiempo.</p><span class="dur">4–6h · Presencial / Online</span></div>
-      <div class="tcard gold"><div class="ico">🤝</div><h4>Aprendizaje-Servicio</h4><p>Proyectos reales para entidades reales. Impartido recientemente en Galicia. Top 3 de innovación en FP Navarra.</p><span class="dur">6h · Presencial / Online</span></div>
-      <div class="tcard dark"><div class="ico">⚡</div><h4>Metodologías Ágiles en FP</h4><p>Scrum, Kanban y Lean Startup en el aula. Las metodologías que usan las empresas, aplicadas desde el primer día.</p><span class="dur">6h · Presencial / Online</span></div>
-      <div class="tcard"><div class="ico">🏭</div><h4>FP Dual: cómo hacerla bien</h4><p>Pionera en el primer ciclo FP Dual de PRL en Navarra. Para centros y empresas que quieren implementarla de verdad.</p><span class="dur">8h · Presencial / Online</span></div>
-      <div class="tcard gold"><div class="ico">🧭</div><h4>IPE y Orientación Laboral</h4><p>Itinerario Personal para la Empleabilidad. Taller presentado en Galicia 2024. Herramientas reales para el alumno.</p><span class="dur">6h · Presencial / Online</span></div>
+      <details class="tcard gold"><summary><span class="ico">🎮</span><h4>Gamificación en FP</h4><span class="more">+</span></summary><p>Mecánicas reales para llevar al aula, no puntos decorativos.</p><span class="dur">6–8h · Presencial / Online</span></details>
+      <details class="tcard dark"><summary><span class="ico">🤖</span><h4>IA en el aula de FP</h4><span class="more">+</span></summary><p>Diseño de experiencias de aprendizaje donde la IA amplía al alumno.</p><span class="dur">6h · Presencial / Online</span></details>
+      <details class="tcard"><summary><span class="ico">📐</span><h4>ABP en FP</h4><span class="more">+</span></summary><p>Proyectos con rigor individual, evaluación clara y aplicación real.</p><span class="dur">6–10h · Presencial / Online</span></details>
+      <details class="tcard"><summary><span class="ico">🔄</span><h4>Flipped Classroom</h4><span class="more">+</span></summary><p>Aula invertida para liberar tiempo de clase y usarlo mejor.</p><span class="dur">4–6h · Presencial / Online</span></details>
+      <details class="tcard gold"><summary><span class="ico">🤝</span><h4>Aprendizaje-Servicio</h4><span class="more">+</span></summary><p>Proyectos útiles para entidades reales, con impacto fuera del aula.</p><span class="dur">6h · Presencial / Online</span></details>
+      <details class="tcard dark"><summary><span class="ico">⚡</span><h4>Metodologías Ágiles en FP</h4><span class="more">+</span></summary><p>Scrum, Kanban y Lean Startup aplicados al trabajo de aula.</p><span class="dur">6h · Presencial / Online</span></details>
+      <details class="tcard"><summary><span class="ico">🏭</span><h4>FP Dual: cómo hacerla bien</h4><span class="more">+</span></summary><p>Para centros y empresas que quieren implantar FP dual con sentido.</p><span class="dur">8h · Presencial / Online</span></details>
+      <details class="tcard gold"><summary><span class="ico">🧭</span><h4>IPE y Orientación Laboral</h4><span class="more">+</span></summary><p>Herramientas prácticas para orientar al alumnado hacia el empleo.</p><span class="dur">6h · Presencial / Online</span></details>
     </div>
   </div>
 </section>
@@ -918,41 +955,36 @@
     <h3 class="step-title reveal" style="margin-top:60px;">Cursos específicos de Investigación Aplicada en FP.</h3>
 
     <div class="courses-grid reveal">
-      <div class="course gold">
-        <div class="ico">⌬</div>
-        <h4>Introducción a la Investigación-Acción en FP</h4>
-        <p>Para docentes sin experiencia investigadora. Aprenden a diseñar un pequeño estudio sobre su propia práctica, recoger datos y extraer conclusiones aplicables. El punto de entrada para convertir la intuición en evidencia.</p>
+      <details class="course gold">
+        <summary><span class="ico">⌬</span><h4>Introducción a la Investigación-Acción en FP</h4><span class="more">+</span></summary>
+        <p>Para convertir una práctica de aula en evidencia útil.</p>
         <div class="dur">8–10 horas · Presencial / Online · Para claustros</div>
-        <div class="takeaway"><strong>Te llevas</strong>Un diseño de investigación sobre tu práctica · Instrumentos listos para aplicar · Plan de análisis con IA</div>
-      </div>
-      <div class="course dark">
-        <div class="ico">🤖</div>
-        <h4>IA para la Investigación Educativa en FP</h4>
-        <p>Cómo usar herramientas de IA para revisar literatura, diseñar instrumentos, analizar datos cualitativos y redactar resultados. Para docentes que ya investigan o quieren empezar de forma eficiente.</p>
+        <div class="takeaway"><strong>Te llevas</strong>Diseño de investigación · Instrumentos · Plan de análisis</div>
+      </details>
+      <details class="course dark">
+        <summary><span class="ico">🤖</span><h4>IA para la Investigación Educativa en FP</h4><span class="more">+</span></summary>
+        <p>Uso de IA para revisar, diseñar instrumentos, analizar datos y redactar.</p>
         <div class="dur">6–8 horas · Online / Presencial</div>
-        <div class="takeaway"><strong>Te llevas</strong>Flujo de trabajo con IA para investigación · Prompts específicos para cada fase · Plantillas de análisis</div>
-      </div>
-      <div class="course">
-        <div class="ico">🏭</div>
-        <h4>Proyectos de Investigación Aplicada con Empresas</h4>
-        <p>Cómo diseñar proyectos que cumplan con la nueva ley de FP y generen valor real para las empresas del entorno. Transferencia, ABP con retos reales y documentación del proceso.</p>
+        <div class="takeaway"><strong>Te llevas</strong>Flujo de trabajo · Prompts · Plantillas</div>
+      </details>
+      <details class="course">
+        <summary><span class="ico">🏭</span><h4>Proyectos de Investigación Aplicada con Empresas</h4><span class="more">+</span></summary>
+        <p>Diseño de proyectos centro-empresa con transferencia real.</p>
         <div class="dur">8 horas · Presencial · Equipos directivos + docentes</div>
-        <div class="takeaway"><strong>Te llevas</strong>Modelo de proyecto empresa-centro · Protocolo de colaboración · Guía de documentación</div>
-      </div>
-      <div class="course">
-        <div class="ico">📝</div>
-        <h4>Cómo publicar lo que haces en el aula</h4>
-        <p>Muchos docentes hacen cosas publicables y no lo saben. Aprende a identificar qué tiene valor científico, cómo estructurarlo como artículo o comunicación y dónde enviarlo. Con IA como asistente.</p>
+        <div class="takeaway"><strong>Te llevas</strong>Modelo de proyecto · Protocolo · Guía</div>
+      </details>
+      <details class="course">
+        <summary><span class="ico">📝</span><h4>Cómo publicar lo que haces en el aula</h4><span class="more">+</span></summary>
+        <p>Identificar, ordenar y preparar una práctica docente para publicarla.</p>
         <div class="dur">6 horas · Online / Presencial</div>
-        <div class="takeaway"><strong>Te llevas</strong>Borrador de artículo o comunicación sobre tu práctica · Listado de revistas y congresos FP · Proceso con IA</div>
-      </div>
-      <div class="course gold full">
-        <div class="ico">🗺</div>
-        <h4>Programa completo: Tu centro, centro investigador<br><span style="font-size:14px;font-weight:400;color:var(--muted);">El camino completo de la práctica a la publicación</span></h4>
-        <p>Un programa de 3–6 meses para centros que quieren implantar una cultura de investigación real. Combina todos los módulos anteriores con acompañamiento continuo, grupos de trabajo y conexión con empresas. Al terminar, el centro tiene al menos un proyecto activo y los docentes herramientas para seguir solos.</p>
+        <div class="takeaway"><strong>Te llevas</strong>Borrador · Revistas/congresos · Proceso con IA</div>
+      </details>
+      <details class="course gold full">
+        <summary><span class="ico">🗺</span><h4>Programa completo: Tu centro, centro investigador</h4><span class="more">+</span></summary>
+        <p>Programa de 3–6 meses para instalar cultura investigadora con acompañamiento.</p>
         <div class="dur">3–6 meses · Formato mixto · Equipo docente completo o piloto</div>
-        <div class="takeaway"><strong>El centro se lleva</strong>Cultura de investigación instalada · Al menos 1 proyecto activo con empresa · Docentes formados · Documentación publicable · Plan de continuidad</div>
-      </div>
+        <div class="takeaway"><strong>El centro se lleva</strong>Proyecto activo · Docentes formados · Plan de continuidad</div>
+      </details>
     </div>
 
     <div class="cta-banda reveal">
