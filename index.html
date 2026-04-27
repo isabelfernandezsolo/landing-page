@@ -402,6 +402,11 @@
   .b-dark .tag{color:var(--gold);}
   .b-dark .more{background:rgba(255,255,255,.08);color:var(--gold);}
   .b-gold .more{background:rgba(11,20,16,.12);color:var(--ink);}
+  .b-blue{background:linear-gradient(135deg,#eef3f6 0%,#dce9ee 100%);color:var(--ink);}
+  .b-blue .ico{background:rgba(36,83,102,.12);color:#245366;}
+  .b-blue h3{color:#183d4d;}
+  .b-blue p{color:#415c66;}
+  .b-blue .tag{color:#245366;}
 
   /* Ana Cordero */
   .duo-block{
@@ -478,6 +483,7 @@
   .tcard .dur{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--green-mid);margin-top:14px;display:block;}
   .more{width:28px;height:28px;border-radius:50%;background:rgba(11,20,16,.06);display:flex;align-items:center;justify-content:center;color:var(--green-deep);font-size:18px;line-height:1;transition:transform .25s,background .25s;}
   details[open] .more{transform:rotate(45deg);background:var(--gold-soft);}
+  .offer-title{font-family:'Fraunces',serif;font-size:24px;font-weight:600;line-height:1.15;margin:28px 0 16px;color:var(--green-deep);letter-spacing:-.01em;}
 
   /* INVESTIGACIÓN */
   #investigacion{background:linear-gradient(180deg,var(--sage) 0%,var(--paper) 100%);}
@@ -498,6 +504,13 @@
   .inv-hero .promesa{margin:0 0 24px;padding:18px 22px;background:rgba(255,255,255,.06);border-left:3px solid var(--gold);border-radius:0 14px 14px 0;font-family:'Fraunces',serif;font-style:italic;font-size:19px;line-height:1.5;color:rgba(255,255,255,.94);}
   .inv-hero .ley{background:rgba(212,162,74,.1);border:1px solid rgba(212,162,74,.25);padding:18px 22px;border-radius:14px;font-size:14px;color:rgba(255,255,255,.84);line-height:1.7;}
   .inv-hero .ley strong{color:var(--gold);}
+  .inv-hero .steps{margin-top:18px;}
+  .inv-hero .step{background:rgba(251,248,242,.98);border-color:rgba(255,255,255,.45);}
+  .inv-hero .step .step-body h4,
+  .inv-hero .step summary .step-body h4{color:var(--ink) !important;opacity:1;}
+  .inv-hero .step .step-detail p{color:var(--ink-2) !important;opacity:1;}
+  .inv-hero .step summary .more{color:var(--green-deep);background:rgba(31,93,73,.1);}
+  .inv-hero details[open] .more{background:var(--gold-soft);color:var(--ink);}
 
   .step-title{font-family:'Fraunces',serif;font-size:28px;font-weight:600;margin:50px 0 22px;letter-spacing:-.01em;}
 
@@ -783,9 +796,9 @@
         </h1>
         <p class="hero-sub reveal">
           Doctora, investigadora y formadora con <em>25 años en el aula de FP</em>.
-          No soy consultora externa — soy una de vosotros. Con evidencia científica detrás.
+          Con evidencia científica detrás.
         </p>
-        <p class="hero-statement reveal">Ayudo a centros y docentes de FP a transformar lo que ya hacen en innovación medible, transferible y con impacto real.</p>
+        <p class="hero-statement reveal">Ayudo a centros y docentes de FP<br>a transformar lo que ya hacen<br>en innovación medible, transferible<br>y con impacto real.</p>
         <div class="hero-meta reveal">
           <span class="chip">Doctora UNED</span>
           <span class="chip">25 años en FP</span>
@@ -827,7 +840,7 @@
         <div class="eyebrow">01 / Quién soy</div>
         <h2 class="section-title">25 años <em>dentro</em>.<br>No mirando <strong>desde fuera</strong>.</h2>
       </div>
-      <p class="section-lede">Entré en la FP desde el aula y sigo ahí: entre alumnos, equipos docentes, proyectos, calidad, empresa e investigación. Desde 2010 también acompaño a futuros profesores en su salto a la docencia.</p>
+      <p class="section-lede">Comencé en la FP desde el aula y sigo ahí: entre alumnos, equipos docentes, proyectos, calidad, empresa e investigación. Desde 2010 también acompaño a futuros profesores en su salto a la docencia.</p>
     </div>
 
     <details class="about-summary reveal">
@@ -880,7 +893,7 @@
         <div class="eyebrow">02 / Servicios</div>
         <h2 class="section-title">¿Qué puedo hacer<br>por tu <em>centro</em> u <strong>organización</strong>?</h2>
       </div>
-      <p class="section-lede">La formación genérica no funciona. Diseño cada propuesta a medida del centro — diagnóstico, plan, acompañamiento real hasta que los cambios se consolidan.</p>
+      <p class="section-lede">La formación genérica no funciona. Diseño cada propuesta a medida del centro — diagnóstico, planificación y acompañamiento real hasta que los cambios se consolidan.</p>
     </div>
 
     <div class="bento">
@@ -927,7 +940,7 @@
         <span class="tag">Equipos directivos · Calidad</span>
       </details>
 
-      <details class="bento-card b-6 reveal">
+      <details class="bento-card b-6 b-blue reveal">
         <summary><span class="ico">◉</span><h3>Ponencias y Conferencias</h3><span class="more">+</span></summary>
         <p>Voz experta para jornadas, congresos, eventos educativos, empresas y medios.</p>
         <span class="tag">Eventos · Medios · Jornadas</span>
@@ -948,7 +961,7 @@
             <div class="duo-avatar">IF</div>
             <div class="duo-avatar">AC</div>
           </div>
-          <div class="eyebrow" style="margin-bottom:10px;">Producto conjunto · Diferenciado</div>
+          <div class="eyebrow" style="margin-bottom:10px;">Servicio con Ana Cordero</div>
           <h3>Orientación Profesional<br>de Alto Impacto</h3>
         </div>
         <span class="more">+</span>
@@ -968,7 +981,7 @@
     </details>
 
     <div class="cta-banda reveal">
-      <p>“No hay dos centros iguales. Cuéntame qué necesitas y lo diseñamos juntos.”</p>
+      <p>“No hay dos centros iguales. Cuéntame qué necesitas<br>y lo diseñamos juntos.”</p>
       <a href="#contacto" class="btn btn-primary">Solicitar propuesta <span class="arrow">→</span></a>
     </div>
   </div>
@@ -980,7 +993,7 @@
     <div class="section-head reveal">
       <div>
         <div class="eyebrow">03 / Talleres</div>
-        <h2 class="section-title">Talleres que dejan algo<br><em>concreto</em> en las manos.</h2>
+        <h2 class="section-title">Talleres que dejan<br>algo concreto<br><em>en las manos.</em></h2>
       </div>
       <p class="section-lede">Cada formación termina con material editable, una metodología aplicada al aula del docente y un plan de evaluación. Nada de teoría flotante.</p>
     </div>
@@ -989,11 +1002,12 @@
       <div class="badge-star">★ El más demandado</div>
       <h3>El Módulo de Proyecto:<br>de la angustia a la programación</h3>
       <p style="opacity:.7;font-size:14.5px;">El taller que todo docente de FP necesita y nadie había diseñado bien hasta ahora.</p>
-      <div class="te-promesa">Entras con la angustia del módulo de proyecto. Sales con la programación completa, lista para defender.</div>
-      <p class="te-bullets">Diseño de la programación paso a paso · Criterios de evaluación que se sostienen · Cómo orientar al alumno sin hacer su trabajo · Integración de IA en el proceso · Plantillas editables que te llevas</p>
+      <div class="te-promesa">Entras con la angustia por el módulo de proyecto. Sales con la programación completa, lista para defender.</div>
+      <p class="te-bullets">Diseño de la programación paso a paso · Criterios de evaluación que se sostienen · Cómo orientar al alumno sin hacer su trabajo · Integración de IA en el proceso · Material editable para adaptar a tu módulo</p>
       <div class="te-meta">⏱ 6h presencial / 8h online · También en 2 sesiones de 3h · Formato mixto disponible</div>
     </div>
 
+    <h3 class="offer-title reveal">Más formaciones para llevar la FP al aula.</h3>
     <div class="talleres-grid reveal">
       <details class="tcard programacion"><summary><span class="ico">🧩</span><h4>Programación desde la evaluación</h4><span class="more">+</span></summary><p>Diseñar la programación partiendo de resultados de aprendizaje, criterios y evidencias.</p><span class="dur">6–8h · Presencial / Online</span></details>
       <details class="tcard evaluacion"><summary><span class="ico">✓</span><h4>RA y criterios de evaluación</h4><span class="more">+</span></summary><p>Cómo llevar los resultados de aprendizaje y criterios al aula sin perderse en la burocracia.</p><span class="dur">4–6h · Presencial / Online</span></details>
@@ -1018,7 +1032,7 @@
         <div class="eyebrow">04 / Investigación Aplicada en FP</div>
         <h2 class="section-title">Tu centro <em>ya investiga</em>.<br>Solo necesita <strong>saberlo</strong>.</h2>
       </div>
-      <p class="section-lede">La nueva Ley de FP exige investigación aplicada. La mayoría de docentes no saben cómo abordarla. Yo sí — y puedo enseñároslo.</p>
+      <p class="section-lede">La nueva Ley de FP exige investigación aplicada. Muchos docentes no saben cómo abordarla de forma sencilla. Puedo ayudaros a convertirlo en un proceso claro y aplicable.</p>
     </div>
 
     <details class="inv-hero reveal">
@@ -1029,20 +1043,18 @@
         <strong>¿Qué dice la nueva Ley de FP?</strong>
         La LOIFP establece que los centros de FP deben desarrollar <strong>proyectos de investigación aplicada</strong> en colaboración con empresas, generar transferencia de conocimiento y contribuir a la innovación en los sectores productivos. Esto incluye ABP con retos reales, FP dual investigadora y digitalización aplicada. La mayoría de los centros aún no saben cómo cumplir este mandato.
       </div>
+      <h4 class="step-title" style="margin-top:34px;">El proceso: de la práctica docente a la investigación publicable.</h4>
+      <div class="steps">
+        <details class="step"><summary><div class="step-num"><div class="n">01</div><div class="ph">Punto de partida</div></div><div class="step-body"><h4>Identificamos lo que ya estás haciendo</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Cada docente tiene prácticas que funcionan. Las ordenamos para detectar qué puede convertirse en investigación.</p><span class="ia-tag">IA: analiza tu programación y detecta qué es investigable</span></div></details>
+        <details class="step"><summary><div class="step-num"><div class="n">02</div><div class="ph">Diseño</div></div><div class="step-body"><h4>Formulamos la pregunta de investigación</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Convertimos “esto funciona” en una pregunta precisa, medible y viable en el día a día del aula.</p><span class="ia-tag">IA: revisa literatura existente y refina la pregunta</span></div></details>
+        <details class="step ai"><summary><div class="step-num"><div class="n">03</div><div class="ph">Recogida</div></div><div class="step-body"><h4>Diseñamos los instrumentos de recogida</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Encuestas, rúbricas y registros de aula que puedas aplicar sin convertir tu clase en un laboratorio.</p><span class="ia-tag dark">IA: borradores de encuestas, rúbricas y protocolos</span></div></details>
+        <details class="step ai"><summary><div class="step-num"><div class="n">04</div><div class="ph">Análisis</div></div><div class="step-body"><h4>Analizamos los datos con IA y criterio pedagógico</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Buscamos patrones, comparamos resultados y sacamos conclusiones sólidas sin complicar la estadística.</p><span class="ia-tag dark">IA: codificación cualitativa, patrones, visualización</span></div></details>
+        <details class="step"><summary><div class="step-num"><div class="n">05</div><div class="ph">Transferencia</div></div><div class="step-body"><h4>Convertimos resultados en conocimiento transferible</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Artículo, comunicación, buena práctica o proyecto con empresas: elegimos el formato que tenga sentido.</p><span class="ia-tag">IA: ayuda a redactar y adaptar para distintos formatos</span></div></details>
+        <details class="step"><summary><div class="step-num"><div class="n">06</div><div class="ph">Conexión</div></div><div class="step-body"><h4>Conectamos con empresas para investigación real</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Identificamos qué puede aportar el tejido productivo y cómo documentarlo para generar valor real.</p><span class="ia-tag">IA: diseña propuestas de colaboración empresa-centro</span></div></details>
+      </div>
     </details>
 
-    <h3 class="step-title reveal">De la práctica a la evidencia.</h3>
-
-    <div class="steps reveal">
-      <details class="step"><summary><div class="step-num"><div class="n">01</div><div class="ph">Detectar</div></div><div class="step-body"><h4>Qué haces ya</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Ordenamos prácticas reales para ver qué puede investigarse.</p><span class="ia-tag">IA: detecta qué es investigable</span></div></details>
-      <details class="step"><summary><div class="step-num"><div class="n">02</div><div class="ph">Preguntar</div></div><div class="step-body"><h4>Qué quieres demostrar</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Convertimos “esto funciona” en una pregunta medible.</p><span class="ia-tag">IA: refina la pregunta</span></div></details>
-      <details class="step ai"><summary><div class="step-num"><div class="n">03</div><div class="ph">Medir</div></div><div class="step-body"><h4>Cómo recoger datos</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Encuestas, rúbricas y registros asumibles para el aula.</p><span class="ia-tag dark">IA: instrumentos y protocolos</span></div></details>
-      <details class="step ai"><summary><div class="step-num"><div class="n">04</div><div class="ph">Analizar</div></div><div class="step-body"><h4>Qué dicen los datos</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Buscamos patrones y conclusiones con sentido pedagógico.</p><span class="ia-tag dark">IA: patrones y visualización</span></div></details>
-      <details class="step"><summary><div class="step-num"><div class="n">05</div><div class="ph">Contar</div></div><div class="step-body"><h4>Cómo transferirlo</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Artículo, comunicación, buena práctica o proyecto.</p><span class="ia-tag">IA: adapta formatos</span></div></details>
-      <details class="step"><summary><div class="step-num"><div class="n">06</div><div class="ph">Conectar</div></div><div class="step-body"><h4>Con quién hacerlo</h4></div><span class="more">+</span></summary><div class="step-detail"><p>Sumamos empresas y entorno productivo cuando aporta valor.</p><span class="ia-tag">IA: propuestas centro-empresa</span></div></details>
-    </div>
-
-    <h3 class="step-title reveal" style="margin-top:60px;">Cursos específicos de Investigación Aplicada en FP.</h3>
+    <h3 class="step-title reveal" style="margin-top:60px;">Formación específica para la Investigación Aplicada en FP.</h3>
 
     <div class="courses-grid reveal">
       <details class="course gold">
@@ -1288,7 +1300,7 @@
             <option>Otro</option>
           </select>
           <textarea rows="4" placeholder="Cuéntame brevemente tu situación y qué necesitas..."></textarea>
-          <button type="submit" class="form-btn">Enviar propuesta <span style="font-size:18px;">→</span></button>
+          <button type="submit" class="form-btn">Enviar solicitud <span style="font-size:18px;">→</span></button>
         </form>
         <div id="form-ok" style="display:none;color:var(--gold);margin-top:14px;font-size:14px;font-family:'JetBrains Mono',monospace;">✓ Recibido. Te respondo en menos de 48h.</div>
       </div>

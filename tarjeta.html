@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarjeta Isabel Fernández Solo de Zaldívar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b1410;
+    --green:#1f5d49;
+    --green-deep:#0d3a2c;
+    --green-mid:#3d8a72;
+    --gold:#d4a24a;
+    --paper:#fbf8f2;
+    --cream:#f6f1e8;
+    --muted:#5a6b62;
+    --line:rgba(13,58,44,.18);
+    --shadow:0 24px 70px rgba(11,20,16,.18);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(70% 50% at 90% 0%, rgba(31,93,73,.12), transparent 60%),
+      linear-gradient(180deg,#eee7dc 0%,#d9d1c7 100%);
+    color:var(--ink);
+    font-family:Inter,system-ui,sans-serif;
+    display:grid;
+    place-items:center;
+    padding:44px 22px;
+  }
+
+  .board{
+    width:min(100%,980px);
+  }
+
+  .title{
+    text-align:center;
+    margin-bottom:30px;
+  }
+
+  .title .kicker{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:rgba(13,58,44,.55);
+    margin-bottom:8px;
+  }
+
+  h1{
+    font-family:Fraunces,Georgia,serif;
+    font-size:clamp(24px,4vw,38px);
+    font-weight:300;
+    letter-spacing:.08em;
+  }
+
+  .cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:28px;
+  }
+
+  .side-wrap{
+    display:grid;
+    gap:10px;
+    justify-items:center;
+  }
+
+  .label{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:rgba(90,107,98,.75);
+  }
+
+  .card{
+    width:65mm;
+    height:65mm;
+    position:relative;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+
+  .back{
+    background:var(--paper);
+    border-bottom:2px solid var(--green-deep);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:10mm 8mm 8mm;
+  }
+
+  .back::before,
+  .back::after{
+    content:"";
+    position:absolute;
+    left:8mm;
+    right:8mm;
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+
+  .back::before{top:8mm;}
+  .back::after{bottom:17mm;background:var(--line);}
+
+  .ornament{
+    position:absolute;
+    top:7.5mm;
+    left:50%;
+    width:3mm;
+    height:3mm;
+    background:var(--gold);
+    transform:translateX(-50%) rotate(45deg);
+  }
+
+  .mark{
+    width:21mm;
+    height:21mm;
+    min-width:21mm;
+    aspect-ratio:1 / 1;
+    border-radius:999px;
+    background:var(--green-deep);
+    color:var(--paper);
+    display:grid;
+    place-items:center;
+    font-family:Fraunces,Georgia,serif;
+    font-size:25px;
+    font-weight:700;
+    letter-spacing:-.07em;
+    line-height:1;
+    position:relative;
+    flex:0 0 auto;
+    margin-bottom:6mm;
+  }
+
+  .mark::after{
+    content:"";
+    position:absolute;
+    inset:-2.3mm;
+    border:1px dashed var(--gold);
+    border-radius:999px;
+  }
+
+  .name{
+    font-family:Fraunces,Georgia,serif;
+    font-size:13.5px;
+    line-height:1.15;
+    text-align:center;
+    font-weight:500;
+    margin-bottom:2.5mm;
+  }
+
+  .role{
+    font-family:"JetBrains Mono",monospace;
+    font-size:6.4px;
+    line-height:1.55;
+    text-align:center;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    color:var(--green-mid);
+    margin-bottom:8mm;
+  }
+
+  .contact{
+    width:100%;
+    display:grid;
+    gap:2mm;
+    font-size:7.4px;
+    color:var(--muted);
+  }
+
+  .contact span{
+    display:flex;
+    align-items:center;
+    gap:2.2mm;
+    min-width:0;
+  }
+
+  .ico{
+    width:3.2mm;
+    color:var(--gold);
+    font-family:"JetBrains Mono",monospace;
+    font-size:7px;
+    flex:0 0 auto;
+  }
+
+  .front{
+    background:var(--green-deep);
+    color:var(--paper);
+    display:grid;
+    place-items:center;
+    padding:8mm;
+    border-top:1.2mm solid var(--gold);
+  }
+
+  .front::before,
+  .front::after{
+    content:"";
+    position:absolute;
+    border:1px solid rgba(212,162,74,.13);
+    border-radius:50%;
+    pointer-events:none;
+  }
+
+  .front::before{
+    width:74mm;
+    height:74mm;
+    right:-38mm;
+    top:-22mm;
+  }
+
+  .front::after{
+    width:82mm;
+    height:82mm;
+    left:-50mm;
+    bottom:-38mm;
+  }
+
+  .qr-panel{
+    position:relative;
+    z-index:1;
+    display:grid;
+    justify-items:center;
+  }
+
+  .qr-frame{
+    width:42mm;
+    height:42mm;
+    background:var(--paper);
+    padding:2.8mm;
+    position:relative;
+    margin-bottom:5mm;
+  }
+
+  .qr-frame::before,
+  .qr-frame::after{
+    content:"";
+    position:absolute;
+    inset:-2mm;
+    border:1.1mm solid var(--gold);
+    clip-path:polygon(0 0,22% 0,22% 5%,5% 5%,5% 22%,0 22%,0 0,78% 0,100% 0,100% 22%,95% 22%,95% 5%,78% 5%,78% 0,100% 78%,100% 100%,78% 100%,78% 95%,95% 95%,95% 78%,100% 78%,22% 100%,0 100%,0 78%,5% 78%,5% 95%,22% 95%,22% 100%);
+  }
+
+  .qr-frame::after{
+    inset:-.6mm;
+    border-color:rgba(251,248,242,.38);
+  }
+
+  .qr-frame img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    mix-blend-mode:multiply;
+  }
+
+  .scan{
+    font-family:"JetBrains Mono",monospace;
+    font-size:7px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:rgba(251,248,242,.7);
+    margin-bottom:2mm;
+  }
+
+  .url{
+    font-size:6px;
+    color:rgba(251,248,242,.35);
+  }
+
+  .note{
+    text-align:center;
+    color:rgba(90,107,98,.7);
+    font-size:12px;
+    margin-top:28px;
+  }
+
+  @media print{
+    @page{size:A4;margin:16mm;}
+    body{background:#fff;padding:0;display:block;}
+    .board{width:100%;}
+    .title,.label,.note{display:none;}
+    .cards{gap:14mm;justify-content:flex-start;}
+    .card{box-shadow:none;break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+  <main class="board">
+    <header class="title">
+      <div class="kicker">Identidad visual</div>
+      <h1>Isabel Fernández Solo de Zaldívar</h1>
+    </header>
+
+    <section class="cards" aria-label="Diseño de tarjeta doble cara">
+      <div class="side-wrap">
+        <div class="label">Reverso · datos</div>
+        <article class="card back">
+          <div class="ornament" aria-hidden="true"></div>
+          <div class="mark" aria-label="Logo IF">IF</div>
+          <div class="name">Isabel Fernández<br>Solo de Zaldívar</div>
+          <div class="role">Formadora FP · Consultora<br>Educativa · Investigadora</div>
+          <div class="contact">
+            <span><b class="ico">T</b>629 489 015</span>
+            <span><b class="ico">M</b>isabelfernandezsolo@gmail.com</span>
+            <span><b class="ico">in</b>isabel-fernandez-solo-de-zaldivar</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="side-wrap">
+        <div class="label">Frente · QR</div>
+        <article class="card front">
+          <div class="qr-panel">
+            <div class="qr-frame">
+              <img src="qr-landing-page-deep-green-if.png" alt="QR de la página de Isabel Fernández">
+            </div>
+            <div class="scan">Escanea para conectar</div>
+            <div class="url">isabelfernandezsolo.netlify.app</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <p class="note">Tarjeta cuadrada 65 × 65 mm · doble cara · diseño simplificado con verde, dorado y papel de la web.</p>
+  </main>
+</body>
+</html>
