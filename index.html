@@ -247,6 +247,12 @@
   .section-title strong{font-weight:700;}
   .section-title em{font-style:italic;color:var(--green);}
   .section-lede{font-size:16.5px;color:var(--muted);line-height:1.7;max-width:480px;}
+  @media(max-width:760px){
+    section{padding:68px 0;}
+    .section-head{margin-bottom:28px;}
+    .section-title{font-size:clamp(32px,11vw,46px);}
+    .section-lede{font-size:15px;line-height:1.55;}
+  }
 
   .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start;}
   @media(max-width:840px){.about-grid{grid-template-columns:1fr;}}
@@ -308,6 +314,7 @@
   /* SERVICIOS — bento */
   #servicios{background:linear-gradient(180deg,var(--blush) 0%,var(--paper) 100%);}
   .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;}
+  .bento > *{min-width:0;}
   @media(max-width:900px){.bento{grid-template-columns:repeat(6,1fr);}}
   @media(max-width:600px){.bento{grid-template-columns:1fr;}}
 
@@ -318,8 +325,8 @@
     transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s,border-color .3s;
   }
   .bento-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-2);border-color:rgba(11,20,16,.14);}
-  details.bento-card{cursor:pointer;}
-  .bento-card summary{list-style:none;display:grid;grid-template-columns:48px 1fr auto;gap:18px;align-items:center;}
+  details.bento-card{cursor:pointer;min-width:0;}
+  .bento-card summary{list-style:none;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:18px;align-items:center;}
   .bento-card summary::-webkit-details-marker{display:none;}
   .bento-card h3{font-family:'Fraunces',serif;font-size:24px;font-weight:600;line-height:1.15;margin-bottom:10px;letter-spacing:-.01em;}
   .bento-card summary h3{margin-bottom:0;}
@@ -370,6 +377,17 @@
   .b-8{grid-column:span 8;}
   @media(max-width:900px){.b-6,.b-4,.b-8{grid-column:span 6;}}
   @media(max-width:600px){.b-6,.b-4,.b-8{grid-column:span 1;}}
+  @media(max-width:760px){
+    .bento{display:block;}
+    .bento-card{margin-bottom:14px;padding:20px;border-radius:20px;}
+    .bento-card summary{grid-template-columns:40px minmax(0,1fr) 26px;gap:12px;}
+    .bento-card .ico{width:40px;height:40px;border-radius:12px;font-size:19px;}
+    .bento-card h3{font-size:20px;line-height:1.12;}
+    .b-hero{padding:24px 20px;}
+    .b-hero h3{font-size:clamp(25px,9vw,34px);}
+    .b-hero .pillar-grid{gap:18px;margin-top:20px;}
+    .b-hero .promesa{font-size:16px;margin-top:20px;padding:14px 16px;}
+  }
 
   .b-gold{background:var(--grad-gold);color:var(--ink);}
   .b-gold .ico{background:rgba(11,20,16,.12);color:var(--ink);}
@@ -448,6 +466,12 @@
   .tcard summary .ico{margin-bottom:0;}
   .tcard.gold .ico{background:var(--gold-soft);}
   .tcard.dark .ico{background:var(--ink);color:var(--gold);}
+  .tcard.programacion{background:#eef3f6;border-color:rgba(45,90,110,.18);}
+  .tcard.programacion .ico{background:#dce9ee;color:#245366;}
+  .tcard.evaluacion{background:#edf6f1;border-color:rgba(31,93,73,.2);}
+  .tcard.evaluacion .ico{background:#d8ebe2;color:var(--green-deep);}
+  .tcard.aula{background:#fff8e8;border-color:rgba(212,162,74,.28);}
+  .tcard.aula .ico{background:var(--gold-soft);color:#7a5800;}
   .tcard h4{font-family:'Fraunces',serif;font-size:18px;font-weight:600;line-height:1.2;margin-bottom:6px;}
   .tcard summary h4{margin-bottom:0;}
   .tcard p{font-size:13.5px;color:var(--muted);line-height:1.6;margin-top:18px;}
@@ -808,7 +832,7 @@
 
     <details class="about-summary reveal">
       <summary>
-        <h3>Conozco la FP desde el aula, desde la gestión y desde la investigación.</h3>
+        <h3>Convertir la experiencia del aula en cambios que se notan.</h3>
         <span class="more">+</span>
       </summary>
       <div class="about-grid">
@@ -971,6 +995,9 @@
     </div>
 
     <div class="talleres-grid reveal">
+      <details class="tcard programacion"><summary><span class="ico">🧩</span><h4>Programación desde la evaluación</h4><span class="more">+</span></summary><p>Diseñar la programación partiendo de resultados de aprendizaje, criterios y evidencias.</p><span class="dur">6–8h · Presencial / Online</span></details>
+      <details class="tcard evaluacion"><summary><span class="ico">✓</span><h4>RA y criterios de evaluación</h4><span class="more">+</span></summary><p>Cómo llevar los resultados de aprendizaje y criterios al aula sin perderse en la burocracia.</p><span class="dur">4–6h · Presencial / Online</span></details>
+      <details class="tcard aula"><summary><span class="ico">📋</span><h4>Evaluar para programar mejor</h4><span class="more">+</span></summary><p>Instrumentos, rúbricas y evidencias que ordenan la programación y hacen visible el aprendizaje.</p><span class="dur">6h · Presencial / Online</span></details>
       <details class="tcard gold"><summary><span class="ico">🎮</span><h4>Gamificación en FP</h4><span class="more">+</span></summary><p>Mecánicas reales para llevar al aula, no puntos decorativos.</p><span class="dur">6–8h · Presencial / Online</span></details>
       <details class="tcard dark"><summary><span class="ico">🤖</span><h4>IA en el aula de FP</h4><span class="more">+</span></summary><p>Diseño de experiencias de aprendizaje donde la IA amplía al alumno.</p><span class="dur">6h · Presencial / Online</span></details>
       <details class="tcard"><summary><span class="ico">📐</span><h4>ABP en FP</h4><span class="more">+</span></summary><p>Proyectos con rigor individual, evaluación clara y aplicación real.</p><span class="dur">6–10h · Presencial / Online</span></details>
