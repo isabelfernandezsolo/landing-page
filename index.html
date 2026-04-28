@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Isabel Fernández Solo de Zaldívar · Formadora FP · Consultora Educativa</title>
+<title>Isabel Fernández Solo de Zaldívar · Formadora FP · Acompañamiento Educativo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -342,6 +342,9 @@
     display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;
     letter-spacing:.1em;text-transform:uppercase;color:var(--green-mid);margin-top:18px;
   }
+  .bento-card .mini-list{list-style:none;margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .bento-card .mini-list li{font-size:13px;color:rgba(11,20,16,.74);line-height:1.45;padding:12px 14px;background:rgba(255,255,255,.58);border:1px solid rgba(11,20,16,.06);border-radius:12px;}
+  @media(max-width:720px){.bento-card .mini-list{grid-template-columns:1fr;}}
 
   /* Hero card 360 */
   .b-hero{
@@ -375,8 +378,12 @@
   .b-6{grid-column:span 6;}
   .b-4{grid-column:span 4;}
   .b-8{grid-column:span 8;}
-  @media(max-width:900px){.b-6,.b-4,.b-8{grid-column:span 6;}}
-  @media(max-width:600px){.b-6,.b-4,.b-8{grid-column:span 1;}}
+  .b-online{grid-column:span 12;background:linear-gradient(135deg,var(--blue-soft) 0%,var(--white) 56%,var(--green-soft) 100%);}
+  .b-online .ico{background:var(--ink);color:var(--gold);}
+  .b-online h3{max-width:720px;}
+  .b-online p{max-width:820px;}
+  @media(max-width:900px){.b-6,.b-4,.b-8,.b-online{grid-column:span 6;}}
+  @media(max-width:600px){.b-6,.b-4,.b-8,.b-online{grid-column:span 1;}}
   @media(max-width:760px){
     .bento{display:block;}
     .bento-card{margin-bottom:14px;padding:20px;border-radius:20px;}
@@ -773,7 +780,7 @@
 <nav>
   <a href="#" class="brand">
     <div class="brand-mark">IF</div>
-    <div class="brand-name">Isabel Fernández<span>Formadora FP · Consultora</span></div>
+    <div class="brand-name">Isabel Fernández<span>Formadora FP · Acompañamiento</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="#sobre">Quién soy</a></li>
@@ -929,7 +936,7 @@
       </details>
 
       <details class="bento-card b-6 reveal">
-        <summary><span class="ico">⌬</span><h3>Consultoría e Investigación-Acción</h3><span class="more">+</span></summary>
+        <summary><span class="ico">⌬</span><h3>Acompañamiento e Investigación-Acción</h3><span class="more">+</span></summary>
         <p>Diseño procesos para comprobar qué funciona en el aula y convertirlo en evidencia.</p>
         <span class="tag">Centros FP · Grupos de trabajo · CEPs</span>
       </details>
@@ -947,9 +954,20 @@
       </details>
 
       <details class="bento-card b-6 b-gold reveal">
-        <summary><span class="ico">⬢</span><h3>Consultoría FP Dual para Empresas</h3><span class="more">+</span></summary>
+        <summary><span class="ico">⬢</span><h3>Acompañamiento FP Dual para Empresas</h3><span class="more">+</span></summary>
         <p>Diseño de programas de FP dual: compromisos, tutorización, evaluación y conexión con centros.</p>
         <span class="tag">RRHH · Formación · Fundaciones</span>
+      </details>
+
+      <details class="bento-card b-online reveal">
+        <summary><span class="ico">↗</span><h3>Diseño y Gestión de Formación Online</h3><span class="more">+</span></summary>
+        <p>Transformo cursos que hoy funcionan como educación a distancia — PDF, cuestionario tipo test y materiales desfasados — en experiencias online con aprendizaje basado en proyectos, IA, seguimiento docente y personalización real.</p>
+        <ul class="mini-list">
+          <li>Revisión pedagógica de contenidos, actividades y evaluación.</li>
+          <li>Diseño de itinerarios personalizados con proyectos aplicados.</li>
+          <li>Integración de herramientas de IA para aprender, crear y evidenciar.</li>
+        </ul>
+        <span class="tag">Cursos online · Metodología · LMS · IA educativa</span>
       </details>
     </div>
 
@@ -1014,6 +1032,7 @@
       <details class="tcard aula"><summary><span class="ico">📋</span><h4>Evaluar para programar mejor</h4><span class="more">+</span></summary><p>Instrumentos, rúbricas y evidencias que ordenan la programación y hacen visible el aprendizaje.</p><span class="dur">6h · Presencial / Online</span></details>
       <details class="tcard gold"><summary><span class="ico">🎮</span><h4>Gamificación en FP</h4><span class="more">+</span></summary><p>Mecánicas reales para llevar al aula, no puntos decorativos.</p><span class="dur">6–8h · Presencial / Online</span></details>
       <details class="tcard dark"><summary><span class="ico">🤖</span><h4>IA en el aula de FP</h4><span class="more">+</span></summary><p>Diseño de experiencias de aprendizaje donde la IA amplía al alumno.</p><span class="dur">6h · Presencial / Online</span></details>
+      <details class="tcard programacion"><summary><span class="ico">💻</span><h4>Rediseño de cursos online</h4><span class="more">+</span></summary><p>De PDF y test a proyectos, acompañamiento, IA y evidencias de aprendizaje personalizadas.</p><span class="dur">8–12h · Online / Mixto</span></details>
       <details class="tcard"><summary><span class="ico">📐</span><h4>ABP en FP</h4><span class="more">+</span></summary><p>Proyectos con rigor individual, evaluación clara y aplicación real.</p><span class="dur">6–10h · Presencial / Online</span></details>
       <details class="tcard"><summary><span class="ico">🔄</span><h4>Flipped Classroom</h4><span class="more">+</span></summary><p>Aula invertida para liberar tiempo de clase y usarlo mejor.</p><span class="dur">4–6h · Presencial / Online</span></details>
       <details class="tcard gold"><summary><span class="ico">🤝</span><h4>Aprendizaje-Servicio</h4><span class="more">+</span></summary><p>Proyectos útiles para entidades reales, con impacto fuera del aula.</p><span class="dur">6h · Presencial / Online</span></details>
@@ -1288,11 +1307,12 @@
             <option value="" disabled selected>¿Qué te interesa?</option>
             <option>Programa 360 para mi claustro</option>
             <option>Taller específico (módulo proyecto, gamificación...)</option>
+            <option>Diseño y gestión de formación online</option>
             <option>Investigación aplicada en mi centro (nueva ley FP)</option>
             <option>Curso IA para investigación educativa</option>
             <option>Publicar en congreso — acompañamiento</option>
             <option>Proyecto Revista FP — colaborar o publicar</option>
-            <option>Consultoría de calidad para mi centro</option>
+            <option>Acompañamiento en calidad para mi centro</option>
             <option>FP Dual — empresa o centro</option>
             <option>Orientación profesional (con Ana Cordero)</option>
             <option>Ponencia o conferencia</option>
@@ -1309,8 +1329,8 @@
 </section>
 
 <footer>
-  <div><strong>Isabel Fernández Solo de Zaldívar</strong> · Doctora · Formadora FP · Consultora Educativa · Investigadora</div>
-  <div class="award">Formadora FP · Consultora Educativa · Investigadora</div>
+  <div><strong>Isabel Fernández Solo de Zaldívar</strong> · Doctora · Formadora FP · Acompañamiento Educativo · Investigadora</div>
+  <div class="award">Formadora FP · Acompañamiento Educativo · Investigadora</div>
 </footer>
 
 <script>

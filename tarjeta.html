@@ -96,7 +96,7 @@
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:10mm 8mm 8mm;
+    padding:13mm 8mm 8mm;
   }
 
   .back::before,
@@ -139,7 +139,7 @@
     line-height:1;
     position:relative;
     flex:0 0 auto;
-    margin-bottom:6mm;
+    margin-bottom:7mm;
   }
 
   .mark::after{
@@ -156,17 +156,6 @@
     line-height:1.15;
     text-align:center;
     font-weight:500;
-    margin-bottom:2.5mm;
-  }
-
-  .role{
-    font-family:"JetBrains Mono",monospace;
-    font-size:6.4px;
-    line-height:1.55;
-    text-align:center;
-    text-transform:uppercase;
-    letter-spacing:.16em;
-    color:var(--green-mid);
     margin-bottom:8mm;
   }
 
@@ -262,6 +251,28 @@
     mix-blend-mode:multiply;
   }
 
+  .qr-logo{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:10.8mm;
+    height:10.8mm;
+    aspect-ratio:1 / 1;
+    transform:translate(-50%,-50%);
+    border-radius:999px;
+    background:var(--green-deep);
+    color:var(--paper);
+    border:1.4mm solid var(--paper);
+    display:grid;
+    place-items:center;
+    font-family:Fraunces,Georgia,serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:-.07em;
+    line-height:1;
+    z-index:2;
+  }
+
   .scan{
     font-family:"JetBrains Mono",monospace;
     font-size:7px;
@@ -307,11 +318,9 @@
           <div class="ornament" aria-hidden="true"></div>
           <div class="mark" aria-label="Logo IF">IF</div>
           <div class="name">Isabel Fernández<br>Solo de Zaldívar</div>
-          <div class="role">Formadora FP · Consultora<br>Educativa · Investigadora</div>
           <div class="contact">
             <span><b class="ico">T</b>629 489 015</span>
             <span><b class="ico">M</b>isabelfernandezsolo@gmail.com</span>
-            <span><b class="ico">in</b>isabel-fernandez-solo-de-zaldivar</span>
           </div>
         </article>
       </div>
@@ -321,7 +330,8 @@
         <article class="card front">
           <div class="qr-panel">
             <div class="qr-frame">
-              <img src="qr-landing-page-deep-green-if.png" alt="QR de la página de Isabel Fernández">
+              <img src="qr-landing-page-deep-green-base.png" alt="QR de la página de Isabel Fernández">
+              <div class="qr-logo" aria-hidden="true">IF</div>
             </div>
             <div class="scan">Escanea para conectar</div>
             <div class="url">isabelfernandezsolo.netlify.app</div>
