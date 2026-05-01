@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-label="Logo IF de Isabel Fernandez">
+  <circle cx="600" cy="600" r="430" fill="#0d3a2c"/>
+  <circle cx="600" cy="600" r="464" fill="none" stroke="#d4a24a" stroke-width="8" stroke-dasharray="10 14" opacity=".85"/>
+  <text
+    x="600"
+    y="618"
+    fill="#fbf8f2"
+    font-family="Fraunces, Georgia, serif"
+    font-size="330"
+    font-weight="700"
+    letter-spacing="-20"
+    text-anchor="middle"
+    dominant-baseline="middle">IF</text>
+</svg>

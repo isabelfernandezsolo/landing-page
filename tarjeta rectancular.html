@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarjeta Isabel Fernández Solo de Zaldívar</title>
+<title>Tarjeta rectangular Isabel Fern&aacute;ndez Solo de Zald&iacute;var</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -12,10 +12,8 @@
     --ink:#0b1410;
     --green:#1f5d49;
     --green-deep:#0d3a2c;
-    --green-mid:#3d8a72;
     --gold:#d4a24a;
     --paper:#fbf8f2;
-    --cream:#f6f1e8;
     --muted:#5a6b62;
     --line:rgba(13,58,44,.18);
     --shadow:0 24px 70px rgba(11,20,16,.18);
@@ -61,10 +59,9 @@
   }
 
   .cards{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
+    display:grid;
     gap:28px;
+    justify-items:center;
   }
 
   .side-wrap{
@@ -82,51 +79,39 @@
   }
 
   .card{
-    width:65mm;
-    height:65mm;
+    width:90mm;
+    height:55mm;
     position:relative;
     overflow:hidden;
     box-shadow:var(--shadow);
   }
 
-  .back{
+  .data-side{
     background:var(--paper);
-    border-bottom:2px solid var(--green-deep);
-    display:flex;
-    flex-direction:column;
+    border-left:2px solid var(--green-deep);
+    display:grid;
+    grid-template-columns:22mm 1fr;
     align-items:center;
-    justify-content:center;
-    padding:13mm 8mm 8mm;
+    gap:8mm;
+    padding:9mm;
   }
 
-  .back::before,
-  .back::after{
+  .data-side::before,
+  .data-side::after{
     content:"";
     position:absolute;
-    left:8mm;
-    right:8mm;
-    height:1px;
-    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    top:7mm;
+    bottom:7mm;
+    width:1px;
+    background:linear-gradient(180deg,transparent,var(--gold),transparent);
   }
 
-  .back::before{top:8mm;}
-  .back::after{bottom:17mm;background:var(--line);}
-
-  .ornament{
-    position:absolute;
-    top:7.5mm;
-    left:50%;
-    width:3mm;
-    height:3mm;
-    background:var(--gold);
-    transform:translateX(-50%) rotate(45deg);
-  }
+  .data-side::before{left:7mm;}
+  .data-side::after{right:7mm;background:var(--line);}
 
   .mark{
     width:21mm;
     height:21mm;
-    min-width:21mm;
-    aspect-ratio:1 / 1;
     border-radius:999px;
     background:var(--green-deep);
     color:var(--paper);
@@ -138,8 +123,6 @@
     letter-spacing:-.07em;
     line-height:1;
     position:relative;
-    flex:0 0 auto;
-    margin-bottom:7mm;
   }
 
   .mark::after{
@@ -152,18 +135,17 @@
 
   .name{
     font-family:Fraunces,Georgia,serif;
-    font-size:13.5px;
-    line-height:1.15;
-    text-align:center;
+    font-size:18px;
+    line-height:1.05;
     font-weight:500;
-    margin-bottom:8mm;
+    color:var(--green-deep);
+    margin-bottom:7mm;
   }
 
   .contact{
-    width:100%;
     display:grid;
     gap:2mm;
-    font-size:7.4px;
+    font-size:8px;
     color:var(--muted);
   }
 
@@ -182,17 +164,20 @@
     flex:0 0 auto;
   }
 
-  .front{
+  .qr-side{
     background:var(--green-deep);
     color:var(--paper);
     display:grid;
-    place-items:center;
-    padding:8mm;
+    grid-template-columns:30mm 32mm;
+    align-items:center;
+    justify-content:center;
+    gap:7mm;
+    padding:8mm 9mm;
     border-top:1.2mm solid var(--gold);
   }
 
-  .front::before,
-  .front::after{
+  .qr-side::before,
+  .qr-side::after{
     content:"";
     position:absolute;
     border:1px solid rgba(212,162,74,.13);
@@ -200,47 +185,109 @@
     pointer-events:none;
   }
 
-  .front::before{
-    width:74mm;
-    height:74mm;
-    right:-38mm;
-    top:-22mm;
+  .qr-side::before{
+    width:72mm;
+    height:72mm;
+    right:-36mm;
+    top:-25mm;
   }
 
-  .front::after{
+  .qr-side::after{
     width:82mm;
     height:82mm;
-    left:-50mm;
-    bottom:-38mm;
+    left:-52mm;
+    bottom:-45mm;
   }
 
+  .copy,
   .qr-panel{
     position:relative;
     z-index:1;
+  }
+
+  .copy{
+    display:grid;
+    gap:2.6mm;
+  }
+
+  .fp-logo{
+    width:10.5mm;
+    height:10.5mm;
+    border-radius:999px;
+    background:var(--paper);
+    color:var(--green-deep) !important;
+    display:grid;
+    place-items:center;
+    font-family:Fraunces,Georgia,serif;
+    font-size:14.5px;
+    font-weight:700;
+    letter-spacing:-.07em;
+    line-height:1;
+    box-shadow:0 0 0 1px rgba(212,162,74,.78);
+  }
+
+  .data-side .fp-logo{
+    position:absolute;
+    right:8mm;
+    top:8mm;
+    width:7.5mm;
+    height:7.5mm;
+    font-size:10px;
+    color:var(--green-deep) !important;
+    box-shadow:0 0 0 1px var(--gold);
+  }
+
+  .small{
+    font-family:"JetBrains Mono",monospace;
+    font-size:7px;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:rgba(251,248,242,.68);
+  }
+
+  .headline{
+    font-family:Fraunces,Georgia,serif;
+    font-size:20px;
+    line-height:1.02;
+    font-weight:600;
+    max-width:30mm;
+  }
+
+  .subcopy{
+    color:rgba(251,248,242,.72);
+    font-size:7.2px;
+    letter-spacing:.18em;
+    line-height:1.25;
+    max-width:38mm;
+    text-transform:uppercase;
+  }
+
+  .qr-panel{
     display:grid;
     justify-items:center;
+    justify-self:center;
   }
 
   .qr-frame{
-    width:42mm;
-    height:42mm;
+    width:31mm;
+    height:31mm;
     background:var(--paper);
-    padding:2.8mm;
+    padding:2.2mm;
     position:relative;
-    margin-bottom:5mm;
+    margin-bottom:3mm;
   }
 
   .qr-frame::before,
   .qr-frame::after{
     content:"";
     position:absolute;
-    inset:-2mm;
-    border:1.1mm solid var(--gold);
-    clip-path:polygon(0 0,22% 0,22% 5%,5% 5%,5% 22%,0 22%,0 0,78% 0,100% 0,100% 22%,95% 22%,95% 5%,78% 5%,78% 0,100% 78%,100% 100%,78% 100%,78% 95%,95% 95%,95% 78%,100% 78%,22% 100%,0 100%,0 78%,5% 78%,5% 95%,22% 95%,22% 100%);
+    inset:-1.7mm;
+    border:1mm solid var(--gold);
+    clip-path:polygon(0 0,22% 0,22% 6%,6% 6%,6% 22%,0 22%,0 0,78% 0,100% 0,100% 22%,94% 22%,94% 6%,78% 6%,78% 0,100% 78%,100% 100%,78% 100%,78% 94%,94% 94%,94% 78%,100% 78%,22% 100%,0 100%,0 78%,6% 78%,6% 94%,22% 94%,22% 100%);
   }
 
   .qr-frame::after{
-    inset:-.6mm;
+    inset:-.5mm;
     border-color:rgba(251,248,242,.38);
   }
 
@@ -255,18 +302,18 @@
     position:absolute;
     left:50%;
     top:50%;
-    width:8.2mm;
-    height:8.2mm;
+    width:6.4mm;
+    height:6.4mm;
     aspect-ratio:1 / 1;
     transform:translate(-50%,-50%);
     border-radius:999px;
     background:var(--green-deep);
     color:var(--paper);
-    border:1.1mm solid var(--paper);
+    border:1mm solid var(--paper);
     display:grid;
     place-items:center;
     font-family:Fraunces,Georgia,serif;
-    font-size:10px;
+    font-size:8px;
     font-weight:700;
     letter-spacing:-.07em;
     line-height:1;
@@ -275,25 +322,26 @@
 
   .scan{
     font-family:"JetBrains Mono",monospace;
-    font-size:7px;
-    letter-spacing:.22em;
+    font-size:6.5px;
+    letter-spacing:.2em;
     text-transform:uppercase;
-    color:rgba(251,248,242,.7);
-    margin-bottom:2mm;
+    color:rgba(251,248,242,.72);
+    margin-bottom:1.4mm;
   }
 
   .cta{
     font-family:Fraunces,Georgia,serif;
-    font-size:11px;
+    font-size:9.2px;
     line-height:1.12;
     text-align:center;
     color:var(--paper);
-    margin-bottom:2mm;
+    margin-bottom:1.4mm;
   }
 
   .url{
-    font-size:6px;
-    color:rgba(251,248,242,.35);
+    font-size:5.4px;
+    color:rgba(251,248,242,.38);
+    text-align:center;
   }
 
   .note{
@@ -303,12 +351,28 @@
     margin-top:28px;
   }
 
+  @media (max-width:640px){
+    .card{
+      width:min(90mm,92vw);
+      height:auto;
+      min-height:55mm;
+    }
+
+    .qr-side{
+      grid-template-columns:1fr;
+      justify-items:center;
+      text-align:center;
+    }
+
+    .subcopy{max-width:100%;}
+  }
+
   @media print{
     @page{size:A4;margin:16mm;}
     body{background:#fff;padding:0;display:block;}
     .board{width:100%;}
     .title,.label,.note{display:none;}
-    .cards{gap:14mm;justify-content:flex-start;}
+    .cards{gap:14mm;justify-items:start;}
     .card{box-shadow:none;break-inside:avoid;}
   }
 </style>
@@ -317,40 +381,45 @@
   <main class="board">
     <header class="title">
       <div class="kicker">Identidad visual</div>
-      <h1>Isabel Fernández Solo de Zaldívar</h1>
+      <h1>Isabel Fern&aacute;ndez Solo de Zald&iacute;var</h1>
     </header>
 
-    <section class="cards" aria-label="Diseño de tarjeta doble cara">
+    <section class="cards" aria-label="Dise&ntilde;o de tarjeta rectangular doble cara">
       <div class="side-wrap">
-        <div class="label">Reverso · datos</div>
-        <article class="card back">
-          <div class="ornament" aria-hidden="true"></div>
+        <div class="label">Reverso &middot; datos</div>
+        <article class="card data-side">
+          <div class="fp-logo" aria-label="Logo FP">FP</div>
           <div class="mark" aria-label="Logo IF">IF</div>
-          <div class="name">Isabel Fernández<br>Solo de Zaldívar</div>
-          <div class="contact">
-            <span><b class="ico">T</b>629 489 015</span>
-            <span><b class="ico">M</b>isabelfernandezsolo@gmail.com</span>
+          <div>
+            <div class="name">Isabel Fern&aacute;ndez<br>Solo de Zald&iacute;var</div>
+            <div class="contact">
+              <span><b class="ico">T</b>629 489 015</span>
+              <span><b class="ico">M</b>isabelfernandezsolo@gmail.com</span>
+            </div>
           </div>
         </article>
       </div>
 
       <div class="side-wrap">
-        <div class="label">Frente · QR</div>
-        <article class="card front">
+        <div class="label">Frente &middot; QR</div>
+        <article class="card qr-side">
+          <div class="copy">
+            <div class="fp-logo" aria-label="Logo FP">FP</div>
+            <div class="headline">IFuturo.</div>
+          </div>
+
           <div class="qr-panel">
             <div class="qr-frame">
               <img src="https://api.qrserver.com/v1/create-qr-code/?size=640x640&amp;margin=20&amp;color=0d3a2c&amp;bgcolor=fbf8f2&amp;ecc=H&amp;data=https%3A%2F%2Fisabelfernandezsolo.github.io%2Flanding-page%2F" alt="QR a https://isabelfernandezsolo.github.io/landing-page/">
               <div class="qr-logo" aria-hidden="true">IF</div>
             </div>
-            <div class="scan">Escanea para conectar</div>
-            <div class="cta">Descubre mi trabajo</div>
             <div class="url">isabelfernandezsolo.github.io/landing-page/</div>
           </div>
         </article>
       </div>
     </section>
 
-    <p class="note">Tarjeta cuadrada 65 × 65 mm · doble cara · diseño simplificado con verde, dorado y papel de la web.</p>
+    <p class="note">Tarjeta rectangular 90 x 55 mm &middot; doble cara &middot; dise&ntilde;o adaptado del formato cuadrado.</p>
   </main>
 </body>
 </html>
