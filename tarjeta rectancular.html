@@ -9,6 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
+    --trim-w:90mm;
+    --trim-h:55mm;
+    --bleed:3mm;
+    --bleed-w:96mm;
+    --bleed-h:61mm;
     --ink:#0b1410;
     --green:#1f5d49;
     --green-deep:#0d3a2c;
@@ -79,11 +84,26 @@
   }
 
   .card{
-    width:90mm;
-    height:55mm;
+    width:var(--trim-w);
+    height:var(--trim-h);
     position:relative;
     overflow:hidden;
     box-shadow:var(--shadow);
+  }
+
+  .print-hint{
+    display:grid;
+    gap:3px;
+    justify-items:center;
+    color:rgba(90,107,98,.72);
+    font-size:12px;
+    margin-top:28px;
+    text-align:center;
+  }
+
+  .print-hint strong{
+    color:var(--green-deep);
+    font-weight:600;
   }
 
   .data-side{
@@ -341,7 +361,7 @@
     text-align:center;
     color:rgba(90,107,98,.7);
     font-size:12px;
-    margin-top:28px;
+    margin-top:14px;
   }
 
   @media (max-width:640px){
@@ -361,12 +381,100 @@
   }
 
   @media print{
-    @page{size:A4;margin:16mm;}
-    body{background:#fff;padding:0;display:block;}
+    @page{size:A4;margin:0;}
+
+    html,
+    body{
+      width:210mm;
+      min-height:297mm;
+      background:#fff;
+    }
+
+    body{
+      display:block;
+      padding:0;
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+    }
+
     .board{width:100%;}
-    .title,.label,.note{display:none;}
-    .cards{gap:14mm;justify-items:start;}
-    .card{box-shadow:none;break-inside:avoid;}
+    .title,
+    .label,
+    .note,
+    .print-hint{display:none;}
+
+    .cards{
+      display:block;
+    }
+
+    .side-wrap{
+      width:210mm;
+      height:297mm;
+      display:grid;
+      place-items:center;
+      page-break-after:always;
+      break-after:page;
+      position:relative;
+    }
+
+    .side-wrap:last-child{
+      page-break-after:auto;
+      break-after:auto;
+    }
+
+    .side-wrap::before{
+      content:"";
+      width:108mm;
+      height:73mm;
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      pointer-events:none;
+      background:
+        linear-gradient(#111,#111) 3mm 6mm / 12mm .18mm no-repeat,
+        linear-gradient(#111,#111) 6mm 3mm / .18mm 12mm no-repeat,
+        linear-gradient(#111,#111) calc(100% - 15mm) 6mm / 12mm .18mm no-repeat,
+        linear-gradient(#111,#111) calc(100% - 6mm) 3mm / .18mm 12mm no-repeat,
+        linear-gradient(#111,#111) 3mm calc(100% - 6mm) / 12mm .18mm no-repeat,
+        linear-gradient(#111,#111) 6mm calc(100% - 15mm) / .18mm 12mm no-repeat,
+        linear-gradient(#111,#111) calc(100% - 15mm) calc(100% - 6mm) / 12mm .18mm no-repeat,
+        linear-gradient(#111,#111) calc(100% - 6mm) calc(100% - 15mm) / .18mm 12mm no-repeat;
+    }
+
+    .side-wrap::after{
+      content:"";
+      position:absolute;
+      width:var(--trim-w);
+      height:var(--trim-h);
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      border:.18mm solid rgba(0,0,0,.32);
+      pointer-events:none;
+      z-index:20;
+    }
+
+    .card{
+      width:var(--bleed-w);
+      height:var(--bleed-h);
+      box-shadow:none;
+      break-inside:avoid;
+    }
+
+    .data-side{
+      grid-template-columns:22mm 1fr;
+      padding:12mm;
+    }
+
+    .data-side::before{left:10mm;}
+    .data-side::after{right:10mm;}
+
+    .qr-side{
+      grid-template-columns:30mm 32mm;
+      gap:7mm;
+      padding:11mm 12mm;
+    }
   }
 </style>
 </head>
@@ -402,7 +510,7 @@
 
           <div class="qr-panel">
             <div class="qr-frame">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=640x640&amp;margin=20&amp;color=0d3a2c&amp;bgcolor=fbf8f2&amp;ecc=H&amp;data=https%3A%2F%2Fisabelfernandezsolo.github.io%2Flanding-page%2F" alt="QR a https://isabelfernandezsolo.github.io/landing-page/">
+              <img src="qr-landing-page-deep-green-if.png" alt="QR a https://isabelfernandezsolo.github.io/landing-page/">
               <div class="qr-logo" aria-hidden="true">IF</div>
             </div>
             <a class="project-link" href="https://sites.google.com/site/isabelfernandezsolodezaldivar/home" target="_blank" rel="noopener noreferrer">Accede a la informaci&oacute;n</a>
@@ -411,7 +519,11 @@
       </div>
     </section>
 
-    <p class="note">Tarjeta rectangular 90 x 55 mm &middot; doble cara &middot; dise&ntilde;o adaptado del formato cuadrado.</p>
+    <div class="print-hint" aria-hidden="true">
+      <strong>Lista para imprimir en A4</strong>
+      <span>Exporta a PDF al 100%: cada cara sale en una p&aacute;gina con sangrado de 3 mm y marcas de corte.</span>
+    </div>
+    <p class="note">Tarjeta rectangular 90 x 55 mm &middot; archivo de impresi&oacute;n 96 x 61 mm con sangrado.</p>
   </main>
 </body>
 </html>
