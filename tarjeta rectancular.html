@@ -139,7 +139,16 @@
     line-height:1.05;
     font-weight:500;
     color:var(--green-deep);
-    margin-bottom:7mm;
+    margin-bottom:2mm;
+  }
+
+  .role{
+    font-size:8px;
+    font-weight:600;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:5mm;
   }
 
   .contact{
@@ -157,10 +166,11 @@
   }
 
   .ico{
-    width:3.2mm;
+    width:4mm;
     color:var(--gold);
-    font-family:"JetBrains Mono",monospace;
-    font-size:7px;
+    font-family:Inter,system-ui,sans-serif;
+    font-size:8.5px;
+    line-height:1;
     flex:0 0 auto;
   }
 
@@ -208,33 +218,6 @@
   .copy{
     display:grid;
     gap:2.6mm;
-  }
-
-  .fp-logo{
-    width:10.5mm;
-    height:10.5mm;
-    border-radius:999px;
-    background:var(--paper);
-    color:var(--green-deep) !important;
-    display:grid;
-    place-items:center;
-    font-family:Fraunces,Georgia,serif;
-    font-size:14.5px;
-    font-weight:700;
-    letter-spacing:-.07em;
-    line-height:1;
-    box-shadow:0 0 0 1px rgba(212,162,74,.78);
-  }
-
-  .data-side .fp-logo{
-    position:absolute;
-    right:8mm;
-    top:8mm;
-    width:7.5mm;
-    height:7.5mm;
-    font-size:10px;
-    color:var(--green-deep) !important;
-    box-shadow:0 0 0 1px var(--gold);
   }
 
   .small{
@@ -354,12 +337,6 @@
     color:var(--gold);
   }
 
-  .url{
-    font-size:5.4px;
-    color:rgba(251,248,242,.38);
-    text-align:center;
-  }
-
   .note{
     text-align:center;
     color:rgba(90,107,98,.7);
@@ -404,13 +381,13 @@
       <div class="side-wrap">
         <div class="label">Reverso &middot; datos</div>
         <article class="card data-side">
-          <div class="fp-logo" aria-label="Logo FP">FP</div>
           <div class="mark" aria-label="Logo IF">IF</div>
           <div>
             <div class="name">Isabel Fern&aacute;ndez<br>Solo de Zald&iacute;var</div>
+            <div class="role">Consultora educativa de FP</div>
             <div class="contact">
-              <span><b class="ico">T</b>629 489 015</span>
-              <span><b class="ico">M</b>isabelfernandezsolo@gmail.com</span>
+              <span><b class="ico" aria-hidden="true">&#9742;</b>629 489 015</span>
+              <span><b class="ico" aria-hidden="true">&#9993;</b>isabelfernandezsolo@gmail.com</span>
             </div>
           </div>
         </article>
@@ -420,8 +397,7 @@
         <div class="label">Frente &middot; QR</div>
         <article class="card qr-side">
           <div class="copy">
-            <div class="fp-logo" aria-label="Logo FP">FP</div>
-            <div class="headline">IFuturo.</div>
+            <div class="headline">Dime qu&eacute; necesitas.</div>
           </div>
 
           <div class="qr-panel">
@@ -429,8 +405,7 @@
               <img src="https://api.qrserver.com/v1/create-qr-code/?size=640x640&amp;margin=20&amp;color=0d3a2c&amp;bgcolor=fbf8f2&amp;ecc=H&amp;data=https%3A%2F%2Fisabelfernandezsolo.github.io%2Flanding-page%2F" alt="QR a https://isabelfernandezsolo.github.io/landing-page/">
               <div class="qr-logo" aria-hidden="true">IF</div>
             </div>
-            <a class="project-link" href="https://sites.google.com/site/isabelfernandezsolodezaldivar/home" target="_blank" rel="noopener noreferrer">Conoce mis proyectos</a>
-            <div class="url">isabelfernandezsolo.github.io/landing-page/</div>
+            <a class="project-link" href="https://sites.google.com/site/isabelfernandezsolodezaldivar/home" target="_blank" rel="noopener noreferrer">Accede a la informaci&oacute;n</a>
           </div>
         </article>
       </div>
