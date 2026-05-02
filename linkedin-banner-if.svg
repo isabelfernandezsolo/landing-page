@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1584" height="396" viewBox="0 0 1584 396" role="img" aria-label="Banner de LinkedIn de Isabel Fernandez Solo de Zaldivar">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbf8f2"/>
+      <stop offset="0.52" stop-color="#edf6f1"/>
+      <stop offset="1" stop-color="#f6ecd5"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0c878"/>
+      <stop offset="0.5" stop-color="#d4a24a"/>
+      <stop offset="1" stop-color="#b07d2a"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-30%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#0b1410" flood-opacity=".16"/>
+    </filter>
+  </defs>
+
+  <rect width="1584" height="396" fill="url(#bg)"/>
+  <path d="M0 315 C210 248 360 330 548 260 C770 178 886 38 1148 74 C1330 99 1452 58 1584 16 L1584 396 L0 396 Z" fill="#e8f1ec" opacity=".92"/>
+  <path d="M398 0 L532 396" stroke="#d4a24a" stroke-width="1.6" opacity=".22"/>
+  <path d="M1382 0 C1260 118 1282 238 1184 396" stroke="#0d3a2c" stroke-width="2" opacity=".12" fill="none"/>
+
+  <g transform="translate(590 98)">
+    <g filter="url(#softShadow)">
+      <rect x="0" y="0" width="380" height="142" rx="71" fill="#0d3a2c"/>
+      <circle cx="78" cy="71" r="52" fill="#fbf8f2"/>
+      <circle cx="78" cy="71" r="61" fill="none" stroke="url(#gold)" stroke-width="5" stroke-dasharray="8 10" opacity=".95"/>
+      <text x="78" y="77" fill="#0d3a2c" font-family="Fraunces, Georgia, serif" font-size="49" font-weight="700" letter-spacing="-4" text-anchor="middle" dominant-baseline="middle">IF</text>
+      <line x1="166" y1="42" x2="166" y2="100" stroke="#d4a24a" stroke-width="2" opacity=".65"/>
+      <path d="M205 71 C240 35 284 36 318 71 C284 106 240 107 205 71 Z" fill="none" stroke="#fbf8f2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".95"/>
+      <path d="M236 71 C255 54 273 54 292 71 C273 88 255 88 236 71 Z" fill="url(#gold)" opacity=".92"/>
+    </g>
+  </g>
+</svg>
