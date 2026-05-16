@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consultora especializada en FP | Isabel Fernández Solo de Zaldívar</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      color: #eae8e1;
+      background: #090a0d;
+      --bg: #090a0d;
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      --surface: rgba(22, 26, 38, 0.96);
+      --border: rgba(255,255,255,.08);
+      --gold: #d5a149;
+      --radius: 30px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(circle at top, rgba(133,159,243,0.15), transparent 28%), var(--bg); }
+    body, input, button, textarea { font: inherit; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(9,10,13,0.78); border-bottom: 1px solid var(--border); backdrop-filter: blur(20px); }
+    .nav-wrap { max-width: 1180px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-transform: uppercase; letter-spacing: .14em; font-weight: 600; }
+    .brand span { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, #fff, var(--gold)); }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .nav-links a { padding: 10px 14px; border-radius: 999px; transition: background .2s ease; }
+    .nav-links a:hover { background: rgba(255,255,255,.08); }
+    .hero { max-width: 1080px; margin: 0 auto; padding: 72px 24px 34px; display:grid; gap:22px; }
+    .hero h1 { margin: 0; font-size: clamp(2.4rem, 4vw, 4rem); }
+    .hero p { margin: 0; max-width: 720px; color: #c6c2b8; }
+    .hero-actions { display:flex; flex-wrap: wrap; gap: 14px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding: 16px 28px; border-radius:999px; font-weight:600; transition: transform .2s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--gold); color: #0f0d09; }
+    .section { max-width: 1080px; margin: 0 auto; padding: 24px; }
+    .section-head { display:grid; gap:10px; }
+    .eyebrow { font-size:.78rem; letter-spacing:.16em; text-transform: uppercase; color:#9fa1ad; }
+    .section-title { margin:0; font-size: clamp(1.9rem, 3vw, 2.85rem); }
+    .section-lede { margin: 0; max-width:740px; color:#c7c2b0; font-size:1.02rem; }
+    .grid { display:grid; gap:18px; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); margin-top:26px; }
+    .card { background: var(--surface); border:1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+    .card h3 { margin-top:0; margin-bottom:14px; }
+    .card p { margin:0; color:#d3cfc2; line-height:1.75; }
+    .list-card { display:flex; flex-direction:column; gap:12px; }
+    .list-card strong { font-size:1rem; }
+    .feature { display:grid; gap:10px; padding:22px; border-radius:24px; background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); }
+    .footer { padding:24px; text-align:center; color:#8f8a7f; }
+    @media (max-width: 760px) { .nav-wrap { flex-direction: column; align-items:flex-start; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <a class="brand" href="index.html"><span></span>Isabel Fernández Solo de Zaldívar</a>
+      <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="innovacion-investigacion.html">Investigación</a>
+        <a href="acciones-formativas.html">Formación</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Consultoría · FP · Gestión</p>
+        <h1>Consultora especializada en Formación Profesional</h1>
+        <p>Apoyo a equipos directivos y centros FP para diseñar soluciones prácticas, gestionar proyectos y resolver retos docentes y organizativos.</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#servicios">Ver servicios</a>
+        <a class="btn" style="background: rgba(255,255,255,.08); color:#eae8e1;" href="#contacto">Contactar</a>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <div class="section-head">
+        <div class="eyebrow">Servicios</div>
+        <h2 class="section-title">Consultoría orientada a la mejora real del centro</h2>
+      </div>
+      <p class="section-lede">Trabajo con equipos directivos, departamentos de innovación y coordinadores para construir respuestas operativas a los desafíos actuales de la FP.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Diagnóstico y plan de mejora</h3>
+          <p>Evaluación de procesos, recursos y organización para proponer intervenciones que impacten en la docencia y en la gestión.</p>
+        </div>
+        <div class="card">
+          <h3>Proyectos de innovación</h3>
+          <p>Diseño y acompañamiento de proyectos de innovación pedagógica y organizativa, con foco en evaluación, IA, FP Dual y colaboración empresa-centro.</p>
+        </div>
+        <div class="card">
+          <h3>Apoyo para equipos directivos</h3>
+          <p>Asesoría en gobernanza, planificación estratégica, dinamización de claustros y creación de propuestas para centros innovadores.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="feature">
+        <h4>Áreas de intervención</h4>
+        <div class="list-card">
+          <strong>01 Sistemas de evaluación</strong>
+          <p>Evaluación por competencias, instrumentos prácticos y uso de evidencias en el seguimiento del alumnado.</p>
+        </div>
+        <div class="list-card">
+          <strong>02 FP Dual y colaboración con empresas</strong>
+          <p>Propuestas de coordinación, seguimiento y mejora de la relación entre centros y empresas.</p>
+        </div>
+        <div class="list-card">
+          <strong>03 Gestión de la innovación</strong>
+          <p>Métodos para planificar, ejecutar y comunicar proyectos de innovación educativa en el centro.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="eyebrow">Metodología</div>
+        <h2 class="section-title">Acompañamiento con claridad y foco operativo</h2>
+      </div>
+      <p class="section-lede">Cada propuesta se construye a partir de un diagnóstico real y se despliega con pasos concretos: planificación, implementación, seguimiento y evaluación.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Fase 1: Diagnóstico</h3>
+          <p>Recojo evidencias del funcionamiento actual, identifico puntos fuertes y áreas de mejora, y establezco prioridades.</p>
+        </div>
+        <div class="card">
+          <h3>Fase 2: Diseño</h3>
+          <p>Trabajo con el equipo para diseñar intervenciones viables, alineadas con los objetivos del centro y las exigencias de la FP.</p>
+        </div>
+        <div class="card">
+          <h3>Fase 3: Implementación</h3>
+          <p>Acompaño la puesta en marcha del plan con reuniones, materiales de trabajo y seguimiento estrecho.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="section-head">
+        <div class="eyebrow">Contacto</div>
+        <h2 class="section-title">Diseña un plan de consultoría para tu centro FP</h2>
+      </div>
+      <p class="section-lede">Escríbeme para desarrollar una propuesta a medida: desde el diagnóstico hasta la implementación y el acompañamiento.</p>
+      <div class="card" style="padding: 28px; display:flex; flex-direction:column; gap:18px;">
+        <p><strong>Correo:</strong> <a href="mailto:isabel@isabelfdez.com" style="color:var(--gold);">isabel@isabelfdez.com</a></p>
+        <p><strong>Respuestas rápidas</strong> para equipos directivos, departamentos de innovación y centros que buscan mejorar.</p>
+        <a class="btn btn-primary" href="index.html">Volver al inicio</a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">© 2026 Isabel Fernández Solo de Zaldívar · Consultoría para FP</footer>
+</body>
+</html>

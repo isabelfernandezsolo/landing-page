@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acciones formativas | Isabel Fernández Solo de Zaldívar</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      color: #eae8e1;
+      background: #090a0d;
+      --bg: #090a0d;
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.65;
+      --surface: rgba(18, 22, 32, 0.95);
+      --border: rgba(255,255,255,.07);
+      --gold: #d5a149;
+      --radius: 28px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(circle at top, rgba(133,159,243,0.14), transparent 30%), var(--bg); }
+    body, input, button, textarea { font: inherit; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(20px); background: rgba(9,10,13,0.78); border-bottom: 1px solid var(--border); }
+    .nav-wrap { max-width: 1180px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; gap: 14px; align-items: center; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-transform: uppercase; font-weight: 600; letter-spacing: .14em; }
+    .brand span { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, #fff, var(--gold)); }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .nav-links a { padding: 10px 14px; border-radius: 999px; transition: background .2s ease; }
+    .nav-links a:hover { background: rgba(255,255,255,.08); }
+    .hero { max-width: 1060px; margin: 0 auto; padding: 72px 24px 36px; display: grid; gap: 24px; }
+    .hero h1 { margin: 0; font-size: clamp(2.4rem, 4vw, 4rem); line-height: 1.02; }
+    .hero p { margin: 0; color: #c7c2b9; max-width: 720px; font-size: 1rem; }
+    .hero-actions { display:flex; flex-wrap: wrap; gap: 14px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 15px 28px; font-weight: 600; transition: transform .2s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--gold); color: #0c0b08; }
+    .section { max-width: 1080px; margin: 0 auto; padding: 24px; }
+    .section-head { display:grid; gap: 10px; }
+    .eyebrow { font-size: .78rem; color: #9fa1ad; letter-spacing: .16em; text-transform: uppercase; }
+    .section-title { margin: 0; font-size: clamp(1.9rem, 3vw, 2.8rem); }
+    .section-lede { color: #c6c2b8; max-width: 760px; font-size: 1.02rem; }
+    .grid { display:grid; gap: 18px; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); margin-top: 28px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+    .card h3 { margin-top: 0; margin-bottom: 14px; font-size: 1.25rem; }
+    .card p { margin: 0; color: #d3cfc2; line-height: 1.75; }
+    .card ul { margin: 16px 0 0; padding-left: 20px; color: #dad7ce; }
+    .feature { display:grid; gap:10px; padding: 22px; border-radius: 24px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); }
+    .feature h4 { margin: 0; }
+    .footer { padding: 24px; text-align:center; color:#8f8a7f; }
+    @media (max-width: 720px) { .nav-wrap { flex-direction: column; align-items:flex-start; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <a class="brand" href="index.html"><span></span>Isabel Fernández Solo de Zaldívar</a>
+      <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="innovacion-investigacion.html">Investigación</a>
+        <a href="consultora-especializada-fp.html">Consultoría</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Acciones formativas · FP · Equipos docentes</p>
+        <h1>Acciones formativas para transformar la práctica docente en FP</h1>
+        <p>Formaciones diseñadas para que los docentes apliquen metodologías activas, evaluación por competencias y herramientas digitales con impacto real en el aula.</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#programas">Ver programas</a>
+        <a class="btn" style="background: rgba(255,255,255,.08); color:#eae8e1;" href="#contacto">Contactar</a>
+      </div>
+    </section>
+
+    <section class="section" id="programas">
+      <div class="section-head">
+        <div class="eyebrow">Programas</div>
+        <h2 class="section-title">Talleres y cursos prácticos para mejorar el aula de FP</h2>
+      </div>
+      <p class="section-lede">Las formaciones terminan con herramientas concretas, plantillas adaptables y un plan para aplicar directamente en el ciclo.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Módulo de Proyecto: de la angustia a la programación</h3>
+          <p>Diseño de la programación paso a paso con criterios de evaluación claros, rúbricas operativas y materiales listos para adaptar.</p>
+          <ul>
+            <li>6-8h presencial / 8-10h online</li>
+            <li>Material editable</li>
+            <li>Evaluación centrada en evidencias</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Evaluación por resultados de aprendizaje</h3>
+          <p>Formación para construir instrumentos y evidencias que conecten directamente con el currículo y con los objetivos del ciclo.</p>
+          <ul>
+            <li>4-6h presencial / online</li>
+            <li>Rúbricas y matrices de evaluación</li>
+            <li>Aplicable a cualquier familia profesional</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>IA en el aula de FP</h3>
+          <p>Uso responsable de inteligencia artificial para que los alumnos aprendan con herramientas actuales sin perder el foco pedagógico.</p>
+          <ul>
+            <li>6h presencial/online</li>
+            <li>Diseño de actividades con IA</li>
+            <li>Proyectos guiados y ejemplos prácticos</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Gamificación y metodologías activas</h3>
+          <p>Mecánicas y propuestas para hacer las clases más motivadoras y estructuradas, con evidencias de aprendizaje reales.</p>
+          <ul>
+            <li>6-8h presencial/online</li>
+            <li>Dinámicas adaptables</li>
+            <li>Evaluación conectada</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="eyebrow">Cómo lo trabajo</div>
+        <h2 class="section-title">Formaciones prácticas, con materiales y seguimiento</h2>
+      </div>
+      <p class="section-lede">No trabajo con presentaciones eternas. Cada acción se acompaña de entrega útil, planificación clara y criterios aplicables al calendario del centro.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Sesiones adaptables</h3>
+          <p>Puedo ofrecer formaciones de 4 a 12 horas, presenciales, online o mixtas, según las necesidades del equipo.</p>
+        </div>
+        <div class="card">
+          <h3>Material editable</h3>
+          <p>Cada taller incluye plantillas, ejemplos y recursos que los docentes pueden ajustar a su módulo o ciclo.</p>
+        </div>
+        <div class="card">
+          <h3>Soporte posterior</h3>
+          <p>Acompaño la implementación con orientación en la fase de aplicación para asegurar que la teoría llega al aula.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="feature">
+        <h4>¿A quién va dirigida esta formación?</h4>
+        <p>Docentes de FP, equipos directivos y departamentos de formación que quieren que la innovación y la evaluación funcionen en la práctica.</p>
+      </div>
+      <div class="feature">
+        <h4>¿Qué se consigue?</h4>
+        <p>Una experiencia formativa concreta, con productos inmediatamente utilizables y una hoja de ruta para que el equipo mantenga el impulso.</p>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="section-head">
+        <div class="eyebrow">Contacto</div>
+        <h2 class="section-title">Organiza una acción formativa para tu equipo</h2>
+      </div>
+      <p class="section-lede">Escríbeme para diseñar un curso que responda a tu realidad de centro, con una propuesta clara de contenidos, formato y fases.</p>
+      <div class="card" style="padding: 28px; display:flex; flex-direction:column; gap:18px;">
+        <p><strong>Correo:</strong> <a href="mailto:isabel@isabelfdez.com" style="color:var(--gold);">isabel@isabelfdez.com</a></p>
+        <p><strong>Propuesta rápida:</strong> sesiones, foco y resultados adaptados a tu centro.</p>
+        <a class="btn btn-primary" href="index.html">Volver al inicio</a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">© 2026 Isabel Fernández Solo de Zaldívar · Formación práctica en FP</footer>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Innovación e investigación aplicada en FP | Isabel Fernández Solo de Zaldívar</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      color: #eae8e1;
+      background: #090a0d;
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      --bg: #090a0d;
+      --surface: rgba(20, 24, 33, 0.96);
+      --surface-soft: rgba(25, 30, 42, 0.9);
+      --border: rgba(255, 255, 255, 0.07);
+      --gold: #d5a149;
+      --gold-soft: rgba(213, 161, 73, 0.12);
+      --blue: #86a5ef;
+      --radius: 28px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(circle at top, rgba(133, 159, 243, 0.16), transparent 32%), var(--bg); }
+    body, button, input, textarea { font: inherit; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(24px); background: rgba(9, 10, 13, 0.7); border-bottom: 1px solid var(--border); }
+    .nav-wrap { max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; }
+    .brand span { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, #fff, var(--gold)); display: inline-block; }
+    .nav-links { display: flex; gap: 14px; flex-wrap: wrap; }
+    .nav-links a { padding: 10px 14px; border-radius: 999px; transition: background .25s ease; font-size: 0.94rem; }
+    .nav-links a:hover { background: rgba(255,255,255,.08); }
+    .hero { max-width: 1080px; margin: 0 auto; padding: 80px 24px 40px; display: grid; gap: 30px; }
+    .hero h1 { margin: 0; font-size: clamp(2.6rem, 4vw, 4.5rem); line-height: 1.02; letter-spacing: -0.04em; }
+    .hero p { max-width: 720px; font-size: 1.05rem; color: #c6c2b8; }
+    .hero .hero-meta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; font-size: 0.95rem; }
+    .hero .hero-meta span { display: inline-flex; gap: 8px; align-items: center; padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border: none; border-radius: 999px; padding: 16px 26px; font-weight: 600; letter-spacing: 0.01em; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--gold); color: #10100c; box-shadow: 0 18px 40px rgba(213,161,73,.2); }
+    .section { max-width: 1080px; margin: 0 auto; padding: 20px 24px 40px; }
+    .section-head { display: grid; gap: 10px; }
+    .eyebrow { color: #9fa3b0; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.16em; }
+    .section-title { margin: 0; font-size: clamp(1.8rem, 3vw, 2.85rem); line-height: 1.04; }
+    .section-lede { max-width: 740px; color: #c6c2b8; font-size: 1.05rem; margin-top: 12px; }
+    .card-grid { display: grid; gap: 18px; margin-top: 28px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; box-shadow: 0 20px 48px rgba(0,0,0,.18); }
+    .card h3 { margin-top: 0; margin-bottom: 14px; font-size: 1.3rem; }
+    .card p { margin: 0; color: #d3cfc3; line-height: 1.75; }
+    .card ul { margin: 18px 0 0; padding-left: 20px; color: #d3cfc3; }
+    .card ul li { margin-bottom: 10px; }
+    .highlight { color: var(--gold); }
+    .split { display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .split > * { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; }
+    .split h3 { margin-top: 0; }
+    .feature-row { display: grid; gap: 16px; margin-top: 32px; }
+    .feature { display: grid; gap: 12px; padding: 20px; border-radius: 22px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); }
+    .feature strong { display: block; font-size: 1rem; }
+    .feature p { margin: 0; color: #c6c2b8; }
+    .page-footer { padding: 24px; text-align: center; color: #8f8a7f; font-size: 0.95rem; }
+    @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .hero { padding-top: 56px; } .nav-wrap { flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-wrap">
+      <a class="brand" href="index.html"><span></span>Isabel Fernández Solo de Zaldívar</a>
+      <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="acciones-formativas.html">Formación</a>
+        <a href="consultora-especializada-fp.html">Consultoría</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Investigación aplicada · FP · Centros</p>
+        <h1>Innovación e investigación aplicada en Formación Profesional</h1>
+        <p>Transformo proyectos de aula en investigación práctica, con evidencias, transferencia y resultados que cumplen la nueva Ley de FP.</p>
+      </div>
+      <div class="hero-meta">
+        <span>Proyectos para equipos docentes y centros FP</span>
+        <span>Asesoría para Centros de Referencia Nacional</span>
+      </div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="#propuesta">Ver la propuesta</a>
+        <a class="btn" style="background: rgba(255,255,255,.08); color:#eae8e1;" href="#contacto">Contactar</a>
+      </div>
+    </section>
+
+    <section class="section" id="propuesta">
+      <div class="section-head">
+        <div class="eyebrow">Qué hago</div>
+        <h2 class="section-title">Acompaño a centros y docentes de FP a que su práctica se convierta en investigación útil.</h2>
+      </div>
+      <p class="section-lede">Lo que ya hacéis en el aula puede ser un motor de innovación real. El reto es ordenar ese trabajo, definir preguntas pertinentes y generar evidencia transferible.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Diagnóstico de investigación</h3>
+          <p>Partimos de lo que ya se hace en el aula. Identifico prácticas investigables y construyo un plan viable que encaje con la programación docente, el horario y los recursos del centro.</p>
+        </div>
+        <div class="card">
+          <h3>Diseño y seguimiento</h3>
+          <p>Diseño el proyecto de investigación aplicada, acompaño la recogida de datos y ofrezco apoyo para interpretar resultados sin que el aula deje de ser aula.</p>
+        </div>
+        <div class="card">
+          <h3>Transferencia y difusión</h3>
+          <p>Traduzco resultados en productos útiles: informes, comunicaciones, artículos, propuestas de cooperación con empresas y documentación para memorias de centro.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split">
+        <div>
+          <h3>Proceso claro y práctico</h3>
+          <ul>
+            <li>Identificar prácticas con valor investigador</li>
+            <li>Definir preguntas centradas en el aula y el sector</li>
+            <li>Diseñar instrumentos de recogida sencillos</li>
+            <li>Analizar datos con IA y criterio pedagógico</li>
+            <li>Generar evidencias transferibles</li>
+          </ul>
+        </div>
+        <div>
+          <h3>¿Por qué importa?</h3>
+          <p>Porque la Ley de FP exige investigación aplicada, pero lo realmente clave es que esos proyectos sean útiles para el centro y para su entorno productivo.</p>
+          <p>Este enfoque evita investigaciones teóricas desconectadas y sitúa al centro como un agente innovador de su territorio.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="eyebrow">Para centros y equipos</div>
+        <h2 class="section-title">Una propuesta pensada para Centros de Referencia Nacional</h2>
+      </div>
+      <p class="section-lede">Acompaño el diseño y desarrollo de actuaciones que generan resultados visibles y transferibles: investigación aplicada, formación docente, metodologías innovadoras y vínculos con empresa.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Proyectos sectoriales</h3>
+          <p>Diseño de estudios aplicados sobre procesos productivos, innovación tecnológica, sostenibilidad o digitalización en el sector de referencia.</p>
+        </div>
+        <div class="card">
+          <h3>Formación con transferencia</h3>
+          <p>Programas formativos diseñados para que los docentes aprendan a investigar desde el aula y generar evidencias aplicables.</p>
+        </div>
+        <div class="card">
+          <h3>Visibilidad y comunicación</h3>
+          <p>Revisión de resultados, preparación de publicaciones, artículos, buenas prácticas y difusión de la propuesta del centro.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="feature-row">
+        <div class="feature">
+          <strong>IA como apoyo práctico</strong>
+          <p>Uso herramientas de IA para analizar datos, redactar informes y acelerar la construcción de instrumentos sin perder rigor.</p>
+        </div>
+        <div class="feature">
+          <strong>Respeto por el contexto FP</strong>
+          <p>Adapto cada propuesta a la realidad de los ciclos, las familias profesionales y la cultura del centro.</p>
+        </div>
+        <div class="feature">
+          <strong>Metodología con recorrido</strong>
+          <p>No son acciones aisladas: se diseña una ruta con continuidad para que el trabajo se mantenga más allá del proyecto inicial.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="section-head">
+        <div class="eyebrow">Contacto</div>
+        <h2 class="section-title">Hablemos de investigación en tu centro</h2>
+      </div>
+      <p class="section-lede">Si tu centro quiere cumplir con la investigación aplicada de la nueva ley y generar proyectos que realmente produzcan transferencia, charlemos.</p>
+      <div class="card" style="padding: 28px; display:flex; flex-direction:column; gap:18px;">
+        <p><strong>Escríbeme:</strong> <a href="mailto:isabel@isabelfdez.com" style="color:var(--gold);">isabel@isabelfdez.com</a></p>
+        <p><strong>O reserva una llamada:</strong> claridad sobre ideas, cronograma y propuestas de trabajo.</p>
+        <a class="btn btn-primary" href="index.html">Volver a la página principal</a>
+      </div>
+    </section>
+  </main>
+  <footer class="page-footer">© 2026 Isabel Fernández Solo de Zaldívar · Consultora en FP y proyectos de investigación aplicada</footer>
+</body>
+</html>
