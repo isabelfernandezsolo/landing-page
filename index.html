@@ -149,7 +149,7 @@
   .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green-mid);margin-bottom:18px;}
   .hero-intro{font-family:'Fraunces',serif;font-size:clamp(22px,4vw,42px);line-height:1.05;color:var(--ink-2);margin-bottom:24px;max-width:520px;}
   .hero-intro em{font-style:italic;color:var(--green-deep);}
-  .hero-visual-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px;}
+  .hero-visual-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:12px;width:100%;}
   .hero-visual-actions .btn{min-width:170px;}
   .cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
   .btn{
@@ -179,15 +179,36 @@
   @media(max-width:760px){.partner-row{flex-direction:column;align-items:flex-start;gap:10px;}.partner-marquee{animation-duration:40s;}.partner-marquee span{font-size:14px;padding:0 10px;}.partner-marquee span::after{margin-left:10px;font-size:16px;}}
   .help-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px;}
   @media(max-width:1020px){.help-grid{grid-template-columns:1fr;}}
-  .help-card{background:var(--white);border:1px solid rgba(11,20,16,.08);border-radius:24px;padding:30px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow-1);}
+  .help-card{
+    --service:#1f5d49;
+    --service-deep:#0d3a2c;
+    --service-soft:#e8f1ec;
+    --service-wash:#f5faf7;
+    --service-glow:rgba(31,93,73,.18);
+    --service-border:rgba(31,93,73,.24);
+    --service-border-strong:rgba(31,93,73,.46);
+    background:linear-gradient(180deg,var(--white) 0%,var(--service-wash) 100%);
+    border:1px solid var(--service-border);
+    border-radius:24px;padding:30px;display:flex;flex-direction:column;gap:18px;
+    box-shadow:var(--shadow-1),0 22px 54px -34px var(--service);
+    position:relative;overflow:hidden;
+    transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s;
+  }
+  .help-card::before{content:'';position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,var(--service),var(--service-deep));}
+  .help-card::after{content:'';position:absolute;right:-50px;top:-62px;width:150px;height:150px;border-radius:50%;background:var(--service-glow);pointer-events:none;}
+  .help-card:hover{transform:translateY(-5px);box-shadow:0 26px 70px -36px var(--service),var(--shadow-1);border-color:var(--service-border-strong);}
+  .help-card.research{--service:#1f5d49;--service-deep:#0d3a2c;--service-soft:#e8f1ec;--service-wash:#f4faf7;--service-glow:rgba(31,93,73,.18);--service-border:rgba(31,93,73,.24);--service-border-strong:rgba(31,93,73,.46);}
+  .help-card.training{--service:#d4a24a;--service-deep:#8f641c;--service-soft:#f6ecd5;--service-wash:#fff8ea;--service-glow:rgba(212,162,74,.22);--service-border:rgba(212,162,74,.28);--service-border-strong:rgba(212,162,74,.5);}
+  .help-card.consulting{--service:#5f7f90;--service-deep:#294958;--service-soft:#eef3f6;--service-wash:#f3f7f8;--service-glow:rgba(95,127,144,.2);--service-border:rgba(95,127,144,.28);--service-border-strong:rgba(95,127,144,.5);}
   .help-top{display:flex;align-items:flex-start;gap:16px;}
-  .help-top .ico{width:48px;height:48px;border-radius:16px;background:var(--green-soft);color:var(--green-deep);display:flex;align-items:center;justify-content:center;font-size:24px;}
-  .help-top h3{font-family:'Fraunces',serif;font-size:clamp(22px,2.3vw,28px);line-height:1.08;margin:0;color:var(--green-deep);}
+  .help-top .ico{width:48px;height:48px;border-radius:16px;background:var(--service-soft);color:var(--service-deep);display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:inset 0 0 0 1px var(--service-border);}
+  .help-top h3{font-family:'Fraunces',serif;font-size:clamp(22px,2.3vw,28px);line-height:1.08;margin:0;color:var(--service-deep);}
   .help-card p{color:var(--ink-2);line-height:1.75;}
   .help-card ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;}
   .help-card li{position:relative;padding-left:20px;color:var(--muted);line-height:1.75;}
-  .help-card li::before{content:'•';position:absolute;left:0;top:2px;color:var(--gold);font-size:18px;line-height:1;}
-  .help-card a{margin-top:auto;}
+  .help-card li::before{content:'•';position:absolute;left:0;top:2px;color:var(--service);font-size:18px;line-height:1;}
+  .help-card a{margin-top:auto;background:linear-gradient(135deg,var(--service) 0%,var(--service-deep) 100%);color:var(--paper);box-shadow:0 14px 34px -18px var(--service);}
+  .help-card a:hover{box-shadow:0 20px 42px -20px var(--service);}
   .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px;}
   @media(max-width:980px){.who-grid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:640px){.who-grid{grid-template-columns:1fr;}}
@@ -202,30 +223,39 @@
 
   /* Hero visual */
   .hero-visual{
-    position:relative;aspect-ratio:1/1;max-width:540px;justify-self:end;width:100%;
-    display:flex;align-items:center;justify-content:center;
+    position:relative;max-width:540px;justify-self:end;width:100%;
+    display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:32px;
+    padding:8px 0 0;
   }
   @media(max-width:960px){.hero-visual{justify-self:center;max-width:460px;}}
-  .hero-visual::before,
-  .hero-visual::after{
+  .portrait-ring{
+    position:relative;width:100%;max-width:420px;aspect-ratio:1/1;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .portrait-ring::before,
+  .portrait-ring::after{
     content:'';position:absolute;border-radius:50%;pointer-events:none;
   }
-  .hero-visual::before{
+  .portrait-ring::before{
     inset:-2%;border:2px dashed rgba(212,162,74,.75);
   }
-  .hero-visual::after{
+  .portrait-ring::after{
     inset:4%;border:10px solid rgba(31,93,73,.16);
     box-shadow:0 0 0 1px rgba(212,162,74,.45), 0 0 0 16px rgba(212,162,74,.08), 0 0 0 30px rgba(31,93,73,.06);
   }
   .portrait{
-    position:relative;width:88%;height:88%;
+    position:relative;width:70%;height:70%;
     background:var(--grad-hero);
     border-radius:50%;
     overflow:hidden;
     box-shadow:var(--shadow-2);
     z-index:1;
     border:8px solid var(--paper);
+    display:flex;align-items:center;justify-content:center;
   }
+  .portrait img{width:100%;height:100%;object-fit:cover;object-position:center center;}
+  .hero-visual-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;width:100%;margin-top:0;}
+  .hero-visual-actions .btn{min-width:170px;}
   .hero-featured{
     padding:44px 0 54px;
     background:linear-gradient(180deg,#f8f8f2,#eef6ef);
@@ -944,6 +974,8 @@
     <div class="brand-name">Isabel Fernández</div>
   </a>
   <ul class="nav-links">
+    <li><a href="#sobre">Quién soy</a></li>
+    <li><a href="#servicios">Servicios</a></li>
     <li><a href="#contacto" class="nav-cta">Contacto</a></li>
   </ul>
 </nav>
@@ -954,12 +986,12 @@
     <div class="hero-grid">
       <div>
         <p class="hero-eyebrow reveal">01 / Quién soy</p>
-        <h2 class="hero-intro reveal">25 años <em>dentro</em>.<br>No mirando <strong>desde fuera</strong>.</h2>
+        <h2 class="hero-intro reveal">25 años dentro.<br>No mirando desde fuera.</h2>
         <h1 class="reveal">
           Isabel <span class="accent">Fernández</span>
           <strong>Solo de Zaldívar.</strong>
         </h1>
-        <p class="hero-sub reveal">Ayudo a centros de FP, universidades y organizaciones educativas a convertir formación, innovación e investigación aplicada en cambios reales de aula.</p>
+        <p class="hero-sub reveal">Comencé en la FP desde el aula y sigo ahí: entre alumnos, equipos docentes, proyectos, calidad, empresa e investigación. Desde 2010 también acompaño a futuros profesores en su salto a la docencia.</p>
         <p class="hero-statement reveal">Formar no es llenar horas. Consultar no es entregar informes. Es lograr que el lunes algo cambie en el aula.</p>
         <div class="hero-meta reveal">
           <span class="chip">25 años en FP</span>
@@ -973,12 +1005,14 @@
       </div>
 
       <div class="hero-visual reveal">
-        <span class="orbit-line o1"></span>
-        <span class="orbit-line o2"></span>
-        <span class="orbit-line o3"></span>
-        <div class="portrait-logo">IF</div>
-        <div class="portrait">
-          <img src="ChatGPT%20Image%2023%20abr%202026,%2010_27_04.png" alt="Isabel Fernández Solo de Zaldívar">
+        <div class="portrait-ring">
+          <span class="orbit-line o1"></span>
+          <span class="orbit-line o2"></span>
+          <span class="orbit-line o3"></span>
+          <div class="portrait-logo">IF</div>
+          <div class="portrait">
+            <img src="ChatGPT%20Image%2023%20abr%202026,%2010_27_04.png" alt="Isabel Fernández Solo de Zaldívar">
+          </div>
         </div>
         <div class="hero-visual-actions">
           <a href="experiencia-profesional.html" class="btn btn-primary">Mi experiencia profesional</a>
@@ -990,43 +1024,6 @@
 </header>
 
 <!-- SOBRE -->
-<section id="sobre">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <div class="eyebrow">Sobre mí</div>
-        <h2 class="section-title">25 años <em>dentro</em>.<br>No mirando <strong>desde fuera</strong>.</h2>
-      </div>
-      <p class="section-lede">Comencé en la FP desde el aula y sigo ahí: entre alumnos, equipos docentes, proyectos, calidad, empresa e investigación. Desde 2010 también acompaño a futuros profesores en su salto a la docencia.</p>
-    </div>
-
-    <details class="about-summary reveal">
-      <summary>
-        <h3>Convierto la experiencia del aula en cambios que se notan.</h3>
-        <span class="more">+</span>
-      </summary>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>Llevo 25 años viviendo la FP desde dentro: la primera clase que no sale como esperabas, el alumno que necesita otra manera de aprender, el claustro que quiere cambiar pero no encuentra el cómo, la empresa que quiere colaborar y el proyecto que puede convertirse en evidencia.</p>
-          <p>No hablo de la FP desde fuera. La conozco desde el aula, la investigación, la formación del profesorado y la colaboración con instituciones educativas.</p>
-          <p>Soy doctora por la UNED (2016), licenciada en Psicopedagogía, Ciencias de la Educación y Ciencias del Trabajo, y diplomada en Relaciones Laborales.</p>
-          <p>Funcionaria de carrera desde 2000, sigo siendo jefa de departamento en ESTNA. Desde 2010 formo profesorado en la UNIR, acompañando a quienes se preparan para entrar en Secundaria y FP con una mirada práctica, rigurosa y conectada con el aula real.</p>
-          <p>También he sido asesora y responsable de calidad durante más de 15 años. Esa trayectoria me permite leer un centro por dentro: aula, gestión, innovación, empresa y evidencia.</p>
-          <div class="pull-quote">No llego con recetas. Escucho el centro, traduzco el problema y construyo una respuesta que pueda sostenerse en el aula.</div>
-          <p>Pionera en la implantación del primer ciclo de FP Dual de Prevención de Riesgos Laborales en Navarra. Investigadora en proyectos del Ministerio de Educación, con publicaciones científicas y presencia en medios nacionales.</p>
-        </div>
-
-        <div class="creds">
-          <div class="cred"><div class="cred-num">01</div><div class="cred-text"><strong>25 años en el aula</strong><span>Docencia, FP Dual, proyectos y equipos docentes</span></div></div>
-          <div class="cred"><div class="cred-num">02</div><div class="cred-text"><strong>Doctora e investigadora</strong><span>Publicaciones científicas y proyectos aplicados</span></div></div>
-          <div class="cred"><div class="cred-num">03</div><div class="cred-text"><strong>Formadora y consultora</strong><span>UNIR, máster de profesorado, centros y administraciones</span></div></div>
-          <div class="cred"><div class="cred-num">04</div><div class="cred-text"><strong>Gestión, calidad e innovación</strong><span>Experiencia real en centro, empresa y FP</span></div></div>
-        </div>
-      </div>
-    </details>
-  </div>
-</section>
-
 <section class="partner-band reveal">
   <div class="wrap">
     <div class="partner-row">
@@ -1083,20 +1080,20 @@
     </div>
 
     <div class="help-grid reveal">
-      <article class="help-card">
+      <article class="help-card research">
         <div class="help-top"><span class="ico">🔬</span><h3>Innovación e investigación aplicada en FP</h3></div>
         <p>Diseño, gestión y desarrollo de proyecto de investigación en FP (Artículos 102 y 103 de la Ley Orgánica 3/2022)</p>
-        <a href="innovacion-investigacion.html" class="btn btn-gold">Ver la página de investigación</a>
+        <a href="innovacion-investigacion.html" class="btn btn-gold">Impulsar proyectos de investigación</a>
       </article>
-      <article class="help-card">
+      <article class="help-card training">
         <div class="help-top"><span class="ico">🎓</span><h3>Acciones formativas</h3></div>
         <p>Cursos y talleres que mejoran la práctica docente en FP (metodologías activas, evaluación por competencias, IA...) con un enfoque práctico, y adaptado a la realidad del centro</p>
-        <a href="acciones-formativas.html" class="btn btn-gold">Ver la página de acciones formativas</a>
+        <a href="acciones-formativas.html" class="btn btn-gold">Ver acciones formativas</a>
       </article>
-      <article class="help-card">
+      <article class="help-card consulting">
         <div class="help-top"><span class="ico">⚙️</span><h3>Consultora especializada en FP</h3></div>
         <p>Apoyo a equipos directivos y desarrollo de soluciones prácticas y aplicables orientadas a la mejora de la gestión y solución de problemas de los centros de FP</p>
-        <a href="consultora-especializada-fp.html" class="btn btn-gold">Ver la página de consultoría</a>
+        <a href="consultora-especializada-fp.html" class="btn btn-gold">Solicitar asesoramiento</a>
       </article>
     </div>
 
@@ -1112,7 +1109,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <div class="eyebrow">07 / Contacto</div>
+        <div class="eyebrow">03 / Contacto</div>
         <h2 class="section-title">¿Quieres que trabajemos una propuesta para tu centro o entidad?</h2>
       </div>
       <p class="section-lede">Podemos empezar con una reunión breve para identificar necesidades, definir una línea de actuación y concretar una propuesta de formación, consultoría o investigación aplicada.</p>
@@ -1127,8 +1124,8 @@
       <div>
         <a href="tel:+34629489015" class="ci"><div class="ci-ico">📞</div><div><div class="ci-lbl">Teléfono</div><div class="ci-val">629 489 015</div></div></a>
         <a href="mailto:isabelfernandezsolo@gmail.com" class="ci"><div class="ci-ico">✉</div><div><div class="ci-lbl">Email</div><div class="ci-val">isabelfernandezsolo@gmail.com</div></div></a>
-        <a href="https://wa.me/34629489015" class="ci" target="_blank"><div class="ci-ico">💬</div><div><div class="ci-lbl">WhatsApp</div><div class="ci-val">Escríbeme directamente</div></div></a>
-        <a href="https://www.linkedin.com/in/isabelfernandezsolodezaldivar" class="ci" target="_blank"><div class="ci-ico" style="font-family:'Fraunces',serif;font-weight:700;">in</div><div><div class="ci-lbl">LinkedIn</div><div class="ci-val">isabelfernandezsolodezaldivar</div></div></a>
+        <a href="https://wa.me/34629489015" class="ci" target="_blank" rel="noopener noreferrer"><div class="ci-ico">💬</div><div><div class="ci-lbl">WhatsApp</div><div class="ci-val">Escríbeme directamente</div></div></a>
+        <a href="https://www.linkedin.com/in/isabelfernandezsolodezaldivar" class="ci" target="_blank" rel="noopener noreferrer"><div class="ci-ico" style="font-family:'Fraunces',serif;font-weight:700;">in</div><div><div class="ci-lbl">LinkedIn</div><div class="ci-val">isabelfernandezsolodezaldivar</div></div></a>
       </div>
       <div>
         <p style="color:rgba(255,255,255,.5);font-size:13px;margin-bottom:18px;font-family:'JetBrains Mono',monospace;letter-spacing:.04em;">// Cuéntame qué necesitas y te preparo una propuesta:</p>

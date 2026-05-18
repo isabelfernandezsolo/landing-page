@@ -16,51 +16,90 @@
       --surface: rgba(20, 24, 33, 0.96);
       --surface-soft: rgba(25, 30, 42, 0.9);
       --border: rgba(255, 255, 255, 0.07);
-      --gold: #d5a149;
-      --gold-soft: rgba(213, 161, 73, 0.12);
+      --gold: #3d8a72;
+      --gold-soft: rgba(61, 138, 114, 0.18);
+      --primary: #3d8a72;
+      --primary-deep: #0d3a2c;
+      --primary-light: #8fd2bb;
+      --primary-rgb: 61, 138, 114;
       --blue: #86a5ef;
       --radius: 28px;
     }
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; background: radial-gradient(circle at top, rgba(133, 159, 243, 0.16), transparent 32%), var(--bg); }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 18% 0%, rgba(var(--primary-rgb), 0.42), transparent 36%), radial-gradient(circle at 90% 12%, rgba(143,210,187,.18), transparent 30%), linear-gradient(180deg, rgba(13,58,44,.38), transparent 42%), var(--bg); }
     body, button, input, textarea { font: inherit; color: inherit; }
     a { color: inherit; text-decoration: none; }
-    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(24px); background: rgba(9, 10, 13, 0.7); border-bottom: 1px solid var(--border); }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(24px); background: rgba(13, 58, 44, 0.76); border-bottom: 1px solid rgba(var(--primary-rgb),.38); }
     .nav-wrap { max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
     .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; }
-    .brand span { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, #fff, var(--gold)); display: inline-block; }
+    .brand span { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, #fff, var(--primary-light)); display: inline-block; box-shadow: 0 0 0 8px rgba(var(--primary-rgb),.18); }
     .nav-links { display: flex; gap: 14px; flex-wrap: wrap; }
     .nav-links a { padding: 10px 14px; border-radius: 999px; transition: background .25s ease; font-size: 0.94rem; }
-    .nav-links a:hover { background: rgba(255,255,255,.08); }
-    .hero { max-width: 1080px; margin: 0 auto; padding: 80px 24px 40px; display: grid; gap: 30px; }
+    .nav-links a:hover { background: rgba(var(--primary-rgb),.28); }
+    .hero { max-width: 1080px; margin: 34px auto 0; padding: 56px 34px 46px; display: grid; gap: 30px; border:1px solid rgba(var(--primary-rgb),.36); border-radius: 34px; background: linear-gradient(135deg, rgba(var(--primary-rgb),.34), rgba(9,10,13,.82) 62%); box-shadow: 0 28px 90px rgba(var(--primary-rgb),.22); overflow:hidden; position:relative; }
+    .hero::before { content:''; position:absolute; inset:0 0 auto; height:8px; background: linear-gradient(90deg,var(--primary-light),var(--primary),var(--primary-deep)); }
+    .hero > * { position:relative; }
     .hero h1 { margin: 0; font-size: clamp(2.6rem, 4vw, 4.5rem); line-height: 1.02; letter-spacing: -0.04em; }
     .hero p { max-width: 720px; font-size: 1.05rem; color: #c6c2b8; }
     .hero .hero-meta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; font-size: 0.95rem; }
-    .hero .hero-meta span { display: inline-flex; gap: 8px; align-items: center; padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); }
+    .hero .hero-meta span { display: inline-flex; gap: 8px; align-items: center; padding: 10px 14px; border-radius: 999px; background: rgba(var(--primary-rgb),.18); border: 1px solid rgba(var(--primary-rgb),.36); }
     .btn { display: inline-flex; align-items: center; justify-content: center; border: none; border-radius: 999px; padding: 16px 26px; font-weight: 600; letter-spacing: 0.01em; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease; }
     .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--gold); color: #10100c; box-shadow: 0 18px 40px rgba(213,161,73,.2); }
+    .btn-primary { background: linear-gradient(135deg,var(--primary-light),var(--primary)); color: #07150f; box-shadow: 0 18px 40px rgba(var(--primary-rgb),.36); }
     .section { max-width: 1080px; margin: 0 auto; padding: 20px 24px 40px; }
     .section-head { display: grid; gap: 10px; }
-    .eyebrow { color: #9fa3b0; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.16em; }
+    .eyebrow { color: var(--primary-light); text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.16em; }
     .section-title { margin: 0; font-size: clamp(1.8rem, 3vw, 2.85rem); line-height: 1.04; }
     .section-lede { max-width: 740px; color: #c6c2b8; font-size: 1.05rem; margin-top: 12px; }
     .card-grid { display: grid; gap: 18px; margin-top: 28px; }
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; box-shadow: 0 20px 48px rgba(0,0,0,.18); }
+    .card { background: linear-gradient(180deg,rgba(var(--primary-rgb),.12),var(--surface) 42%); border: 1px solid rgba(var(--primary-rgb),.34); border-radius: var(--radius); padding: 28px; box-shadow: 0 20px 48px rgba(0,0,0,.18); position:relative; overflow:hidden; }
+    .card::before { content:''; position:absolute; inset:0 0 auto; height:4px; background: var(--primary); }
     .card h3 { margin-top: 0; margin-bottom: 14px; font-size: 1.3rem; }
     .card p { margin: 0; color: #d3cfc3; line-height: 1.75; }
     .card ul { margin: 18px 0 0; padding-left: 20px; color: #d3cfc3; }
     .card ul li { margin-bottom: 10px; }
+    .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:30px; }
+    .service-card {
+      min-height:500px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:22px; padding:34px 32px;
+      border-radius:28px; background:linear-gradient(180deg,#ffffff 0%,#f1f8f5 100%);
+      color:#07150f; border:1px solid rgba(var(--primary-rgb),.28);
+      box-shadow:0 24px 70px rgba(0,0,0,.28),0 18px 42px rgba(var(--primary-rgb),.16);
+      position:relative; overflow:hidden;
+    }
+    .service-card::before { content:''; position:absolute; inset:0 0 auto; height:8px; background:linear-gradient(90deg,var(--primary-deep),var(--primary)); }
+    .service-card::after { content:''; position:absolute; right:-36px; top:-54px; width:170px; height:170px; border-radius:50%; background:rgba(var(--primary-rgb),.14); }
+    .service-top { display:grid; gap:18px; justify-items:center; align-items:start; position:relative; z-index:1; }
+    .service-ico { width:58px; height:58px; border-radius:18px; display:flex; align-items:center; justify-content:center; background:rgba(var(--primary-rgb),.13); border:1px solid rgba(var(--primary-rgb),.28); font-size:28px; }
+    .service-card h3 { margin:0; font-size:clamp(1.58rem,2vw,2.15rem); line-height:1.08; letter-spacing:-.025em; color:var(--primary-deep); max-width:290px; }
+    .service-card p { margin:0; color:#10231c; font-size:1.02rem; line-height:1.75; position:relative; z-index:1; max-width:330px; }
+    .service-card ul { display:grid; gap:10px; margin:0; padding:0; list-style:none; position:relative; z-index:1; text-align:left; max-width:330px; width:100%; }
+    .service-card li { padding-left:20px; color:#314840; line-height:1.5; position:relative; }
+    .service-card li::before { content:'•'; position:absolute; left:0; top:-1px; color:var(--primary); font-size:20px; }
+    .service-card .btn { margin-top:auto; align-self:stretch; justify-content:center; color:#f7f4ec; background:linear-gradient(135deg,var(--primary),var(--primary-deep)); box-shadow:0 16px 34px rgba(var(--primary-rgb),.24); }
     .highlight { color: var(--gold); }
     .split { display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-    .split > * { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; }
+    .split > * { background: linear-gradient(180deg,rgba(var(--primary-rgb),.13),var(--surface) 48%); border: 1px solid rgba(var(--primary-rgb),.32); border-radius: var(--radius); padding: 26px; }
     .split h3 { margin-top: 0; }
     .feature-row { display: grid; gap: 16px; margin-top: 32px; }
-    .feature { display: grid; gap: 12px; padding: 20px; border-radius: 22px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); }
+    .feature { display: grid; gap: 12px; padding: 20px; border-radius: 22px; background: rgba(var(--primary-rgb),.2); border: 1px solid rgba(var(--primary-rgb),.42); }
     .feature strong { display: block; font-size: 1rem; }
     .feature p { margin: 0; color: #c6c2b8; }
+    .contact-layout { display:grid; grid-template-columns:.9fr 1.1fr; gap:24px; margin-top:28px; align-items:start; }
+    .contact-methods { display:grid; gap:12px; }
+    .contact-method { display:flex; gap:14px; align-items:center; padding:16px 18px; border-radius:18px; background:rgba(var(--primary-rgb),.14); border:1px solid rgba(var(--primary-rgb),.3); }
+    .contact-ico { width:42px; height:42px; border-radius:14px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--primary-light),var(--primary)); color:#07150f; font-weight:800; flex-shrink:0; }
+    .contact-k { display:block; color:var(--primary-light); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; }
+    .contact-v { display:block; color:#f2efe7; font-weight:700; line-height:1.25; overflow-wrap:anywhere; }
+    .contact-form { display:grid; gap:12px; padding:26px; border-radius:28px; background:linear-gradient(180deg,rgba(var(--primary-rgb),.18),var(--surface) 54%); border:1px solid rgba(var(--primary-rgb),.38); }
+    .contact-form input,.contact-form textarea,.contact-form select { width:100%; border:1px solid rgba(var(--primary-rgb),.34); border-radius:14px; padding:14px 16px; background:rgba(255,255,255,.05); color:#f2efe7; outline:none; }
+    .contact-form input::placeholder,.contact-form textarea::placeholder { color:rgba(242,239,231,.45); }
+    .contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus { border-color:var(--primary-light); background:rgba(var(--primary-rgb),.13); }
+    .contact-form select option { background:#10151d; color:#f2efe7; }
+    .form-note { color:#c6c2b8; font-size:.88rem; margin:0; }
+    .back-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
     .page-footer { padding: 24px; text-align: center; color: #8f8a7f; font-size: 0.95rem; }
-    @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+    @media (max-width: 980px) { .service-grid { grid-template-columns:1fr; } .service-card { min-height:auto; } }
+    @media (max-width: 860px) { .split,.contact-layout { grid-template-columns: 1fr; } }
     @media (max-width: 640px) { .hero { padding-top: 56px; } .nav-wrap { flex-direction: column; align-items: flex-start; } }
   </style>
 </head>
@@ -88,30 +127,48 @@
         <span>Asesoría para Centros de Referencia Nacional</span>
       </div>
       <div style="display:flex; gap:16px; flex-wrap:wrap;">
-        <a class="btn btn-primary" href="#propuesta">Ver la propuesta</a>
+        <a class="btn btn-primary" href="#servicios">Ver servicios</a>
         <a class="btn" style="background: rgba(255,255,255,.08); color:#eae8e1;" href="#contacto">Contactar</a>
       </div>
     </section>
 
-    <section class="section" id="propuesta">
+    <section class="section" id="servicios">
       <div class="section-head">
-        <div class="eyebrow">Qué hago</div>
-        <h2 class="section-title">Acompaño a centros y docentes de FP a que su práctica se convierta en investigación útil.</h2>
+        <div class="eyebrow">Servicios</div>
+        <h2 class="section-title">Tres servicios para convertir la innovación de aula en investigación útil.</h2>
       </div>
-      <p class="section-lede">Lo que ya hacéis en el aula puede ser un motor de innovación real. El reto es ordenar ese trabajo, definir preguntas pertinentes y generar evidencia transferible.</p>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Diagnóstico de investigación</h3>
-          <p>Partimos de lo que ya se hace en el aula. Identifico prácticas investigables y construyo un plan viable que encaje con la programación docente, el horario y los recursos del centro.</p>
-        </div>
-        <div class="card">
-          <h3>Diseño y seguimiento</h3>
+      <p class="section-lede">Lo que ya hacéis en el aula puede convertirse en evidencia, transferencia y mejora visible si se ordena con método investigador.</p>
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-top"><span class="service-ico">🔬</span><h3>Programa de investigación para Centros de Referencia Nacional</h3></div>
+          <p>Programa piloto para que un CRN impulse una línea propia de investigación aplicada, transferencia docente y apoyo con IA en Formación Profesional.</p>
+          <ul>
+            <li>Diseño del piloto y calendario de trabajo</li>
+            <li>Acompañamiento a docentes investigadores</li>
+            <li>Guía metodológica, memoria y propuesta de continuidad</li>
+          </ul>
+          <a class="btn" href="propuesta-centros-referencia-nacional.html">Ver propuesta CRN</a>
+        </article>
+        <article class="service-card">
+          <div class="service-top"><span class="service-ico">📊</span><h3>Acompañamiento metodológico</h3></div>
           <p>Diseño el proyecto de investigación aplicada, acompaño la recogida de datos y ofrezco apoyo para interpretar resultados sin que el aula deje de ser aula.</p>
-        </div>
-        <div class="card">
-          <h3>Transferencia y difusión</h3>
+          <ul>
+            <li>Seguimiento durante el desarrollo</li>
+            <li>Análisis de datos con criterio pedagógico</li>
+            <li>Apoyo en evidencias y resultados</li>
+          </ul>
+          <a class="btn" href="#contacto">Solicitar información</a>
+        </article>
+        <article class="service-card">
+          <div class="service-top"><span class="service-ico">📝</span><h3>Transferencia y difusión</h3></div>
           <p>Traduzco resultados en productos útiles: informes, comunicaciones, artículos, propuestas de cooperación con empresas y documentación para memorias de centro.</p>
-        </div>
+          <ul>
+            <li>Informes y memorias de centro</li>
+            <li>Comunicaciones, artículos y buenas prácticas</li>
+            <li>Material para compartir resultados</li>
+          </ul>
+          <a class="btn" href="#contacto">Solicitar información</a>
+        </article>
       </div>
     </section>
 
@@ -140,19 +197,19 @@
         <div class="eyebrow">Para centros y equipos</div>
         <h2 class="section-title">Una propuesta pensada para Centros de Referencia Nacional</h2>
       </div>
-      <p class="section-lede">Acompaño el diseño y desarrollo de actuaciones que generan resultados visibles y transferibles: investigación aplicada, formación docente, metodologías innovadoras y vínculos con empresa.</p>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Proyectos sectoriales</h3>
-          <p>Diseño de estudios aplicados sobre procesos productivos, innovación tecnológica, sostenibilidad o digitalización en el sector de referencia.</p>
+      <p class="section-lede">Acompaño el diseño y desarrollo de actuaciones con resultados visibles: investigación aplicada, formación docente, metodologías innovadoras y vínculos con empresa.</p>
+      <div class="feature-row">
+        <div class="feature">
+          <strong>Proyectos sectoriales</strong>
+          <p>Estudios aplicados sobre procesos productivos, innovación tecnológica, sostenibilidad o digitalización en el sector de referencia.</p>
         </div>
-        <div class="card">
-          <h3>Formación con transferencia</h3>
-          <p>Programas formativos diseñados para que los docentes aprendan a investigar desde el aula y generar evidencias aplicables.</p>
+        <div class="feature">
+          <strong>Formación con transferencia</strong>
+          <p>Programas para que los docentes aprendan a investigar desde el aula y generar evidencias aplicables.</p>
         </div>
-        <div class="card">
-          <h3>Visibilidad y comunicación</h3>
-          <p>Revisión de resultados, preparación de publicaciones, artículos, buenas prácticas y difusión de la propuesta del centro.</p>
+        <div class="feature">
+          <strong>Visibilidad y comunicación</strong>
+          <p>Preparación de publicaciones, buenas prácticas, comunicaciones y difusión de la propuesta del centro.</p>
         </div>
       </div>
     </section>
@@ -180,9 +237,28 @@
         <h2 class="section-title">Hablemos de investigación en tu centro</h2>
       </div>
       <p class="section-lede">Si tu centro quiere cumplir con la investigación aplicada de la nueva ley y generar proyectos que realmente produzcan transferencia, charlemos.</p>
-      <div class="card" style="padding: 28px; display:flex; flex-direction:column; gap:18px;">
-        <p><strong>Escríbeme:</strong> <a href="mailto:isabel@isabelfdez.com" style="color:var(--gold);">isabel@isabelfdez.com</a></p>
-        <p><strong>O reserva una llamada:</strong> claridad sobre ideas, cronograma y propuestas de trabajo.</p>
+      <div class="contact-layout">
+        <div class="contact-methods">
+          <a class="contact-method" href="mailto:isabelfernandezsolo@gmail.com"><span class="contact-ico">✉</span><span><span class="contact-k">Email</span><span class="contact-v">isabelfernandezsolo@gmail.com</span></span></a>
+          <a class="contact-method" href="tel:+34629489015"><span class="contact-ico">☎</span><span><span class="contact-k">Teléfono</span><span class="contact-v">629 489 015</span></span></a>
+          <a class="contact-method" href="https://wa.me/34629489015" target="_blank" rel="noopener noreferrer"><span class="contact-ico">💬</span><span><span class="contact-k">WhatsApp</span><span class="contact-v">Escríbeme directamente</span></span></a>
+          <a class="contact-method" href="https://www.linkedin.com/in/isabelfernandezsolodezaldivar" target="_blank" rel="noopener noreferrer"><span class="contact-ico">in</span><span><span class="contact-k">LinkedIn</span><span class="contact-v">isabelfernandezsolodezaldivar</span></span></a>
+        </div>
+        <form class="contact-form" action="mailto:isabelfernandezsolo@gmail.com" method="post" enctype="text/plain">
+          <input type="text" name="nombre" placeholder="Nombre y apellidos" required>
+          <input type="text" name="centro" placeholder="Centro / entidad">
+          <input type="email" name="email" placeholder="Email de contacto" required>
+          <select name="interes">
+            <option>Investigación aplicada en FP</option>
+            <option>Proyecto para Centro de Referencia Nacional</option>
+            <option>Publicación, comunicación o transferencia</option>
+          </select>
+          <textarea name="mensaje" rows="5" placeholder="Cuéntame brevemente qué necesitas..."></textarea>
+          <button class="btn btn-primary" type="submit">Enviar consulta</button>
+          <p class="form-note">El formulario abrirá tu gestor de correo para enviar el mensaje.</p>
+        </form>
+      </div>
+      <div class="back-row">
         <a class="btn btn-primary" href="index.html">Volver a la página principal</a>
       </div>
     </section>
