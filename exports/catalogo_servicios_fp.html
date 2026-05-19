@@ -1,0 +1,244 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.catalog { padding: 1.5rem 0; }
+.block { margin-bottom: 2.5rem; }
+.block-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.block-icon { width: 36px; height: 36px; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.block-icon.green { background: #EAF3DE; color: #3B6D11; }
+.block-icon.amber { background: #FAEEDA; color: #854F0B; }
+.block-icon.teal { background: #E1F5EE; color: #0F6E56; }
+.block-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+.block-subtitle { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 8px; position: relative; }
+.card.featured { border: 1.5px solid #1D9E75; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: var(--border-radius-md); font-weight: 500; margin-bottom: 2px; }
+.badge.green { background: #EAF3DE; color: #3B6D11; }
+.badge.amber { background: #FAEEDA; color: #854F0B; }
+.badge.teal { background: #E1F5EE; color: #0F6E56; }
+.badge.gray { background: #F1EFE8; color: #5F5E5A; }
+.badge.blue { background: #E6F1FB; color: #185FA5; }
+.badge.purple { background: #EEEDFE; color: #534AB7; }
+.card-title { font-size: 13.5px; font-weight: 500; color: var(--color-text-primary); line-height: 1.4; }
+.card-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; flex: 1; }
+.card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 8px; border-top: 0.5px solid var(--color-border-tertiary); margin-top: 4px; }
+.price { font-size: 12px; font-weight: 500; color: var(--color-text-primary); }
+.price-sub { font-size: 10px; color: var(--color-text-secondary); font-weight: 400; }
+.tag { font-size: 10px; padding: 2px 6px; border-radius: 4px; color: var(--color-text-secondary); background: var(--color-background-secondary); }
+.deliverable { margin-top: 6px; }
+.deliverable-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-text-tertiary); margin-bottom: 4px; }
+.deliverable-item { display: flex; align-items: flex-start; gap: 5px; font-size: 11px; color: var(--color-text-secondary); line-height: 1.5; }
+.deliverable-item i { font-size: 12px; color: var(--color-text-tertiary); flex-shrink: 0; margin-top: 2px; }
+.star { position: absolute; top: 10px; right: 10px; font-size: 11px; }
+</style>
+
+<div class="catalog">
+
+  <div class="block">
+    <div class="block-header">
+      <div class="block-icon green"><i class="ti ti-microscope" aria-hidden="true"></i></div>
+      <div>
+        <div class="block-title">Innovación e investigación aplicada en FP</div>
+        <div class="block-subtitle">Artículos 102 y 103 · Ley Orgánica 3/2022</div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card featured">
+        <span class="badge green">Producto estrella</span>
+        <div class="star">⭐</div>
+        <div class="card-title">Programa completo para Centros de Referencia Nacional</div>
+        <div class="card-desc">Piloto de investigación aplicada con 5 docentes acompañados de inicio a fin: desde la idea hasta la buena práctica transferible, con apoyo IA y guía metodológica replicable.</div>
+        <div class="deliverable">
+          <div class="deliverable-label">Entregables</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>5 fichas de buenas prácticas</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>Guía metodológica + kit IA-docente</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>Memoria y jornada de transferencia</div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <div class="price">15.500 € <span class="price-sub">+ IVA</span></div>
+            <div class="price-sub">4 meses · modalidad mixta</div>
+          </div>
+          <span class="tag">CRN</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge gray">Para cualquier centro</span>
+        <div class="card-title">Proyecto de investigación o publicación para un centro</div>
+        <div class="card-desc">Acompañamiento a 1–2 docentes para convertir una práctica real en una investigación publicable o comunicación a jornadas. Alcance acotado, sin necesidad de ser CRN.</div>
+        <div class="deliverable">
+          <div class="deliverable-label">Entregables</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>1 proyecto de investigación diseñado</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>1 buena práctica documentada</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>Borrador de comunicación o artículo</div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <div class="price">3.500 € <span class="price-sub">+ IVA</span></div>
+            <div class="price-sub">6–8 semanas · online</div>
+          </div>
+          <span class="tag">Cualquier centro</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge blue">Nuevo</span>
+        <div class="card-title">Diagnóstico de potencial investigador del claustro</div>
+        <div class="card-desc">Análisis de las prácticas docentes del centro para detectar experiencias con potencial investigador y diseñar una hoja de ruta de publicación y transferencia adaptada a su contexto.</div>
+        <div class="deliverable">
+          <div class="deliverable-label">Entregables</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>Informe de potencial investigador</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>Hoja de ruta de publicación</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>Selección de 3–5 ideas prioritarias</div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <div class="price">2.500 € <span class="price-sub">+ IVA</span></div>
+            <div class="price-sub">3–4 semanas · online</div>
+          </div>
+          <span class="tag">Cualquier centro</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-header">
+      <div class="block-icon amber"><i class="ti ti-school" aria-hidden="true"></i></div>
+      <div>
+        <div class="block-title">Acciones formativas</div>
+        <div class="block-subtitle">Cursos prácticos para docentes de FP</div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="badge amber">Curso</span>
+        <div class="card-title">El módulo de proyecto en el centro educativo</div>
+        <div class="card-desc">Cómo diseñar, acompañar y evaluar el módulo de proyecto de manera que conecte con la realidad del sector, fomente la investigación aplicada y dé visibilidad al trabajo docente.</div>
+        <div class="deliverable">
+          <div class="deliverable-label">Formato</div>
+          <div class="deliverable-item"><i class="ti ti-clock"></i>12 h · online en directo + asíncrono</div>
+          <div class="deliverable-item"><i class="ti ti-file-certificate"></i>Certificado de participación</div>
+          <div class="deliverable-item"><i class="ti ti-tool"></i>Kit de plantillas y rúbricas</div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <div class="price">290 € <span class="price-sub">/ persona + IVA</span></div>
+            <div class="price-sub">Precio centro (–20% desde 10 plazas)</div>
+          </div>
+          <span class="tag">Docentes FP</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge amber">Curso</span>
+        <div class="card-title">Metodologías activas en Formación Profesional</div>
+        <div class="card-desc">ABP, retos, simulación empresarial y evaluación por competencias adaptados a la realidad de FP. Práctico, con ejemplos reales por familia profesional y diseño de una unidad propia.</div>
+        <div class="deliverable">
+          <div class="deliverable-label">Formato</div>
+          <div class="deliverable-item"><i class="ti ti-clock"></i>16 h · online en directo + asíncrono</div>
+          <div class="deliverable-item"><i class="ti ti-file-certificate"></i>Certificado de participación</div>
+          <div class="deliverable-item"><i class="ti ti-tool"></i>Diseño de 1 UD propia al finalizar</div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <div class="price">320 € <span class="price-sub">/ persona + IVA</span></div>
+            <div class="price-sub">Precio centro (–20% desde 10 plazas)</div>
+          </div>
+          <span class="tag">Docentes FP</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge amber">Curso</span>
+        <div class="card-title">IA en el día a día del docente de FP</div>
+        <div class="card-desc">Uso real e inmediato de la IA para preparar clases, diseñar instrumentos de evaluación, comunicarse con familias y empresas, y reducir carga burocrática. Sin tecnicismos, con resultados desde el día 1.</div>
+        <div class="deliverable">
+          <div class="deliverable-label">Formato</div>
+          <div class="deliverable-item"><i class="ti ti-clock"></i>10 h · online totalmente flexible</div>
+          <div class="deliverable-item"><i class="ti ti-file-certificate"></i>Certificado de participación</div>
+          <div class="deliverable-item"><i class="ti ti-tool"></i>Banco de 50 prompts listos para usar</div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <div class="price">190 € <span class="price-sub">/ persona + IVA</span></div>
+            <div class="price-sub">Precio centro (–20% desde 10 plazas)</div>
+          </div>
+          <span class="tag">Docentes FP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-header">
+      <div class="block-icon teal"><i class="ti ti-settings" aria-hidden="true"></i></div>
+      <div>
+        <div class="block-title">Consultoría especializada en FP</div>
+        <div class="block-subtitle">Para equipos directivos que quieren un impulso real</div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="badge teal">Consultoría</span>
+        <div class="card-title">Asistente IA a medida para el centro</div>
+        <div class="card-desc">Diseño y entrega de un asistente IA personalizado para el centro: responde dudas frecuentes de alumnado y familias, genera comunicados, PD adaptadas o informes tipo, liberando horas del equipo directivo y docente.</div>
+        <div class="deliverable">
+          <div class="deliverable-label">Entregables</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>Asistente IA configurado y probado</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>Manual de uso para el equipo</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>1 mes de soporte post-entrega</div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <div class="price">4.500 € <span class="price-sub">+ IVA</span></div>
+            <div class="price-sub">6–8 semanas de diseño</div>
+          </div>
+          <span class="tag">Dirección</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge purple">Consultoría</span>
+        <div class="card-title">Plan de motivación y clima docente</div>
+        <div class="card-desc">Diagnóstico de clima de claustro y diseño de un plan de acción para mejorar la motivación del equipo docente: reconocimiento, proyectos compartidos, reducción de reuniones inútiles y propuesta de hitos visibles durante el curso.</div>
+        <div class="deliverable">
+          <div class="deliverable-label">Entregables</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>Diagnóstico de clima docente</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>Plan de acción trimestral</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>Sesión de presentación al equipo directivo</div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <div class="price">2.800 € <span class="price-sub">+ IVA</span></div>
+            <div class="price-sub">4–5 semanas · online</div>
+          </div>
+          <span class="tag">Dirección</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge teal">Consultoría</span>
+        <div class="card-title">Auditoría burocrática y simplificación de procesos</div>
+        <div class="card-desc">Análisis de los procesos administrativos y documentales del centro para identificar duplicidades, documentación innecesaria y tareas que pueden automatizarse con IA, devolviendo tiempo real al profesorado.</div>
+        <div class="deliverable">
+          <div class="deliverable-label">Entregables</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>Mapa de procesos actuales</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>Informe de simplificación priorizado</div>
+          <div class="deliverable-item"><i class="ti ti-circle-check"></i>3 automatizaciones IA implementadas</div>
+        </div>
+        <div class="card-footer">
+          <div>
+            <div class="price">3.200 € <span class="price-sub">+ IVA</span></div>
+            <div class="price-sub">4–6 semanas · online</div>
+          </div>
+          <span class="tag">Dirección</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

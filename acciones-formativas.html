@@ -54,7 +54,7 @@
     .card ul { margin: 16px 0 0; padding-left: 20px; color: #dad7ce; }
     .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:30px; }
     .service-card {
-      min-height:500px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:22px; padding:34px 32px;
+      min-height:560px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:20px; padding:34px 32px;
       border-radius:28px; background:linear-gradient(180deg,#ffffff 0%,#fff8ea 100%);
       color:#120d05; border:1px solid rgba(var(--primary-rgb),.32);
       box-shadow:0 24px 70px rgba(0,0,0,.28),0 18px 42px rgba(var(--primary-rgb),.18);
@@ -69,7 +69,14 @@
     .service-card ul { display:grid; gap:10px; margin:0; padding:0; list-style:none; position:relative; z-index:1; text-align:left; max-width:330px; width:100%; }
     .service-card li { padding-left:20px; color:#5a4215; line-height:1.5; position:relative; }
     .service-card li::before { content:'•'; position:absolute; left:0; top:-1px; color:var(--primary); font-size:20px; }
-    .service-card .btn { margin-top:auto; align-self:stretch; justify-content:center; color:#fffaf0; background:linear-gradient(135deg,var(--primary),var(--primary-deep)); box-shadow:0 16px 34px rgba(var(--primary-rgb),.26); }
+    .flag { position:relative; z-index:1; display:inline-flex; align-items:center; justify-content:center; padding:7px 12px; border-radius:999px; background:rgba(var(--primary-rgb),.14); color:var(--primary-deep); border:1px solid rgba(var(--primary-rgb),.24); font-size:.74rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .deliverables { display:grid; gap:8px; width:100%; max-width:330px; position:relative; z-index:1; }
+    .deliverable-label { text-align:left; color:var(--primary-deep); font-size:.72rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    .price-box { width:100%; margin-top:auto; padding-top:16px; border-top:1px solid rgba(var(--primary-rgb),.26); display:flex; align-items:flex-end; justify-content:space-between; gap:14px; text-align:left; position:relative; z-index:1; }
+    .price { display:block; color:var(--primary-deep); font-weight:900; font-size:1.1rem; line-height:1.1; }
+    .price small, .meta { display:block; color:#765a1f; font-size:.78rem; font-weight:600; line-height:1.35; }
+    .tag { flex-shrink:0; border-radius:999px; background:rgba(var(--primary-rgb),.14); color:var(--primary-deep); padding:7px 10px; font-size:.72rem; font-weight:800; }
+    .service-card .btn { margin-top:0; align-self:stretch; justify-content:center; color:#fffaf0; background:linear-gradient(135deg,var(--primary),var(--primary-deep)); box-shadow:0 16px 34px rgba(var(--primary-rgb),.26); }
     .service-extra { display:flex; justify-content:center; margin-top:22px; }
     .service-extra .btn { min-width:min(100%,320px); justify-content:center; background:rgba(var(--primary-rgb),.14); border:1px solid rgba(var(--primary-rgb),.42); color:#f2efe7; }
     .feature { display:grid; gap:10px; padding: 22px; border-radius: 24px; background: rgba(var(--primary-rgb),.2); border: 1px solid rgba(var(--primary-rgb),.42); }
@@ -109,8 +116,8 @@
     <section class="hero">
       <div>
         <p class="eyebrow">Acciones formativas · FP · Equipos docentes</p>
-        <h1>Acciones formativas para transformar la práctica docente en FP</h1>
-        <p>Formaciones diseñadas para que los docentes apliquen metodologías activas, evaluación por competencias y herramientas digitales con impacto real en el aula.</p>
+        <h1>Acciones formativas prácticas para docentes de FP</h1>
+        <p>Cursos concretos para que el profesorado diseñe mejor, evalúe con más claridad y use IA sin perder criterio pedagógico. Formato aplicable desde el primer día.</p>
       </div>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#servicios">Ver servicios</a>
@@ -121,38 +128,53 @@
     <section class="section" id="servicios">
       <div class="section-head">
         <div class="eyebrow">Servicios</div>
-        <h2 class="section-title">Tres cursos concretos para mejorar el aula de FP</h2>
+        <h2 class="section-title">Tres cursos listos para contratar, adaptar y poner en marcha</h2>
       </div>
-      <p class="section-lede">Cursos prácticos, adaptables al centro y pensados para que cada docente salga con materiales, decisiones y una aplicación directa en su módulo.</p>
+      <p class="section-lede">Cada acción formativa combina sesiones en directo, trabajo flexible y materiales editables para que el equipo salga con productos utilizables en su ciclo.</p>
       <div class="service-grid">
         <article class="service-card">
-          <div class="service-top"><span class="service-ico">🎓</span><h3>Módulo de Proyecto: de la angustia a la programación</h3></div>
-          <p>Curso para diseñar, ordenar y evaluar el módulo de proyecto con una estructura clara, viable y conectada con evidencias reales.</p>
-          <ul>
-            <li>Programación paso a paso</li>
-            <li>Rúbricas y criterios de evaluación</li>
-            <li>Plantillas editables para adaptar</li>
-          </ul>
+          <span class="flag">Curso</span>
+          <div class="service-top"><span class="service-ico">🎓</span><h3>El módulo de proyecto en el centro educativo</h3></div>
+          <p>Cómo diseñar, acompañar y evaluar el módulo de proyecto para que conecte con la realidad del sector, fomente la investigación aplicada y dé visibilidad al trabajo docente.</p>
+          <div class="deliverables">
+            <div class="deliverable-label">Formato</div>
+            <ul>
+              <li>12 h · online en directo + asíncrono</li>
+              <li>Certificado de participación</li>
+              <li>Kit de plantillas y rúbricas</li>
+            </ul>
+          </div>
+          <div class="price-box"><span><span class="price">290 € <small>/ persona + IVA</small></span><span class="meta">Precio centro: -20% desde 10 plazas</span></span><span class="tag">Docentes FP</span></div>
           <a class="btn" href="#contacto">Solicitar información</a>
         </article>
         <article class="service-card">
-          <div class="service-top"><span class="service-ico">📋</span><h3>Evaluación por resultados de aprendizaje</h3></div>
-          <p>Formación para construir instrumentos de evaluación coherentes con el currículo, las competencias y el trabajo real del alumnado.</p>
-          <ul>
-            <li>Instrumentos y matrices de evaluación</li>
-            <li>Evidencias conectadas al módulo</li>
-            <li>Aplicable a cualquier familia profesional</li>
-          </ul>
+          <span class="flag">Curso</span>
+          <div class="service-top"><span class="service-ico">📋</span><h3>Metodologías activas en Formación Profesional</h3></div>
+          <p>ABP, retos, simulación empresarial y evaluación por competencias adaptados a la realidad de FP, con ejemplos por familia profesional y diseño de una unidad propia.</p>
+          <div class="deliverables">
+            <div class="deliverable-label">Formato</div>
+            <ul>
+              <li>16 h · online en directo + asíncrono</li>
+              <li>Certificado de participación</li>
+              <li>Diseño de 1 unidad didáctica propia</li>
+            </ul>
+          </div>
+          <div class="price-box"><span><span class="price">320 € <small>/ persona + IVA</small></span><span class="meta">Precio centro: -20% desde 10 plazas</span></span><span class="tag">Docentes FP</span></div>
           <a class="btn" href="#contacto">Solicitar información</a>
         </article>
         <article class="service-card">
-          <div class="service-top"><span class="service-ico">🤖</span><h3>Inteligencia artificial en el aula de FP</h3></div>
-          <p>Curso para usar IA de forma responsable en actividades, evaluación, diseño de materiales y acompañamiento del aprendizaje.</p>
-          <ul>
-            <li>Diseño de actividades con IA</li>
-            <li>Prompts útiles para docentes y alumnado</li>
-            <li>Criterios éticos y pedagógicos</li>
-          </ul>
+          <span class="flag">Curso</span>
+          <div class="service-top"><span class="service-ico">🤖</span><h3>IA en el día a día del docente de FP</h3></div>
+          <p>Uso real e inmediato de la IA para preparar clases, diseñar instrumentos de evaluación, comunicarse con familias y empresas, y reducir carga burocrática.</p>
+          <div class="deliverables">
+            <div class="deliverable-label">Formato</div>
+            <ul>
+              <li>10 h · online totalmente flexible</li>
+              <li>Certificado de participación</li>
+              <li>Banco de 50 prompts listos para usar</li>
+            </ul>
+          </div>
+          <div class="price-box"><span><span class="price">190 € <small>/ persona + IVA</small></span><span class="meta">Precio centro: -20% desde 10 plazas</span></span><span class="tag">Docentes FP</span></div>
           <a class="btn" href="#contacto">Solicitar información</a>
         </article>
       </div>
@@ -170,7 +192,7 @@
       <div class="grid">
         <div class="card">
           <h3>Sesiones adaptables</h3>
-          <p>Puedo ofrecer formaciones de 4 a 12 horas, presenciales, online o mixtas, según las necesidades del equipo.</p>
+          <p>Puedo ofrecer formaciones de 4 a 16 horas, presenciales, online o mixtas, según las necesidades del equipo.</p>
         </div>
         <div class="card">
           <h3>Material editable</h3>
@@ -212,9 +234,9 @@
           <input type="text" name="centro" placeholder="Centro / entidad">
           <input type="email" name="email" placeholder="Email de contacto" required>
           <select name="interes">
-            <option>Taller práctico para docentes</option>
-            <option>Programa para claustro o equipo</option>
-            <option>Acompañamiento de implementación</option>
+            <option>El módulo de proyecto en el centro educativo</option>
+            <option>Metodologías activas en Formación Profesional</option>
+            <option>IA en el día a día del docente de FP</option>
           </select>
           <textarea name="mensaje" rows="5" placeholder="Cuéntame brevemente qué formación necesitas..."></textarea>
           <button class="btn btn-primary" type="submit">Enviar consulta</button>

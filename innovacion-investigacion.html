@@ -60,12 +60,13 @@
     .card ul li { margin-bottom: 10px; }
     .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:30px; }
     .service-card {
-      min-height:500px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:22px; padding:34px 32px;
+      min-height:560px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:20px; padding:34px 32px;
       border-radius:28px; background:linear-gradient(180deg,#ffffff 0%,#f1f8f5 100%);
       color:#07150f; border:1px solid rgba(var(--primary-rgb),.28);
       box-shadow:0 24px 70px rgba(0,0,0,.28),0 18px 42px rgba(var(--primary-rgb),.16);
       position:relative; overflow:hidden;
     }
+    .service-card.featured { border:2px solid var(--primary); box-shadow:0 30px 80px rgba(0,0,0,.3),0 22px 54px rgba(var(--primary-rgb),.24); }
     .service-card::before { content:''; position:absolute; inset:0 0 auto; height:8px; background:linear-gradient(90deg,var(--primary-deep),var(--primary)); }
     .service-card::after { content:''; position:absolute; right:-36px; top:-54px; width:170px; height:170px; border-radius:50%; background:rgba(var(--primary-rgb),.14); }
     .service-top { display:grid; gap:18px; justify-items:center; align-items:start; position:relative; z-index:1; }
@@ -75,7 +76,15 @@
     .service-card ul { display:grid; gap:10px; margin:0; padding:0; list-style:none; position:relative; z-index:1; text-align:left; max-width:330px; width:100%; }
     .service-card li { padding-left:20px; color:#314840; line-height:1.5; position:relative; }
     .service-card li::before { content:'•'; position:absolute; left:0; top:-1px; color:var(--primary); font-size:20px; }
-    .service-card .btn { margin-top:auto; align-self:stretch; justify-content:center; color:#f7f4ec; background:linear-gradient(135deg,var(--primary),var(--primary-deep)); box-shadow:0 16px 34px rgba(var(--primary-rgb),.24); }
+    .flag { position:relative; z-index:1; display:inline-flex; align-items:center; justify-content:center; padding:7px 12px; border-radius:999px; background:rgba(var(--primary-rgb),.13); color:var(--primary-deep); border:1px solid rgba(var(--primary-rgb),.22); font-size:.74rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .service-card.featured .flag { background:var(--primary-deep); color:#f7f4ec; }
+    .deliverables { display:grid; gap:8px; width:100%; max-width:330px; position:relative; z-index:1; }
+    .deliverable-label { text-align:left; color:var(--primary-deep); font-size:.72rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    .price-box { width:100%; margin-top:auto; padding-top:16px; border-top:1px solid rgba(var(--primary-rgb),.24); display:flex; align-items:flex-end; justify-content:space-between; gap:14px; text-align:left; position:relative; z-index:1; }
+    .price { display:block; color:var(--primary-deep); font-weight:900; font-size:1.15rem; line-height:1.1; }
+    .price small, .meta { display:block; color:#587068; font-size:.78rem; font-weight:600; line-height:1.35; }
+    .tag { flex-shrink:0; border-radius:999px; background:rgba(var(--primary-rgb),.12); color:var(--primary-deep); padding:7px 10px; font-size:.72rem; font-weight:800; }
+    .service-card .btn { margin-top:0; align-self:stretch; justify-content:center; color:#f7f4ec; background:linear-gradient(135deg,var(--primary),var(--primary-deep)); box-shadow:0 16px 34px rgba(var(--primary-rgb),.24); }
     .highlight { color: var(--gold); }
     .split { display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     .split > * { background: linear-gradient(180deg,rgba(var(--primary-rgb),.13),var(--surface) 48%); border: 1px solid rgba(var(--primary-rgb),.32); border-radius: var(--radius); padding: 26px; }
@@ -118,13 +127,13 @@
   <main>
     <section class="hero">
       <div>
-        <p class="eyebrow">Investigación aplicada · FP · Centros</p>
+        <p class="eyebrow">Innovación e investigación aplicada · FP</p>
         <h1>Innovación e investigación aplicada en Formación Profesional</h1>
-        <p>Transformo proyectos de aula en investigación práctica, con evidencias, transferencia y resultados que cumplen la nueva Ley de FP.</p>
+        <p>Convierto prácticas reales de aula y centro en investigación aplicada, buenas prácticas publicables y transferencia útil, con especial foco en los artículos 102 y 103 de la Ley Orgánica 3/2022.</p>
       </div>
       <div class="hero-meta">
-        <span>Proyectos para equipos docentes y centros FP</span>
-        <span>Asesoría para Centros de Referencia Nacional</span>
+        <span>Programas para CRN y centros FP</span>
+        <span>Diagnóstico, publicación y transferencia</span>
       </div>
       <div style="display:flex; gap:16px; flex-wrap:wrap;">
         <a class="btn btn-primary" href="#servicios">Ver servicios</a>
@@ -135,38 +144,53 @@
     <section class="section" id="servicios">
       <div class="section-head">
         <div class="eyebrow">Servicios</div>
-        <h2 class="section-title">Tres servicios para convertir la innovación de aula en investigación útil.</h2>
+        <h2 class="section-title">Tres propuestas para pasar de “hacemos cosas interesantes” a evidencia transferible.</h2>
       </div>
-      <p class="section-lede">Lo que ya hacéis en el aula puede convertirse en evidencia, transferencia y mejora visible si se ordena con método investigador.</p>
+      <p class="section-lede">Servicios cerrados, con entregables claros, para que el centro vea avances concretos sin añadir complejidad innecesaria al trabajo docente.</p>
       <div class="service-grid">
-        <article class="service-card">
-          <div class="service-top"><span class="service-ico">🔬</span><h3>Programa de investigación para Centros de Referencia Nacional</h3></div>
-          <p>Programa piloto para que un CRN impulse una línea propia de investigación aplicada, transferencia docente y apoyo con IA en Formación Profesional.</p>
-          <ul>
-            <li>Diseño del piloto y calendario de trabajo</li>
-            <li>Acompañamiento a docentes investigadores</li>
-            <li>Guía metodológica, memoria y propuesta de continuidad</li>
-          </ul>
+        <article class="service-card featured">
+          <span class="flag">Producto estrella</span>
+          <div class="service-top"><span class="service-ico">🔬</span><h3>Programa completo para Centros de Referencia Nacional</h3></div>
+          <p>Piloto de investigación aplicada con cinco docentes acompañados de inicio a fin: de la idea a la buena práctica transferible, con apoyo IA y guía metodológica replicable.</p>
+          <div class="deliverables">
+            <div class="deliverable-label">Entregables</div>
+            <ul>
+              <li>5 fichas de buenas prácticas</li>
+              <li>Guía metodológica + kit IA-docente</li>
+              <li>Memoria y jornada de transferencia</li>
+            </ul>
+          </div>
+          <div class="price-box"><span><span class="price">15.500 € <small>+ IVA</small></span><span class="meta">4 meses · modalidad mixta</span></span><span class="tag">CRN</span></div>
           <a class="btn" href="propuesta-centros-referencia-nacional.html">Ver propuesta CRN</a>
         </article>
         <article class="service-card">
-          <div class="service-top"><span class="service-ico">📊</span><h3>Acompañamiento metodológico</h3></div>
-          <p>Diseño el proyecto de investigación aplicada, acompaño la recogida de datos y ofrezco apoyo para interpretar resultados sin que el aula deje de ser aula.</p>
-          <ul>
-            <li>Seguimiento durante el desarrollo</li>
-            <li>Análisis de datos con criterio pedagógico</li>
-            <li>Apoyo en evidencias y resultados</li>
-          </ul>
+          <span class="flag">Para cualquier centro</span>
+          <div class="service-top"><span class="service-ico">📊</span><h3>Proyecto de investigación o publicación para un centro</h3></div>
+          <p>Acompañamiento a 1-2 docentes para convertir una práctica real en una investigación publicable o comunicación a jornadas. Alcance acotado, sin necesidad de ser CRN.</p>
+          <div class="deliverables">
+            <div class="deliverable-label">Entregables</div>
+            <ul>
+              <li>1 proyecto de investigación diseñado</li>
+              <li>1 buena práctica documentada</li>
+              <li>Borrador de comunicación o artículo</li>
+            </ul>
+          </div>
+          <div class="price-box"><span><span class="price">3.500 € <small>+ IVA</small></span><span class="meta">6-8 semanas · online</span></span><span class="tag">Centro FP</span></div>
           <a class="btn" href="#contacto">Solicitar información</a>
         </article>
         <article class="service-card">
-          <div class="service-top"><span class="service-ico">📝</span><h3>Transferencia y difusión</h3></div>
-          <p>Traduzco resultados en productos útiles: informes, comunicaciones, artículos, propuestas de cooperación con empresas y documentación para memorias de centro.</p>
-          <ul>
-            <li>Informes y memorias de centro</li>
-            <li>Comunicaciones, artículos y buenas prácticas</li>
-            <li>Material para compartir resultados</li>
-          </ul>
+          <span class="flag">Diagnóstico</span>
+          <div class="service-top"><span class="service-ico">📝</span><h3>Diagnóstico de potencial investigador del claustro</h3></div>
+          <p>Análisis de las prácticas docentes del centro para detectar experiencias con potencial investigador y diseñar una hoja de ruta de publicación y transferencia adaptada al contexto.</p>
+          <div class="deliverables">
+            <div class="deliverable-label">Entregables</div>
+            <ul>
+              <li>Informe de potencial investigador</li>
+              <li>Hoja de ruta de publicación</li>
+              <li>Selección de 3-5 ideas prioritarias</li>
+            </ul>
+          </div>
+          <div class="price-box"><span><span class="price">2.500 € <small>+ IVA</small></span><span class="meta">3-4 semanas · online</span></span><span class="tag">Centro FP</span></div>
           <a class="btn" href="#contacto">Solicitar información</a>
         </article>
       </div>
@@ -249,9 +273,9 @@
           <input type="text" name="centro" placeholder="Centro / entidad">
           <input type="email" name="email" placeholder="Email de contacto" required>
           <select name="interes">
-            <option>Investigación aplicada en FP</option>
-            <option>Proyecto para Centro de Referencia Nacional</option>
-            <option>Publicación, comunicación o transferencia</option>
+            <option>Programa completo para Centros de Referencia Nacional</option>
+            <option>Proyecto de investigación o publicación para un centro</option>
+            <option>Diagnóstico de potencial investigador del claustro</option>
           </select>
           <textarea name="mensaje" rows="5" placeholder="Cuéntame brevemente qué necesitas..."></textarea>
           <button class="btn btn-primary" type="submit">Enviar consulta</button>

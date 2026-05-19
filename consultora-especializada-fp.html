@@ -54,7 +54,7 @@
     .card p { margin:0; color:#d3cfc2; line-height:1.75; }
     .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:30px; }
     .service-card {
-      min-height:500px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:22px; padding:34px 32px;
+      min-height:560px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:20px; padding:34px 32px;
       border-radius:28px; background:linear-gradient(180deg,#ffffff 0%,#f1f6f8 100%);
       color:#071016; border:1px solid rgba(var(--primary-rgb),.32);
       box-shadow:0 24px 70px rgba(0,0,0,.28),0 18px 42px rgba(var(--primary-rgb),.18);
@@ -69,7 +69,14 @@
     .service-card ul { display:grid; gap:10px; margin:0; padding:0; list-style:none; position:relative; z-index:1; text-align:left; max-width:330px; width:100%; }
     .service-card li { padding-left:20px; color:#344a54; line-height:1.5; position:relative; }
     .service-card li::before { content:'•'; position:absolute; left:0; top:-1px; color:var(--primary); font-size:20px; }
-    .service-card .btn { margin-top:auto; align-self:stretch; justify-content:center; color:#f4f8fa; background:linear-gradient(135deg,var(--primary),var(--primary-deep)); box-shadow:0 16px 34px rgba(var(--primary-rgb),.26); }
+    .flag { position:relative; z-index:1; display:inline-flex; align-items:center; justify-content:center; padding:7px 12px; border-radius:999px; background:rgba(var(--primary-rgb),.14); color:var(--primary-deep); border:1px solid rgba(var(--primary-rgb),.24); font-size:.74rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .deliverables { display:grid; gap:8px; width:100%; max-width:330px; position:relative; z-index:1; }
+    .deliverable-label { text-align:left; color:var(--primary-deep); font-size:.72rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    .price-box { width:100%; margin-top:auto; padding-top:16px; border-top:1px solid rgba(var(--primary-rgb),.26); display:flex; align-items:flex-end; justify-content:space-between; gap:14px; text-align:left; position:relative; z-index:1; }
+    .price { display:block; color:var(--primary-deep); font-weight:900; font-size:1.1rem; line-height:1.1; }
+    .price small, .meta { display:block; color:#536873; font-size:.78rem; font-weight:600; line-height:1.35; }
+    .tag { flex-shrink:0; border-radius:999px; background:rgba(var(--primary-rgb),.14); color:var(--primary-deep); padding:7px 10px; font-size:.72rem; font-weight:800; }
+    .service-card .btn { margin-top:0; align-self:stretch; justify-content:center; color:#f4f8fa; background:linear-gradient(135deg,var(--primary),var(--primary-deep)); box-shadow:0 16px 34px rgba(var(--primary-rgb),.26); }
     .list-card { display:flex; flex-direction:column; gap:12px; }
     .list-card strong { font-size:1rem; }
     .feature { display:grid; gap:10px; padding:22px; border-radius:24px; background: rgba(var(--primary-rgb),.22); border:1px solid rgba(var(--primary-rgb),.46); }
@@ -107,9 +114,9 @@
   <main>
     <section class="hero">
       <div>
-        <p class="eyebrow">Consultoría · FP · Gestión</p>
+        <p class="eyebrow">Consultoría especializada · FP · Dirección</p>
         <h1>Consultora especializada en Formación Profesional</h1>
-        <p>Apoyo a equipos directivos y centros FP para diseñar soluciones prácticas, gestionar proyectos y resolver retos docentes y organizativos.</p>
+        <p>Servicios concretos para equipos directivos que necesitan liberar tiempo, ordenar decisiones y mejorar la vida cotidiana del centro con soluciones aplicables.</p>
       </div>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#servicios">Ver servicios</a>
@@ -120,38 +127,53 @@
     <section class="section" id="servicios">
       <div class="section-head">
         <div class="eyebrow">Servicios</div>
-        <h2 class="section-title">Tres servicios de consultoría para ordenar, decidir y avanzar</h2>
+        <h2 class="section-title">Tres servicios de consultoría para equipos que quieren un impulso real</h2>
       </div>
-      <p class="section-lede">Trabajo con equipos directivos, departamentos de innovación y coordinadores para construir respuestas operativas a los desafíos actuales de la FP.</p>
+      <p class="section-lede">Propuestas con alcance cerrado, entregables visibles y acompañamiento suficiente para que no se queden en un informe bonito.</p>
       <div class="service-grid">
         <article class="service-card">
-          <div class="service-top"><span class="service-ico">⚙️</span><h3>Diagnóstico y plan de mejora</h3></div>
-          <p>Evaluación de procesos, recursos y organización para proponer intervenciones que impacten en la docencia y en la gestión.</p>
-          <ul>
-            <li>Lectura realista del centro</li>
-            <li>Priorización de necesidades</li>
-            <li>Plan de acción aplicable</li>
-          </ul>
+          <span class="flag">Consultoría</span>
+          <div class="service-top"><span class="service-ico">🤖</span><h3>Asistente IA a medida para el centro</h3></div>
+          <p>Diseño y entrega de un asistente IA personalizado para responder dudas frecuentes, generar comunicados, adaptar programaciones o producir informes tipo.</p>
+          <div class="deliverables">
+            <div class="deliverable-label">Entregables</div>
+            <ul>
+              <li>Asistente IA configurado y probado</li>
+              <li>Manual de uso para el equipo</li>
+              <li>1 mes de soporte post-entrega</li>
+            </ul>
+          </div>
+          <div class="price-box"><span><span class="price">4.500 € <small>+ IVA</small></span><span class="meta">6-8 semanas de diseño</span></span><span class="tag">Dirección</span></div>
           <a class="btn" href="#contacto">Solicitar información</a>
         </article>
         <article class="service-card">
-          <div class="service-top"><span class="service-ico">💻</span><h3>Optimización de la formación online</h3></div>
-          <p>Acompañamiento para mejorar experiencias formativas digitales, haciendo que los cursos online sean más claros, participativos y sostenibles para docentes y alumnado.</p>
-          <ul>
-            <li>Revisión de estructura, contenidos y ritmo</li>
-            <li>Diseño de actividades y seguimiento online</li>
-            <li>Mejora de materiales, evaluación y participación</li>
-          </ul>
+          <span class="flag">Consultoría</span>
+          <div class="service-top"><span class="service-ico">💬</span><h3>Plan de motivación y clima docente</h3></div>
+          <p>Diagnóstico de clima de claustro y diseño de un plan de acción para mejorar la motivación: reconocimiento, proyectos compartidos y reducción de reuniones inútiles.</p>
+          <div class="deliverables">
+            <div class="deliverable-label">Entregables</div>
+            <ul>
+              <li>Diagnóstico de clima docente</li>
+              <li>Plan de acción trimestral</li>
+              <li>Sesión de presentación al equipo directivo</li>
+            </ul>
+          </div>
+          <div class="price-box"><span><span class="price">2.800 € <small>+ IVA</small></span><span class="meta">4-5 semanas · online</span></span><span class="tag">Dirección</span></div>
           <a class="btn" href="#contacto">Solicitar información</a>
         </article>
         <article class="service-card">
-          <div class="service-top"><span class="service-ico">🧩</span><h3>Acompañamiento a equipos directivos</h3></div>
-          <p>Asesoría en gobernanza, planificación estratégica, dinamización de claustros y creación de propuestas para centros innovadores.</p>
-          <ul>
-            <li>Sesiones de trabajo con el equipo</li>
-            <li>Toma de decisiones con criterio</li>
-            <li>Seguimiento de implementación</li>
-          </ul>
+          <span class="flag">Consultoría</span>
+          <div class="service-top"><span class="service-ico">⚙️</span><h3>Auditoría burocrática y simplificación de procesos</h3></div>
+          <p>Análisis de procesos administrativos y documentales para identificar duplicidades, documentación innecesaria y tareas que pueden automatizarse con IA.</p>
+          <div class="deliverables">
+            <div class="deliverable-label">Entregables</div>
+            <ul>
+              <li>Mapa de procesos actuales</li>
+              <li>Informe de simplificación priorizado</li>
+              <li>3 automatizaciones IA implementadas</li>
+            </ul>
+          </div>
+          <div class="price-box"><span><span class="price">3.200 € <small>+ IVA</small></span><span class="meta">4-6 semanas · online</span></span><span class="tag">Dirección</span></div>
           <a class="btn" href="#contacto">Solicitar información</a>
         </article>
       </div>
@@ -161,16 +183,16 @@
       <div class="feature">
         <h4>Áreas de intervención</h4>
         <div class="list-card">
-          <strong>01 Sistemas de evaluación</strong>
-          <p>Evaluación por competencias, instrumentos prácticos y uso de evidencias en el seguimiento del alumnado.</p>
+          <strong>01 IA útil para el centro</strong>
+          <p>Asistentes a medida, documentación tipo, respuestas frecuentes y automatización de tareas repetitivas con control del equipo.</p>
         </div>
         <div class="list-card">
-          <strong>02 FP Dual y colaboración con empresas</strong>
-          <p>Propuestas de coordinación, seguimiento y mejora de la relación entre centros y empresas.</p>
+          <strong>02 Clima y motivación docente</strong>
+          <p>Diagnóstico de necesidades reales, reconocimiento del trabajo docente y diseño de hitos visibles para recuperar energía de equipo.</p>
         </div>
         <div class="list-card">
-          <strong>03 Gestión de la innovación</strong>
-          <p>Métodos para planificar, ejecutar y comunicar proyectos de innovación educativa en el centro.</p>
+          <strong>03 Procesos más simples</strong>
+          <p>Revisión de cargas burocráticas, duplicidades y documentos que pueden simplificarse o automatizarse para devolver tiempo al profesorado.</p>
         </div>
       </div>
     </section>
@@ -215,9 +237,9 @@
           <input type="text" name="centro" placeholder="Centro / entidad">
           <input type="email" name="email" placeholder="Email de contacto" required>
           <select name="interes">
-            <option>Diagnóstico y plan de mejora</option>
-            <option>Optimización de la formación online</option>
-            <option>Acompañamiento a equipo directivo</option>
+            <option>Asistente IA a medida para el centro</option>
+            <option>Plan de motivación y clima docente</option>
+            <option>Auditoría burocrática y simplificación de procesos</option>
           </select>
           <textarea name="mensaje" rows="5" placeholder="Cuéntame brevemente qué necesita tu centro..."></textarea>
           <button class="btn btn-primary" type="submit">Enviar consulta</button>

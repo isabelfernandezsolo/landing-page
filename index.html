@@ -207,6 +207,10 @@
   .help-card ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;}
   .help-card li{position:relative;padding-left:20px;color:var(--muted);line-height:1.75;}
   .help-card li::before{content:'•';position:absolute;left:0;top:2px;color:var(--service);font-size:18px;line-height:1;}
+  .service-preview{display:grid;gap:8px;margin-top:2px;padding:16px;border-radius:16px;background:rgba(255,255,255,.58);border:1px solid rgba(11,20,16,.06);}
+  .service-preview strong{font-family:'Fraunces',serif;font-size:17px;line-height:1.15;color:var(--service-deep);}
+  .service-preview span{font-size:13px;line-height:1.55;color:var(--muted);}
+  .service-price{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--service-deep);}
   .help-card a{margin-top:auto;background:linear-gradient(135deg,var(--service) 0%,var(--service-deep) 100%);color:var(--paper);box-shadow:0 14px 34px -18px var(--service);}
   .help-card a:hover{box-shadow:0 20px 42px -20px var(--service);}
   .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px;}
@@ -1074,26 +1078,41 @@
     <div class="section-head reveal">
       <div>
         <div class="eyebrow">02 / Servicios</div>
-        <h2 class="section-title">Cómo puedo ayudarte</h2>
+        <h2 class="section-title">Servicios listos para poner en marcha</h2>
       </div>
-      <p class="section-lede">Tres líneas principales de servicio para convertir necesidades de FP en planes aplicables, evidencias de impacto y resultados transferibles.</p>
+      <p class="section-lede">Nueve propuestas concretas para centros de FP: investigación aplicada, cursos para docentes y consultoría directiva con entregables, plazos y precios claros.</p>
     </div>
 
     <div class="help-grid reveal">
       <article class="help-card research">
         <div class="help-top"><span class="ico">🔬</span><h3>Innovación e investigación aplicada en FP</h3></div>
-        <p>Diseño, gestión y desarrollo de proyecto de investigación en FP (Artículos 102 y 103 de la Ley Orgánica 3/2022)</p>
-        <a href="innovacion-investigacion.html" class="btn btn-gold">Impulsar proyectos de investigación</a>
+        <p>Para convertir prácticas docentes reales en investigación, publicaciones y transferencia alineada con los artículos 102 y 103 de la Ley Orgánica 3/2022.</p>
+        <div class="service-preview">
+          <strong>Programa completo para CRN</strong>
+          <span>5 docentes acompañados, guía metodológica, kit IA-docente, memoria y jornada de transferencia.</span>
+          <div class="service-price">Desde 2.500 € · estrella 15.500 €</div>
+        </div>
+        <a href="innovacion-investigacion.html" class="btn btn-gold">Ver investigación aplicada</a>
       </article>
       <article class="help-card training">
         <div class="help-top"><span class="ico">🎓</span><h3>Acciones formativas</h3></div>
-        <p>Cursos y talleres que mejoran la práctica docente en FP (metodologías activas, evaluación por competencias, IA...) con un enfoque práctico, y adaptado a la realidad del centro</p>
-        <a href="acciones-formativas.html" class="btn btn-gold">Ver acciones formativas</a>
+        <p>Cursos prácticos para docentes de FP: módulo de proyecto, metodologías activas e IA aplicada al día a día del aula.</p>
+        <div class="service-preview">
+          <strong>Cursos con materiales editables</strong>
+          <span>Sesiones online, certificado, plantillas, rúbricas y bancos de prompts listos para usar.</span>
+          <div class="service-price">190-320 € / persona · descuento centro</div>
+        </div>
+        <a href="acciones-formativas.html" class="btn btn-gold">Ver cursos para docentes</a>
       </article>
       <article class="help-card consulting">
         <div class="help-top"><span class="ico">⚙️</span><h3>Consultora especializada en FP</h3></div>
-        <p>Apoyo a equipos directivos y desarrollo de soluciones prácticas y aplicables orientadas a la mejora de la gestión y solución de problemas de los centros de FP</p>
-        <a href="consultora-especializada-fp.html" class="btn btn-gold">Solicitar asesoramiento</a>
+        <p>Soluciones para equipos directivos que necesitan liberar tiempo, mejorar clima docente y simplificar procesos con apoyo de IA.</p>
+        <div class="service-preview">
+          <strong>IA, clima y simplificación</strong>
+          <span>Asistente IA a medida, plan de motivación docente o auditoría burocrática con automatizaciones.</span>
+          <div class="service-price">Desde 2.800 € · soporte incluido</div>
+        </div>
+        <a href="consultora-especializada-fp.html" class="btn btn-gold">Ver consultoría FP</a>
       </article>
     </div>
 
