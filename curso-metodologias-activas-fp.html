@@ -1,0 +1,825 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metodologías activas en Formación Profesional | Curso para docentes FP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#16211c;
+      --muted:#52665c;
+      --forest:#123d32;
+      --fern:#477463;
+      --sage:#dbe8df;
+      --mint:#eef6f1;
+      --gold:#c48a2c;
+      --gold-soft:#f3d99f;
+      --coral:#d96f58;
+      --sky:#d8e9f4;
+      --paper:#fbf8f2;
+      --white:#fffefb;
+      --line:rgba(22,33,28,.12);
+      --shadow:0 18px 60px rgba(22,33,28,.12);
+      --shadow-soft:0 10px 30px rgba(22,33,28,.08);
+      --radius:8px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100vh;
+      background:
+        linear-gradient(180deg,rgba(216,233,244,.55) 0%,rgba(251,248,242,0) 34rem),
+        var(--paper);
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      font-size:16px;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{color:inherit}
+    .wrap{width:min(1160px,calc(100% - 40px));margin:0 auto}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:10;
+      border-bottom:1px solid rgba(255,255,255,.35);
+      background:rgba(251,248,242,.86);
+      backdrop-filter:blur(18px);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--forest);
+      font-weight:800;
+      letter-spacing:.01em;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+
+    .brand-mark{
+      display:grid;
+      width:34px;
+      height:34px;
+      place-items:center;
+      border-radius:50%;
+      background:var(--forest);
+      color:var(--gold-soft);
+      font-family:Fraunces,serif;
+      font-weight:700;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:6px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      border-radius:999px;
+      padding:8px 12px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .nav-links a:hover{background:var(--mint);color:var(--forest)}
+
+    .hero{
+      position:relative;
+      isolation:isolate;
+      overflow:hidden;
+      padding:76px 0 54px;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:18px 0 auto auto;
+      z-index:-1;
+      width:min(46vw,520px);
+      height:min(46vw,520px);
+      border-radius:48% 52% 44% 56%;
+      background:
+        linear-gradient(135deg,rgba(196,138,44,.95),rgba(217,111,88,.9)),
+        radial-gradient(circle at 38% 34%,#fff 0 9%,transparent 10%);
+      opacity:.18;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(320px,.72fr);
+      gap:42px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      margin-bottom:18px;
+      border:1px solid rgba(18,61,50,.16);
+      border-radius:999px;
+      background:rgba(255,254,251,.7);
+      padding:7px 12px;
+      color:var(--forest);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:var(--coral);
+      box-shadow:16px 0 0 var(--gold),32px 0 0 var(--fern);
+    }
+
+    h1,h2,h3{
+      font-family:Fraunces,Georgia,serif;
+      line-height:1.04;
+      color:var(--ink);
+    }
+
+    h1{
+      max-width:850px;
+      font-size:clamp(42px,6vw,76px);
+      font-weight:700;
+      text-wrap:balance;
+    }
+
+    h1 span{color:var(--forest)}
+
+    .hero-lede{
+      max-width:690px;
+      margin-top:22px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.75;
+    }
+
+    .actions{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:30px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      border:0;
+      border-radius:999px;
+      background:var(--forest);
+      color:#fff;
+      padding:13px 22px;
+      font-weight:800;
+      text-decoration:none;
+      cursor:pointer;
+      box-shadow:0 12px 26px rgba(18,61,50,.22);
+      transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      background:#0d3027;
+      box-shadow:0 16px 34px rgba(18,61,50,.28);
+    }
+
+    .ghost-link{
+      color:var(--forest);
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .hero-panel{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(18,61,50,.16);
+      border-radius:var(--radius);
+      background:
+        linear-gradient(160deg,rgba(255,254,251,.92),rgba(238,246,241,.96)),
+        var(--white);
+      box-shadow:var(--shadow);
+    }
+
+    .panel-top{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1px;
+      background:var(--line);
+    }
+
+    .metric{
+      min-height:122px;
+      background:rgba(255,254,251,.9);
+      padding:24px;
+    }
+
+    .metric strong{
+      display:block;
+      color:var(--forest);
+      font-family:Fraunces,serif;
+      font-size:36px;
+      line-height:1;
+    }
+
+    .metric span{
+      display:block;
+      margin-top:8px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+      line-height:1.35;
+    }
+
+    .inscription-form{
+      display:grid;
+      gap:12px;
+      padding:24px;
+    }
+
+    .field{
+      display:grid;
+      gap:6px;
+    }
+
+    .field span{
+      color:var(--forest);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    input{
+      width:100%;
+      min-height:46px;
+      border:1px solid rgba(22,33,28,.16);
+      border-radius:var(--radius);
+      background:var(--white);
+      padding:12px 14px;
+      color:var(--ink);
+      font:inherit;
+      outline:none;
+    }
+
+    input:focus{
+      border-color:var(--gold);
+      box-shadow:0 0 0 4px rgba(196,138,44,.16);
+    }
+
+    .form-note{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    section{padding:62px 0}
+    .section-head{
+      display:grid;
+      grid-template-columns:minmax(240px,.7fr) minmax(0,1fr);
+      gap:36px;
+      align-items:end;
+      margin-bottom:28px;
+    }
+
+    .section-kicker{
+      display:block;
+      margin-bottom:10px;
+      color:var(--coral);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+
+    .section-title{
+      font-size:clamp(32px,5vw,52px);
+      font-weight:700;
+      text-wrap:balance;
+    }
+
+    .section-lede{
+      max-width:690px;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.72;
+    }
+
+    .feature{
+      display:grid;
+      grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+      gap:1px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--line);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .feature-callout{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height:360px;
+      background:var(--forest);
+      padding:34px;
+      color:#fff;
+    }
+
+    .feature-callout h3{
+      color:#fff;
+      font-size:34px;
+      font-weight:700;
+    }
+
+    .feature-callout p{margin-top:16px;color:rgba(255,255,255,.78)}
+
+    .mini-stack{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+
+    .pill{
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      padding:8px 12px;
+      color:inherit;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .feature-copy{
+      display:grid;
+      gap:18px;
+      background:var(--white);
+      padding:34px;
+      color:var(--muted);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+    .card{
+      position:relative;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,254,251,.84);
+      padding:26px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .card.accent{
+      background:linear-gradient(180deg,var(--mint),var(--white));
+      border-color:rgba(18,61,50,.2);
+    }
+
+    .card h3{
+      margin-bottom:14px;
+      font-size:25px;
+      font-weight:700;
+    }
+
+    .card p{color:var(--muted)}
+    .card p + p{margin-top:12px}
+
+    .tag{
+      display:inline-flex;
+      margin-bottom:16px;
+      border-radius:999px;
+      background:var(--sky);
+      padding:6px 10px;
+      color:#26495d;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    ul.checks{
+      display:grid;
+      gap:10px;
+      list-style:none;
+    }
+
+    .checks li{
+      position:relative;
+      padding-left:28px;
+      color:var(--muted);
+    }
+
+    .checks li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.42em;
+      width:16px;
+      height:16px;
+      border-radius:50%;
+      background:var(--sage);
+      box-shadow:inset 0 0 0 5px var(--forest);
+    }
+
+    .timeline{
+      display:grid;
+      gap:16px;
+      counter-reset:module;
+    }
+
+    .module{
+      display:grid;
+      grid-template-columns:82px minmax(0,1fr);
+      gap:22px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--white);
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+      counter-increment:module;
+    }
+
+    .module-number{
+      display:grid;
+      width:64px;
+      height:64px;
+      place-items:center;
+      border-radius:50%;
+      background:var(--forest);
+      color:var(--gold-soft);
+      font-family:Fraunces,serif;
+      font-size:28px;
+      font-weight:700;
+    }
+
+    .module h3{
+      font-size:28px;
+      margin-bottom:12px;
+    }
+
+    .module-meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+
+    .module-meta span{
+      border-radius:999px;
+      background:var(--mint);
+      padding:6px 10px;
+      color:var(--forest);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .module-grid{
+      display:grid;
+      grid-template-columns:1.3fr .9fr;
+      gap:20px;
+      color:var(--muted);
+    }
+
+    .module-grid strong{color:var(--ink)}
+
+    .band{
+      background:linear-gradient(135deg,var(--forest),#244f42);
+      color:#fff;
+    }
+
+    .band .section-title,
+    .band h3{color:#fff}
+
+    .band .section-lede,
+    .band .card p,
+    .band .checks li{color:rgba(255,255,255,.78)}
+
+    .band .card{
+      background:rgba(255,255,255,.08);
+      border-color:rgba(255,255,255,.16);
+      box-shadow:none;
+    }
+
+    .band .checks li::before{
+      background:var(--gold-soft);
+      box-shadow:inset 0 0 0 5px var(--gold);
+    }
+
+    .footer{
+      padding:34px 0;
+      background:#101915;
+      color:rgba(255,255,255,.62);
+      text-align:center;
+      font-size:14px;
+    }
+
+    @media (max-width:900px){
+      .nav{align-items:flex-start;flex-direction:column}
+      .hero-grid,.section-head,.feature,.module-grid{grid-template-columns:1fr}
+      .grid,.grid.two{grid-template-columns:1fr}
+      .hero{padding-top:48px}
+      .feature-callout{min-height:auto}
+    }
+
+    @media (max-width:620px){
+      .wrap{width:min(100% - 28px,1160px)}
+      .nav-links{display:none}
+      h1{font-size:40px}
+      section{padding:44px 0}
+      .hero-panel,.feature,.card,.module{border-radius:8px}
+      .panel-top{grid-template-columns:1fr}
+      .module{grid-template-columns:1fr;gap:12px}
+      .module-number{width:54px;height:54px;font-size:24px}
+      .feature-callout,.feature-copy,.card,.module{padding:22px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="acciones-formativas.html" aria-label="Volver a acciones formativas">
+        <span class="brand-mark">MA</span>
+        <span>Metodologías activas FP</span>
+      </a>
+      <nav class="nav-links" aria-label="Secciones del curso">
+        <a href="acciones-formativas.html">Formación</a>
+        <a href="#presentacion">Presentación</a>
+        <a href="#objetivos">Objetivos</a>
+        <a href="#estructura">Estructura</a>
+        <a href="#materiales">Materiales</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Curso práctico para profesorado de FP</div>
+          <h1>Diseña una <span>unidad activa</span> con ABP, retos y evaluación competencial</h1>
+          <p class="hero-lede">Una formación aplicada para transformar una unidad didáctica en una experiencia activa, conectada con el sector profesional y evaluable con evidencias claras.</p>
+          <div class="actions">
+            <a class="btn" href="#inscripcion">Solicitar inscripción</a>
+            <a class="ghost-link" href="#estructura">Ver estructura del curso</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Datos clave e inscripción">
+          <div class="panel-top">
+            <div class="metric"><strong>16 h</strong><span>Online en directo + trabajo guiado</span></div>
+            <div class="metric"><strong>5</strong><span>Bloques prácticos</span></div>
+            <div class="metric"><strong>1</strong><span>Unidad didáctica propia</span></div>
+            <div class="metric"><strong>ABP</strong><span>Retos, simulación y competencias</span></div>
+          </div>
+          <form id="inscripcion" action="mailto:isabelfernandezsolo@gmail.com" method="post" enctype="text/plain" class="inscription-form">
+            <label class="field"><span>Email</span><input type="email" name="email" placeholder="tu@email.com" required></label>
+            <label class="field"><span>Nombre</span><input type="text" name="nombre" placeholder="Tu nombre" required></label>
+            <input type="hidden" name="curso" value="Metodologías activas FP">
+            <button type="submit" class="btn">Enviar inscripción</button>
+            <p class="form-note">El formulario abre tu cliente de correo para enviar la solicitud de inscripción.</p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section id="presentacion">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-kicker">Presentación</span><h2 class="section-title">Del “quiero innovar” al “mañana puedo aplicarlo”.</h2></div>
+          <p class="section-lede">El curso ayuda a convertir contenidos del módulo en situaciones de aprendizaje activas, con retos profesionales, trabajo cooperativo, evidencias y evaluación coherente.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-callout">
+            <div><h3>Una formación para diseñar una unidad real, no para coleccionar teoría.</h3><p>Cada docente trabajará sobre su propio módulo y terminará con una unidad activa lista para revisar, adaptar y aplicar.</p></div>
+            <div class="mini-stack">
+              <span class="pill">ABP</span>
+              <span class="pill">Retos</span>
+              <span class="pill">Simulación</span>
+              <span class="pill">Rúbricas</span>
+            </div>
+          </div>
+          <div class="feature-copy">
+            <p>La formación parte de la realidad de FP: grupos diversos, tiempos limitados, currículo exigente y necesidad de conectar el aula con el sector profesional.</p>
+            <p>Por eso se trabaja con metodologías activas viables: aprendizaje basado en proyectos, retos, simulación empresarial, aprendizaje cooperativo y evaluación por competencias.</p>
+            <p>El resultado será una unidad didáctica propia, con secuencia de actividades, evidencias, instrumentos de evaluación y propuestas de adaptación por familia profesional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="objetivos">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-kicker">Objetivos</span><h2 class="section-title">Un curso con una unidad propia como producto final.</h2></div>
+          <p class="section-lede">Capacitar al profesorado para diseñar, secuenciar y evaluar propuestas activas en Formación Profesional, con foco en aprendizaje útil, participación y transferencia al aula.</p>
+        </div>
+        <div class="grid two">
+          <div class="card accent"><span class="tag">Objetivo general</span><h3>Diseñar una unidad activa aplicable a tu ciclo.</h3><p>El foco está en producir una propuesta concreta: reto, fases, actividades, evidencias, rúbricas y criterios para llevarla al aula con seguridad.</p></div>
+          <div class="card"><span class="tag">Objetivos específicos</span><ul class="checks">
+              <li>Identificar cuándo una metodología activa aporta valor real en FP.</li>
+              <li>Diseñar retos y proyectos conectados con situaciones profesionales.</li>
+              <li>Secuenciar actividades con inicio, desarrollo, producto y cierre.</li>
+              <li>Construir evidencias evaluables vinculadas a resultados de aprendizaje.</li>
+              <li>Diseñar rúbricas y herramientas de seguimiento claras.</li>
+              <li>Adaptar la propuesta a diferentes familias profesionales y contextos de centro.</li>
+            </ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="duracion">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-kicker">Duración</span><h2 class="section-title">16 horas con trabajo guiado y aplicación directa.</h2></div>
+          <p class="section-lede">La duración permite combinar sesiones online en directo con trabajo autónomo para que cada participante complete su unidad y reciba orientación.</p>
+        </div>
+        <div class="grid">
+          <article class="card accent">
+            <span class="tag">Sesiones en directo</span>
+            <h3>8 horas</h3>
+            <p>Explicación breve, ejemplos reales, diseño guiado y revisión de decisiones didácticas.</p>
+          </article>          <article class="card">
+            <span class="tag">Trabajo autónomo</span>
+            <h3>8 horas</h3>
+            <p>Diseño de la unidad propia, adaptación de materiales, elaboración de evidencias y rúbricas.</p>
+          </article>          <article class="card">
+            <span class="tag">Formato centro</span>
+            <h3>Flexible</h3>
+            <p>Puede adaptarse a calendario de centro, claustro, departamento o equipo de familia profesional.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="destinatarios"><div class="wrap"><div class="section-head"><div><span class="section-kicker">Destinatarios</span><h2 class="section-title">Pensado para docentes que quieren activar el aula sin perder control.</h2></div><p class="section-lede">Dirigido a profesorado de FP, coordinaciones pedagógicas y equipos docentes que quieren aplicar ABP, retos o simulación de forma ordenada y evaluable.</p></div></div></section>
+
+    <section class="band" id="producto-final">
+      <div class="wrap">
+        <div class="section-head"><div><span class="section-kicker">Producto final</span><h2 class="section-title">Lo que cada participante se lleva.</h2></div><p class="section-lede">Una unidad didáctica activa y defendible, con recursos listos para adaptar al aula y compartir con el equipo.</p></div>
+        <div class="grid">
+          <div class="card">
+            <h3>Diseño didáctico</h3>
+            <ul class="checks">
+              <li>Reto o proyecto profesional definido.</li>
+              <li>Secuencia de sesiones y fases.</li>
+              <li>Actividades individuales y cooperativas.</li>
+            </ul>
+          </div>          <div class="card">
+            <h3>Materiales</h3>
+            <ul class="checks">
+              <li>Plantillas de trabajo para alumnado.</li>
+              <li>Guía de desarrollo de la unidad.</li>
+              <li>Ejemplos por familias profesionales.</li>
+            </ul>
+          </div>          <div class="card">
+            <h3>Evaluación</h3>
+            <ul class="checks">
+              <li>Evidencias vinculadas a resultados de aprendizaje.</li>
+              <li>Rúbricas editables.</li>
+              <li>Checklist de seguimiento y cierre.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="estructura">
+      <div class="wrap">
+        <div class="section-head"><div><span class="section-kicker">Estructura</span><h2 class="section-title">Cinco bloques para diseñar una unidad activa completa.</h2></div><p class="section-lede">Cada bloque combina criterios metodológicos, ejemplos de FP, diseño de recursos y revisión del producto creado.</p></div>
+        <div class="timeline">
+          <article class="module">
+            <div class="module-number">1</div>
+            <div>
+              <h3>Sentido y elección de metodologías activas</h3>
+              <div class="module-meta"><span>3 horas</span><span>Marco práctico</span></div>
+              <div class="module-grid">
+                <p><strong>Contenidos:</strong> cuándo usar ABP, retos, simulación o aprendizaje cooperativo; ventajas, límites y condiciones para que funcione en FP.</p>
+                <p><strong>Producto:</strong> elección justificada de una metodología activa para una unidad real.</p>
+              </div>
+            </div>
+          </article>          <article class="module">
+            <div class="module-number">2</div>
+            <div>
+              <h3>Diseño del reto o situación profesional</h3>
+              <div class="module-meta"><span>3 horas</span><span>Reto aplicable</span></div>
+              <div class="module-grid">
+                <p><strong>Contenidos:</strong> formulación del reto, contexto profesional, producto final, roles del alumnado y conexión con el sector.</p>
+                <p><strong>Producto:</strong> reto o situación de aprendizaje redactada y contextualizada.</p>
+              </div>
+            </div>
+          </article>          <article class="module">
+            <div class="module-number">3</div>
+            <div>
+              <h3>Secuencia de actividades y recursos</h3>
+              <div class="module-meta"><span>4 horas</span><span>Unidad estructurada</span></div>
+              <div class="module-grid">
+                <p><strong>Contenidos:</strong> fases de trabajo, actividades de exploración, desarrollo, producción, revisión y presentación.</p>
+                <p><strong>Producto:</strong> secuencia completa de la unidad con actividades y materiales base.</p>
+              </div>
+            </div>
+          </article>          <article class="module">
+            <div class="module-number">4</div>
+            <div>
+              <h3>Evaluación por competencias y evidencias</h3>
+              <div class="module-meta"><span>4 horas</span><span>Rúbricas</span></div>
+              <div class="module-grid">
+                <p><strong>Contenidos:</strong> evidencias, criterios, instrumentos, coevaluación, autoevaluación y feedback durante el proceso.</p>
+                <p><strong>Producto:</strong> rúbrica principal y mapa de evidencias de la unidad.</p>
+              </div>
+            </div>
+          </article>          <article class="module">
+            <div class="module-number">5</div>
+            <div>
+              <h3>Adaptación, transferencia y puesta en marcha</h3>
+              <div class="module-meta"><span>2 horas</span><span>Plan de aula</span></div>
+              <div class="module-grid">
+                <p><strong>Contenidos:</strong> ajustes por grupo, tiempos, coordinación docente, comunicación al alumnado y mejora de la propuesta.</p>
+                <p><strong>Producto:</strong> plan de implementación de la unidad activa.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodologia"><div class="wrap"><div class="section-head"><div><span class="section-kicker">Metodología</span><h2 class="section-title">Práctica, aplicada y orientada a producto.</h2></div><p class="section-lede">Cada sesión combina explicación breve, análisis de ejemplos, diseño guiado, revisión entre docentes y mejora progresiva de la unidad propia.</p></div></div></section>
+
+    <section id="materiales">
+      <div class="wrap">
+        <div class="section-head"><div><span class="section-kicker">Materiales</span><h2 class="section-title">Un pack editable para diseñar metodologías activas en FP.</h2></div><p class="section-lede">El profesorado recibirá recursos para adaptar los retos, organizar el trabajo y evaluar con claridad.</p></div>
+        <div class="grid two">
+          <div class="card"><h3>Guías y plantillas</h3><ul class="checks">
+              <li>Guía de diseño de retos.</li>
+              <li>Plantilla de unidad activa.</li>
+              <li>Plantilla de secuencia por fases.</li>
+              <li>Ficha de roles y equipos.</li>
+              <li>Plantilla de producto final.</li>
+              <li>Modelo de presentación del reto.</li>
+            </ul></div>
+          <div class="card"><h3>Evaluación y seguimiento</h3><ul class="checks">
+              <li>Rúbricas editables.</li>
+              <li>Checklist de evidencias.</li>
+              <li>Plantilla de diario de equipo.</li>
+              <li>Guía de coevaluación y autoevaluación.</li>
+              <li>Ejemplos por familias profesionales.</li>
+              <li>Modelo de cierre y reflexión.</li>
+            </ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="evaluacion">
+      <div class="wrap">
+        <div class="section-head"><div><span class="section-kicker">Evaluación</span><h2 class="section-title">La evidencia será la unidad activa diseñada.</h2></div><p class="section-lede">La evaluación será práctica y se basará en la propuesta elaborada por cada participante.</p></div>
+        <div class="grid two">
+          <div class="card accent"><h3>Evidencias</h3><ul class="checks">
+              <li>Unidad activa diseñada.</li>
+              <li>Reto o situación profesional redactada.</li>
+              <li>Secuencia de actividades completa.</li>
+              <li>Evidencias e instrumentos de evaluación.</li>
+              <li>Plan de implementación en el aula.</li>
+            </ul></div>
+          <div class="card"><h3>Criterios de evaluación</h3><ul class="checks">
+              <li>Coherencia entre reto, actividades y resultados de aprendizaje.</li>
+              <li>Aplicabilidad en contexto real de FP.</li>
+              <li>Claridad de las instrucciones y materiales.</li>
+              <li>Calidad de las rúbricas y evidencias.</li>
+              <li>Viabilidad temporal y organizativa.</li>
+            </ul></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap"><p>&copy; 2026 Isabel Fernández Solo de Zaldívar. Todos los derechos reservados.</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,825 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA en el día a día del docente de FP | Curso práctico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#16211c;
+      --muted:#52665c;
+      --forest:#123d32;
+      --fern:#477463;
+      --sage:#dbe8df;
+      --mint:#eef6f1;
+      --gold:#c48a2c;
+      --gold-soft:#f3d99f;
+      --coral:#d96f58;
+      --sky:#d8e9f4;
+      --paper:#fbf8f2;
+      --white:#fffefb;
+      --line:rgba(22,33,28,.12);
+      --shadow:0 18px 60px rgba(22,33,28,.12);
+      --shadow-soft:0 10px 30px rgba(22,33,28,.08);
+      --radius:8px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100vh;
+      background:
+        linear-gradient(180deg,rgba(216,233,244,.55) 0%,rgba(251,248,242,0) 34rem),
+        var(--paper);
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      font-size:16px;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{color:inherit}
+    .wrap{width:min(1160px,calc(100% - 40px));margin:0 auto}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:10;
+      border-bottom:1px solid rgba(255,255,255,.35);
+      background:rgba(251,248,242,.86);
+      backdrop-filter:blur(18px);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--forest);
+      font-weight:800;
+      letter-spacing:.01em;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+
+    .brand-mark{
+      display:grid;
+      width:34px;
+      height:34px;
+      place-items:center;
+      border-radius:50%;
+      background:var(--forest);
+      color:var(--gold-soft);
+      font-family:Fraunces,serif;
+      font-weight:700;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:6px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      border-radius:999px;
+      padding:8px 12px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .nav-links a:hover{background:var(--mint);color:var(--forest)}
+
+    .hero{
+      position:relative;
+      isolation:isolate;
+      overflow:hidden;
+      padding:76px 0 54px;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:18px 0 auto auto;
+      z-index:-1;
+      width:min(46vw,520px);
+      height:min(46vw,520px);
+      border-radius:48% 52% 44% 56%;
+      background:
+        linear-gradient(135deg,rgba(196,138,44,.95),rgba(217,111,88,.9)),
+        radial-gradient(circle at 38% 34%,#fff 0 9%,transparent 10%);
+      opacity:.18;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(320px,.72fr);
+      gap:42px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      margin-bottom:18px;
+      border:1px solid rgba(18,61,50,.16);
+      border-radius:999px;
+      background:rgba(255,254,251,.7);
+      padding:7px 12px;
+      color:var(--forest);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:var(--coral);
+      box-shadow:16px 0 0 var(--gold),32px 0 0 var(--fern);
+    }
+
+    h1,h2,h3{
+      font-family:Fraunces,Georgia,serif;
+      line-height:1.04;
+      color:var(--ink);
+    }
+
+    h1{
+      max-width:850px;
+      font-size:clamp(42px,6vw,76px);
+      font-weight:700;
+      text-wrap:balance;
+    }
+
+    h1 span{color:var(--forest)}
+
+    .hero-lede{
+      max-width:690px;
+      margin-top:22px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.75;
+    }
+
+    .actions{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:30px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      border:0;
+      border-radius:999px;
+      background:var(--forest);
+      color:#fff;
+      padding:13px 22px;
+      font-weight:800;
+      text-decoration:none;
+      cursor:pointer;
+      box-shadow:0 12px 26px rgba(18,61,50,.22);
+      transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      background:#0d3027;
+      box-shadow:0 16px 34px rgba(18,61,50,.28);
+    }
+
+    .ghost-link{
+      color:var(--forest);
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .hero-panel{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(18,61,50,.16);
+      border-radius:var(--radius);
+      background:
+        linear-gradient(160deg,rgba(255,254,251,.92),rgba(238,246,241,.96)),
+        var(--white);
+      box-shadow:var(--shadow);
+    }
+
+    .panel-top{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1px;
+      background:var(--line);
+    }
+
+    .metric{
+      min-height:122px;
+      background:rgba(255,254,251,.9);
+      padding:24px;
+    }
+
+    .metric strong{
+      display:block;
+      color:var(--forest);
+      font-family:Fraunces,serif;
+      font-size:36px;
+      line-height:1;
+    }
+
+    .metric span{
+      display:block;
+      margin-top:8px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+      line-height:1.35;
+    }
+
+    .inscription-form{
+      display:grid;
+      gap:12px;
+      padding:24px;
+    }
+
+    .field{
+      display:grid;
+      gap:6px;
+    }
+
+    .field span{
+      color:var(--forest);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    input{
+      width:100%;
+      min-height:46px;
+      border:1px solid rgba(22,33,28,.16);
+      border-radius:var(--radius);
+      background:var(--white);
+      padding:12px 14px;
+      color:var(--ink);
+      font:inherit;
+      outline:none;
+    }
+
+    input:focus{
+      border-color:var(--gold);
+      box-shadow:0 0 0 4px rgba(196,138,44,.16);
+    }
+
+    .form-note{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    section{padding:62px 0}
+    .section-head{
+      display:grid;
+      grid-template-columns:minmax(240px,.7fr) minmax(0,1fr);
+      gap:36px;
+      align-items:end;
+      margin-bottom:28px;
+    }
+
+    .section-kicker{
+      display:block;
+      margin-bottom:10px;
+      color:var(--coral);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+
+    .section-title{
+      font-size:clamp(32px,5vw,52px);
+      font-weight:700;
+      text-wrap:balance;
+    }
+
+    .section-lede{
+      max-width:690px;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.72;
+    }
+
+    .feature{
+      display:grid;
+      grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+      gap:1px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--line);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .feature-callout{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height:360px;
+      background:var(--forest);
+      padding:34px;
+      color:#fff;
+    }
+
+    .feature-callout h3{
+      color:#fff;
+      font-size:34px;
+      font-weight:700;
+    }
+
+    .feature-callout p{margin-top:16px;color:rgba(255,255,255,.78)}
+
+    .mini-stack{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+
+    .pill{
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      padding:8px 12px;
+      color:inherit;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .feature-copy{
+      display:grid;
+      gap:18px;
+      background:var(--white);
+      padding:34px;
+      color:var(--muted);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+    .card{
+      position:relative;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,254,251,.84);
+      padding:26px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .card.accent{
+      background:linear-gradient(180deg,var(--mint),var(--white));
+      border-color:rgba(18,61,50,.2);
+    }
+
+    .card h3{
+      margin-bottom:14px;
+      font-size:25px;
+      font-weight:700;
+    }
+
+    .card p{color:var(--muted)}
+    .card p + p{margin-top:12px}
+
+    .tag{
+      display:inline-flex;
+      margin-bottom:16px;
+      border-radius:999px;
+      background:var(--sky);
+      padding:6px 10px;
+      color:#26495d;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    ul.checks{
+      display:grid;
+      gap:10px;
+      list-style:none;
+    }
+
+    .checks li{
+      position:relative;
+      padding-left:28px;
+      color:var(--muted);
+    }
+
+    .checks li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.42em;
+      width:16px;
+      height:16px;
+      border-radius:50%;
+      background:var(--sage);
+      box-shadow:inset 0 0 0 5px var(--forest);
+    }
+
+    .timeline{
+      display:grid;
+      gap:16px;
+      counter-reset:module;
+    }
+
+    .module{
+      display:grid;
+      grid-template-columns:82px minmax(0,1fr);
+      gap:22px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--white);
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+      counter-increment:module;
+    }
+
+    .module-number{
+      display:grid;
+      width:64px;
+      height:64px;
+      place-items:center;
+      border-radius:50%;
+      background:var(--forest);
+      color:var(--gold-soft);
+      font-family:Fraunces,serif;
+      font-size:28px;
+      font-weight:700;
+    }
+
+    .module h3{
+      font-size:28px;
+      margin-bottom:12px;
+    }
+
+    .module-meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+
+    .module-meta span{
+      border-radius:999px;
+      background:var(--mint);
+      padding:6px 10px;
+      color:var(--forest);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .module-grid{
+      display:grid;
+      grid-template-columns:1.3fr .9fr;
+      gap:20px;
+      color:var(--muted);
+    }
+
+    .module-grid strong{color:var(--ink)}
+
+    .band{
+      background:linear-gradient(135deg,var(--forest),#244f42);
+      color:#fff;
+    }
+
+    .band .section-title,
+    .band h3{color:#fff}
+
+    .band .section-lede,
+    .band .card p,
+    .band .checks li{color:rgba(255,255,255,.78)}
+
+    .band .card{
+      background:rgba(255,255,255,.08);
+      border-color:rgba(255,255,255,.16);
+      box-shadow:none;
+    }
+
+    .band .checks li::before{
+      background:var(--gold-soft);
+      box-shadow:inset 0 0 0 5px var(--gold);
+    }
+
+    .footer{
+      padding:34px 0;
+      background:#101915;
+      color:rgba(255,255,255,.62);
+      text-align:center;
+      font-size:14px;
+    }
+
+    @media (max-width:900px){
+      .nav{align-items:flex-start;flex-direction:column}
+      .hero-grid,.section-head,.feature,.module-grid{grid-template-columns:1fr}
+      .grid,.grid.two{grid-template-columns:1fr}
+      .hero{padding-top:48px}
+      .feature-callout{min-height:auto}
+    }
+
+    @media (max-width:620px){
+      .wrap{width:min(100% - 28px,1160px)}
+      .nav-links{display:none}
+      h1{font-size:40px}
+      section{padding:44px 0}
+      .hero-panel,.feature,.card,.module{border-radius:8px}
+      .panel-top{grid-template-columns:1fr}
+      .module{grid-template-columns:1fr;gap:12px}
+      .module-number{width:54px;height:54px;font-size:24px}
+      .feature-callout,.feature-copy,.card,.module{padding:22px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="acciones-formativas.html" aria-label="Volver a acciones formativas">
+        <span class="brand-mark">IA</span>
+        <span>IA docente FP</span>
+      </a>
+      <nav class="nav-links" aria-label="Secciones del curso">
+        <a href="acciones-formativas.html">Formación</a>
+        <a href="#presentacion">Presentación</a>
+        <a href="#objetivos">Objetivos</a>
+        <a href="#estructura">Estructura</a>
+        <a href="#materiales">Materiales</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Curso flexible para profesorado de FP</div>
+          <h1>Usa la <span>inteligencia artificial</span> para preparar, evaluar y ahorrar tiempo</h1>
+          <p class="hero-lede">Una formación práctica para integrar IA en tareas docentes reales: diseño de clases, instrumentos de evaluación, comunicación, documentación y apoyo al alumnado.</p>
+          <div class="actions">
+            <a class="btn" href="#inscripcion">Solicitar inscripción</a>
+            <a class="ghost-link" href="#estructura">Ver estructura del curso</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Datos clave e inscripción">
+          <div class="panel-top">
+            <div class="metric"><strong>10 h</strong><span>Online totalmente flexible</span></div>
+            <div class="metric"><strong>50</strong><span>Prompts listos para usar</span></div>
+            <div class="metric"><strong>1</strong><span>Kit docente IA</span></div>
+            <div class="metric"><strong>Día 1</strong><span>Aplicación inmediata</span></div>
+          </div>
+          <form id="inscripcion" action="mailto:isabelfernandezsolo@gmail.com" method="post" enctype="text/plain" class="inscription-form">
+            <label class="field"><span>Email</span><input type="email" name="email" placeholder="tu@email.com" required></label>
+            <label class="field"><span>Nombre</span><input type="text" name="nombre" placeholder="Tu nombre" required></label>
+            <input type="hidden" name="curso" value="IA docente FP">
+            <button type="submit" class="btn">Enviar inscripción</button>
+            <p class="form-note">El formulario abre tu cliente de correo para enviar la solicitud de inscripción.</p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section id="presentacion">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-kicker">Presentación</span><h2 class="section-title">Del “he probado ChatGPT” al “lo uso con criterio”.</h2></div>
+          <p class="section-lede">El curso aterriza la IA en tareas concretas de FP para reducir carga, mejorar materiales y mantener el criterio docente en el centro.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-callout">
+            <div><h3>Una formación para ganar tiempo sin perder rigor pedagógico.</h3><p>Cada docente saldrá con prompts, plantillas y procedimientos que puede aplicar en su módulo desde el primer día.</p></div>
+            <div class="mini-stack">
+              <span class="pill">Prompts</span>
+              <span class="pill">Evaluación</span>
+              <span class="pill">Materiales</span>
+              <span class="pill">Burocracia</span>
+            </div>
+          </div>
+          <div class="feature-copy">
+            <p>La IA puede ayudar mucho, pero solo si se usa con intención docente: para preparar mejor, evaluar con más claridad y liberar tiempo de tareas repetitivas.</p>
+            <p>El curso se centra en usos cotidianos: preparar clases, crear actividades, adaptar explicaciones, redactar comunicaciones, diseñar rúbricas y revisar documentos.</p>
+            <p>También se trabajan límites, verificación, protección de datos, transparencia con el alumnado y criterios para no delegar en la herramienta lo que corresponde al profesorado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="objetivos">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-kicker">Objetivos</span><h2 class="section-title">Un curso para incorporar IA a rutinas docentes reales.</h2></div>
+          <p class="section-lede">Capacitar al profesorado de FP para utilizar herramientas de IA generativa de forma útil, ética y práctica en planificación, evaluación, comunicación y gestión documental.</p>
+        </div>
+        <div class="grid two">
+          <div class="card accent"><span class="tag">Objetivo general</span><h3>Construir un kit personal de IA docente.</h3><p>El foco está en crear recursos propios: banco de prompts, plantillas, ejemplos de uso, criterios de revisión y protocolos sencillos para el aula.</p></div>
+          <div class="card"><span class="tag">Objetivos específicos</span><ul class="checks">
+              <li>Comprender posibilidades y límites de la IA generativa en FP.</li>
+              <li>Crear prompts eficaces para planificación, evaluación y comunicación.</li>
+              <li>Diseñar actividades y materiales adaptados al módulo.</li>
+              <li>Generar instrumentos de evaluación y feedback con apoyo de IA.</li>
+              <li>Reducir carga burocrática con plantillas y automatización ligera.</li>
+              <li>Aplicar criterios éticos, de verificación y uso responsable.</li>
+            </ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="duracion">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-kicker">Duración</span><h2 class="section-title">10 horas online y totalmente flexible.</h2></div>
+          <p class="section-lede">Pensado para docentes que necesitan avanzar a su ritmo y obtener resultados aplicables desde la primera sesión.</p>
+        </div>
+        <div class="grid">
+          <article class="card accent">
+            <span class="tag">Aprendizaje flexible</span>
+            <h3>10 horas</h3>
+            <p>Vídeos, prácticas guiadas y tareas breves orientadas a resultados inmediatos.</p>
+          </article>          <article class="card">
+            <span class="tag">Banco de prompts</span>
+            <h3>50 prompts</h3>
+            <p>Prompts listos para adaptar a programación, actividades, evaluación, comunicación y documentación.</p>
+          </article>          <article class="card">
+            <span class="tag">Aplicación directa</span>
+            <h3>Desde el día 1</h3>
+            <p>Cada bloque produce materiales que pueden usarse inmediatamente en el aula o en la gestión diaria.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="destinatarios"><div class="wrap"><div class="section-head"><div><span class="section-kicker">Destinatarios</span><h2 class="section-title">Pensado para docentes de FP que quieren usar IA sin tecnicismos.</h2></div><p class="section-lede">Dirigido a profesorado, equipos directivos y coordinaciones que quieren empezar o consolidar el uso de IA con ejemplos reales, lenguaje claro y aplicación inmediata.</p></div></div></section>
+
+    <section class="band" id="producto-final">
+      <div class="wrap">
+        <div class="section-head"><div><span class="section-kicker">Producto final</span><h2 class="section-title">Lo que cada participante se lleva.</h2></div><p class="section-lede">Un kit práctico para usar IA en la docencia diaria sin empezar de cero cada vez.</p></div>
+        <div class="grid">
+          <div class="card">
+            <h3>Banco de prompts</h3>
+            <ul class="checks">
+              <li>50 prompts organizados por tarea.</li>
+              <li>Versiones editables y adaptables.</li>
+              <li>Prompts para docente y alumnado.</li>
+            </ul>
+          </div>          <div class="card">
+            <h3>Materiales docentes</h3>
+            <ul class="checks">
+              <li>Actividades generadas y revisadas.</li>
+              <li>Rúbricas e instrumentos de evaluación.</li>
+              <li>Modelos de feedback y comunicación.</li>
+            </ul>
+          </div>          <div class="card">
+            <h3>Uso responsable</h3>
+            <ul class="checks">
+              <li>Criterios de verificación.</li>
+              <li>Normas de uso para alumnado.</li>
+              <li>Checklist ética y protección de datos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="estructura">
+      <div class="wrap">
+        <div class="section-head"><div><span class="section-kicker">Estructura</span><h2 class="section-title">Cinco bloques para usar IA en el trabajo docente cotidiano.</h2></div><p class="section-lede">Cada bloque aborda una necesidad real y termina con recursos listos para incorporar al kit personal del docente.</p></div>
+        <div class="timeline">
+          <article class="module">
+            <div class="module-number">1</div>
+            <div>
+              <h3>IA generativa sin tecnicismos</h3>
+              <div class="module-meta"><span>1,5 horas</span><span>Mapa de usos</span></div>
+              <div class="module-grid">
+                <p><strong>Contenidos:</strong> qué es la IA generativa, qué puede hacer, qué no conviene delegar y cómo formular buenas instrucciones.</p>
+                <p><strong>Producto:</strong> mapa personal de tareas docentes donde la IA puede aportar valor.</p>
+              </div>
+            </div>
+          </article>          <article class="module">
+            <div class="module-number">2</div>
+            <div>
+              <h3>Preparación de clases y materiales</h3>
+              <div class="module-meta"><span>2 horas</span><span>Materiales</span></div>
+              <div class="module-grid">
+                <p><strong>Contenidos:</strong> creación de explicaciones, ejemplos, actividades, casos, retos, adaptaciones de nivel y recursos para familias profesionales.</p>
+                <p><strong>Producto:</strong> pack de materiales para una sesión o unidad del módulo.</p>
+              </div>
+            </div>
+          </article>          <article class="module">
+            <div class="module-number">3</div>
+            <div>
+              <h3>Evaluación, rúbricas y feedback</h3>
+              <div class="module-meta"><span>2 horas</span><span>Evaluación</span></div>
+              <div class="module-grid">
+                <p><strong>Contenidos:</strong> diseño de rúbricas, listas de cotejo, preguntas, feedback formativo y revisión de entregas con criterio docente.</p>
+                <p><strong>Producto:</strong> instrumento de evaluación y modelo de feedback mejorado con IA.</p>
+              </div>
+            </div>
+          </article>          <article class="module">
+            <div class="module-number">4</div>
+            <div>
+              <h3>Comunicación y documentación del centro</h3>
+              <div class="module-meta"><span>2 horas</span><span>Burocracia útil</span></div>
+              <div class="module-grid">
+                <p><strong>Contenidos:</strong> comunicados, informes tipo, correos, actas, síntesis de reuniones y documentos repetitivos.</p>
+                <p><strong>Producto:</strong> plantillas de comunicación y documentación listas para adaptar.</p>
+              </div>
+            </div>
+          </article>          <article class="module">
+            <div class="module-number">5</div>
+            <div>
+              <h3>Ética, alumnado y protocolo de uso</h3>
+              <div class="module-meta"><span>2,5 horas</span><span>Uso responsable</span></div>
+              <div class="module-grid">
+                <p><strong>Contenidos:</strong> verificación, sesgos, protección de datos, transparencia, normas de aula y actividades con alumnado.</p>
+                <p><strong>Producto:</strong> protocolo sencillo de uso responsable de IA en el módulo o centro.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodologia"><div class="wrap"><div class="section-head"><div><span class="section-kicker">Metodología</span><h2 class="section-title">Práctica, aplicada y orientada a producto.</h2></div><p class="section-lede">Cada bloque propone una tarea real, una demostración, prompts editables, práctica guiada y revisión crítica del resultado para evitar respuestas genéricas o poco fiables.</p></div></div></section>
+
+    <section id="materiales">
+      <div class="wrap">
+        <div class="section-head"><div><span class="section-kicker">Materiales</span><h2 class="section-title">Un kit IA-docente listo para adaptar.</h2></div><p class="section-lede">El profesorado recibirá prompts, plantillas y criterios para trabajar con IA de forma práctica y responsable.</p></div>
+        <div class="grid two">
+          <div class="card"><h3>Prompts y plantillas</h3><ul class="checks">
+              <li>Banco de 50 prompts docentes.</li>
+              <li>Plantilla para mejorar prompts.</li>
+              <li>Prompts para actividades y casos.</li>
+              <li>Prompts para adaptar niveles.</li>
+              <li>Modelos de comunicación.</li>
+              <li>Plantillas de informes y síntesis.</li>
+            </ul></div>
+          <div class="card"><h3>Evaluación y uso responsable</h3><ul class="checks">
+              <li>Prompts para rúbricas.</li>
+              <li>Modelos de feedback formativo.</li>
+              <li>Checklist de verificación.</li>
+              <li>Normas de uso de IA para alumnado.</li>
+              <li>Guía de límites y protección de datos.</li>
+              <li>Protocolo básico de aula o centro.</li>
+            </ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="evaluacion">
+      <div class="wrap">
+        <div class="section-head"><div><span class="section-kicker">Evaluación</span><h2 class="section-title">La evidencia será el kit IA-docente construido.</h2></div><p class="section-lede">La evaluación será práctica y se basará en los recursos creados y revisados por cada participante.</p></div>
+        <div class="grid two">
+          <div class="card accent"><h3>Evidencias</h3><ul class="checks">
+              <li>Banco personal de prompts adaptado.</li>
+              <li>Material o actividad generada y revisada.</li>
+              <li>Instrumento de evaluación con apoyo de IA.</li>
+              <li>Plantilla de comunicación o documentación.</li>
+              <li>Protocolo de uso responsable.</li>
+            </ul></div>
+          <div class="card"><h3>Criterios de evaluación</h3><ul class="checks">
+              <li>Utilidad real de los prompts creados.</li>
+              <li>Calidad y verificación de los resultados generados.</li>
+              <li>Adecuación pedagógica al contexto de FP.</li>
+              <li>Claridad de los instrumentos de evaluación.</li>
+              <li>Uso ético, transparente y responsable de la IA.</li>
+            </ul></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap"><p>&copy; 2026 Isabel Fernández Solo de Zaldívar. Todos los derechos reservados.</p></div></footer>
+</body>
+</html>
