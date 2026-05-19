@@ -58,8 +58,9 @@
       border-radius:28px; background:linear-gradient(180deg,#ffffff 0%,#f1f6f8 100%);
       color:#071016; border:1px solid rgba(var(--primary-rgb),.32);
       box-shadow:0 24px 70px rgba(0,0,0,.28),0 18px 42px rgba(var(--primary-rgb),.18);
-      position:relative; overflow:hidden;
+      position:relative; overflow:hidden; text-decoration:none; cursor:pointer;
     }
+    .service-card:hover { transform:translateY(-4px); box-shadow:0 30px 80px rgba(0,0,0,.32),0 22px 50px rgba(var(--primary-rgb),.22); }
     .service-card::before { content:''; position:absolute; inset:0 0 auto; height:8px; background:linear-gradient(90deg,var(--primary),var(--primary-deep)); }
     .service-card::after { content:''; position:absolute; right:-36px; top:-54px; width:170px; height:170px; border-radius:50%; background:rgba(var(--primary-rgb),.16); }
     .service-top { display:grid; gap:18px; justify-items:center; align-items:start; position:relative; z-index:1; }
@@ -131,7 +132,7 @@
       </div>
       <p class="section-lede">Propuestas con alcance cerrado, entregables visibles y acompañamiento suficiente para que no se queden en un informe bonito.</p>
       <div class="service-grid">
-        <article class="service-card">
+        <a class="service-card" href="servicio-asistente-ia-centro.html" aria-label="Ver servicio Asistente IA a medida para el centro">
           <span class="flag">Consultoría</span>
           <div class="service-top"><span class="service-ico">🤖</span><h3>Asistente IA a medida para el centro</h3></div>
           <p>Diseño y entrega de un asistente IA personalizado para responder dudas frecuentes, generar comunicados, adaptar programaciones o producir informes tipo.</p>
@@ -144,9 +145,9 @@
             </ul>
           </div>
           <div class="price-box"><span><span class="price">4.500 € <small>+ IVA</small></span><span class="meta">6-8 semanas de diseño</span></span><span class="tag">Dirección</span></div>
-          <a class="btn" href="#contacto">Solicitar información</a>
-        </article>
-        <article class="service-card">
+          <span class="btn">Ver servicio</span>
+        </a>
+        <a class="service-card" href="servicio-plan-motivacion-clima-docente.html" aria-label="Ver servicio Plan de motivación y clima docente">
           <span class="flag">Consultoría</span>
           <div class="service-top"><span class="service-ico">💬</span><h3>Plan de motivación y clima docente</h3></div>
           <p>Diagnóstico de clima de claustro y diseño de un plan de acción para mejorar la motivación: reconocimiento, proyectos compartidos y reducción de reuniones inútiles.</p>
@@ -159,9 +160,9 @@
             </ul>
           </div>
           <div class="price-box"><span><span class="price">2.800 € <small>+ IVA</small></span><span class="meta">4-5 semanas · online</span></span><span class="tag">Dirección</span></div>
-          <a class="btn" href="#contacto">Solicitar información</a>
-        </article>
-        <article class="service-card">
+          <span class="btn">Ver servicio</span>
+        </a>
+        <a class="service-card" href="servicio-auditoria-burocratica-procesos.html" aria-label="Ver servicio Auditoría burocrática y simplificación de procesos">
           <span class="flag">Consultoría</span>
           <div class="service-top"><span class="service-ico">⚙️</span><h3>Auditoría burocrática y simplificación de procesos</h3></div>
           <p>Análisis de procesos administrativos y documentales para identificar duplicidades, documentación innecesaria y tareas que pueden automatizarse con IA.</p>
@@ -174,8 +175,8 @@
             </ul>
           </div>
           <div class="price-box"><span><span class="price">3.200 € <small>+ IVA</small></span><span class="meta">4-6 semanas · online</span></span><span class="tag">Dirección</span></div>
-          <a class="btn" href="#contacto">Solicitar información</a>
-        </article>
+          <span class="btn">Ver servicio</span>
+        </a>
       </div>
     </section>
 

@@ -64,8 +64,9 @@
       border-radius:28px; background:linear-gradient(180deg,#ffffff 0%,#f1f8f5 100%);
       color:#07150f; border:1px solid rgba(var(--primary-rgb),.28);
       box-shadow:0 24px 70px rgba(0,0,0,.28),0 18px 42px rgba(var(--primary-rgb),.16);
-      position:relative; overflow:hidden;
+      position:relative; overflow:hidden; text-decoration:none; cursor:pointer;
     }
+    .service-card:hover { transform:translateY(-4px); box-shadow:0 30px 80px rgba(0,0,0,.32),0 22px 50px rgba(var(--primary-rgb),.22); }
     .service-card.featured { border:2px solid var(--primary); box-shadow:0 30px 80px rgba(0,0,0,.3),0 22px 54px rgba(var(--primary-rgb),.24); }
     .service-card::before { content:''; position:absolute; inset:0 0 auto; height:8px; background:linear-gradient(90deg,var(--primary-deep),var(--primary)); }
     .service-card::after { content:''; position:absolute; right:-36px; top:-54px; width:170px; height:170px; border-radius:50%; background:rgba(var(--primary-rgb),.14); }
@@ -148,7 +149,7 @@
       </div>
       <p class="section-lede">Servicios cerrados, con entregables claros, para que el centro vea avances concretos sin añadir complejidad innecesaria al trabajo docente.</p>
       <div class="service-grid">
-        <article class="service-card featured">
+        <a class="service-card featured" href="propuesta-centros-referencia-nacional.html" aria-label="Ver propuesta Programa completo para Centros de Referencia Nacional">
           <span class="flag">Producto estrella</span>
           <div class="service-top"><span class="service-ico">🔬</span><h3>Programa completo para Centros de Referencia Nacional</h3></div>
           <p>Piloto de investigación aplicada con cinco docentes acompañados de inicio a fin: de la idea a la buena práctica transferible, con apoyo IA y guía metodológica replicable.</p>
@@ -161,9 +162,9 @@
             </ul>
           </div>
           <div class="price-box"><span><span class="price">15.500 € <small>+ IVA</small></span><span class="meta">4 meses · modalidad mixta</span></span><span class="tag">CRN</span></div>
-          <a class="btn" href="propuesta-centros-referencia-nacional.html">Ver propuesta CRN</a>
-        </article>
-        <article class="service-card">
+          <span class="btn">Ver propuesta CRN</span>
+        </a>
+        <a class="service-card" href="servicio-proyecto-investigacion-publicacion.html" aria-label="Ver servicio Proyecto de investigación o publicación para un centro">
           <span class="flag">Para cualquier centro</span>
           <div class="service-top"><span class="service-ico">📊</span><h3>Proyecto de investigación o publicación para un centro</h3></div>
           <p>Acompañamiento a 1-2 docentes para convertir una práctica real en una investigación publicable o comunicación a jornadas. Alcance acotado, sin necesidad de ser CRN.</p>
@@ -176,9 +177,9 @@
             </ul>
           </div>
           <div class="price-box"><span><span class="price">3.500 € <small>+ IVA</small></span><span class="meta">6-8 semanas · online</span></span><span class="tag">Centro FP</span></div>
-          <a class="btn" href="#contacto">Solicitar información</a>
-        </article>
-        <article class="service-card">
+          <span class="btn">Ver servicio</span>
+        </a>
+        <a class="service-card" href="servicio-diagnostico-potencial-investigador.html" aria-label="Ver servicio Diagnóstico de potencial investigador del claustro">
           <span class="flag">Diagnóstico</span>
           <div class="service-top"><span class="service-ico">📝</span><h3>Diagnóstico de potencial investigador del claustro</h3></div>
           <p>Análisis de las prácticas docentes del centro para detectar experiencias con potencial investigador y diseñar una hoja de ruta de publicación y transferencia adaptada al contexto.</p>
@@ -191,8 +192,8 @@
             </ul>
           </div>
           <div class="price-box"><span><span class="price">2.500 € <small>+ IVA</small></span><span class="meta">3-4 semanas · online</span></span><span class="tag">Centro FP</span></div>
-          <a class="btn" href="#contacto">Solicitar información</a>
-        </article>
+          <span class="btn">Ver servicio</span>
+        </a>
       </div>
     </section>
 
