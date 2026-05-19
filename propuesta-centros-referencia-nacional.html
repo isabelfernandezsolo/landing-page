@@ -1,668 +1,180 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YVNSDGH10W"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YVNSDGH10W');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PROPUESTA DE COLABORACIÓN PARA CENTROS DE REFERENCIA NACIONAL</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#0b1410;
-    --ink-2:#142822;
-    --green:#1f5d49;
-    --green-deep:#0d3a2c;
-    --green-soft:#e8f1ec;
-    --green-mid:#3d8a72;
-    --gold:#d4a24a;
-    --gold-soft:#f6ecd5;
-    --sage:#dfece5;
-    --mint:#edf6f1;
-    --blush:#fbf2e7;
-    --blue-soft:#eef3f6;
-    --cream:#f6f1e8;
-    --paper:#fbf8f2;
-    --line:#1a2e26;
-    --muted:#5a6b62;
-    --white:#ffffff;
-    --grad-hero:radial-gradient(120% 80% at 80% 10%, #1f5d49 0%, #0d3a2c 45%, #061b14 100%);
-    --grad-gold:linear-gradient(135deg,#f0c878 0%,#d4a24a 45%,#b07d2a 100%);
-    --grad-mesh:radial-gradient(60% 50% at 10% 0%, rgba(212,162,74,.15), transparent 60%),radial-gradient(50% 60% at 100% 100%, rgba(31,93,73,.18), transparent 60%);
-    --shadow-1:0 1px 0 rgba(11,20,16,.04), 0 8px 24px rgba(11,20,16,.06);
-    --shadow-2:0 24px 80px -20px rgba(11,20,16,.25);
-    --radius:18px;
-    --radius-lg:28px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;}
-  ::selection{background:var(--gold);color:var(--ink);}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter',system-ui,sans-serif;
-    font-size:15.5px;
-    line-height:1.65;
-    overflow-x:hidden;
-    font-feature-settings:"ss01","cv11";
-  }
-  img,svg{display:block;max-width:100%;}
-  a{color:inherit;}
-
-  /* Typography */
-  .serif{font-family:'Fraunces',Georgia,serif;font-optical-sizing:auto;}
-  .mono{font-family:'JetBrains Mono',monospace;}
-  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--green-mid);}
-
-  /* Layout */
-  .wrap{max-width:1240px;margin:0 auto;padding:0 28px;}
-  @media(max-width:600px){.wrap{padding:0 18px;}}
-  section{padding:120px 0;position:relative;}
-  @media(max-width:720px){section{padding:80px 0;}}
-
-  /* Animations */
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-  @keyframes pulse{0%,100%{opacity:.4}50%{opacity:.9}}
-  @keyframes rotate{to{transform:rotate(360deg)}}
-  @keyframes slideUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @keyframes shine{0%{background-position:-200% 0}100%{background-position:200% 0}}
-  @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1);}
-  .reveal.in{opacity:1;transform:none;}
-
-  /* Cursor blink */
-  .blink::after{content:'_';color:var(--gold);animation:blink 1.1s steps(1) infinite;margin-left:4px;}
-
-  /* NAV */
-  nav{
-    position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:100;
-    width:min(96%,1240px);
-    background:rgba(251,248,242,.78);backdrop-filter:blur(18px) saturate(140%);
-    -webkit-backdrop-filter:blur(18px) saturate(140%);
-    border:1px solid rgba(11,20,16,.08);
-    border-radius:999px;
-    padding:10px 16px 10px 22px;
-    display:flex;align-items:center;justify-content:space-between;
-    box-shadow:0 10px 30px rgba(11,20,16,.06);
-  }
-  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);}
-  .brand-mark{width:38px;height:38px;border-radius:50%;background:var(--green-deep);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:16px;letter-spacing:-1px;position:relative;flex-shrink:0;}
-  .brand-mark::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px dashed var(--gold);opacity:.85;}
-  .brand-name{font-family:'Fraunces',serif;font-size:16px;font-weight:600;line-height:1;}
-  .brand-name span{display:block;font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
-  .nav-links{display:flex;gap:4px;list-style:none;align-items:center;}
-  .nav-links a{text-decoration:none;font-size:13px;font-weight:500;color:var(--ink);padding:8px 14px;border-radius:999px;transition:background .25s,color .25s;}
-  .nav-links a:hover{background:rgba(11,20,16,.06);}
-  .nav-cta{background:var(--ink) !important;color:var(--paper) !important;padding:10px 18px !important;font-weight:600 !important;}
-  .nav-cta:hover{background:var(--green-deep) !important;}
-  @media(max-width:880px){.nav-links li:not(:last-child){display:none;}nav{padding:8px 10px 8px 14px;}.brand-name{font-size:14px;}.brand-name span{display:none;}}
-
-  /* HERO */
-  .hero{
-    position:relative;padding:140px 0 80px;
-    background:var(--paper);
-    overflow:hidden;
-  }
-  .hero::before{
-    content:'';position:absolute;inset:0;
-    background:var(--grad-mesh);
-    pointer-events:none;
-  }
-  .hero-grid{
-    display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;
-    position:relative;
-  }
-  @media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:48px;}}
-
-  .hero h1{
-    font-family:'Fraunces',serif;font-weight:300;
-    font-size:clamp(46px,8vw,108px);
-    line-height:.95;letter-spacing:-.04em;
-    margin-bottom:28px;
-  }
-  .hero h1 strong{font-weight:700;font-style:normal;display:block;}
-  .hero h1 .accent{
-    font-style:italic;font-weight:400;
-    background:var(--grad-gold);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .hero-sub{font-size:18px;color:var(--ink-2);max-width:520px;margin-bottom:36px;line-height:1.6;}
-  .hero-sub em{font-family:'Fraunces',serif;font-style:italic;color:var(--green-deep);font-weight:500;}
-  .hero-statement{
-    max-width:560px;margin:0 0 22px;
-    font-family:'Fraunces',serif;font-size:clamp(24px,3vw,36px);line-height:1.12;
-    color:var(--green-deep);letter-spacing:-.02em;
-  }
-
-  .hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
-  .chip{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;padding:6px 11px;border:1px solid rgba(11,20,16,.18);border-radius:999px;color:var(--ink);background:rgba(255,255,255,.5);}
-
-  .cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    padding:15px 24px;border-radius:999px;
-    font-size:14px;font-weight:600;text-decoration:none;
-    transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s,background .25s;
-    border:1px solid transparent;
-  }
-  .btn-primary{background:var(--ink);color:var(--paper);box-shadow:0 10px 30px rgba(11,20,16,.18);}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(11,20,16,.25);background:var(--green-deep);}
-  .btn-primary .arrow{transition:transform .3s;}
-  .btn-primary:hover .arrow{transform:translateX(4px);}
-  .btn-ghost{background:transparent;color:var(--ink);border-color:rgba(11,20,16,.2);}
-  .btn-ghost:hover{background:var(--ink);color:var(--paper);}
-  .btn-gold{background:var(--grad-gold);color:var(--ink);box-shadow:0 14px 36px rgba(212,162,74,.32);}
-  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(212,162,74,.42);}
-  .hero-authority{max-width:760px;margin:0 0 28px;color:var(--ink-2);font-size:16px;line-height:1.8;}
-  .partner-band{padding:14px 0;background:var(--ink);color:var(--paper);overflow:hidden;position:relative;}
-  .partner-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:center;max-width:1240px;margin:0 auto;}
-  .partner-row span:first-child{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-right:4px;}
-  .partner-marquee{display:flex;min-width:100%;width:max-content;animation:marquee 30s linear infinite;}
-  .partner-marquee:hover{animation-play-state:paused;}
-  .partner-marquee span{display:inline-flex;align-items:center;font-family:'Fraunces',serif;font-size:20px;font-weight:500;padding:0 22px;color:var(--paper);white-space:nowrap;}
-  .partner-marquee span::after{content:'·';color:var(--gold);margin-left:22px;font-size:28px;line-height:0;}
-  .partner-marquee span:last-child::after{content:'';}
-  @media(max-width:760px){.partner-row{flex-direction:column;align-items:flex-start;gap:10px;}.partner-marquee{animation-duration:40s;}.partner-marquee span{font-size:18px;padding:0 16px;}}
-  .help-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px;}
-  @media(max-width:1020px){.help-grid{grid-template-columns:1fr;}}
-  .help-card{background:var(--white);border:1px solid rgba(11,20,16,.08);border-radius:24px;padding:30px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow-1);}
-  .help-top{display:flex;align-items:flex-start;gap:16px;}
-  .help-top .ico{width:48px;height:48px;border-radius:16px;background:var(--green-soft);color:var(--green-deep);display:flex;align-items:center;justify-content:center;font-size:24px;}
-  .help-top h3{font-family:'Fraunces',serif;font-size:clamp(22px,2.3vw,28px);line-height:1.08;margin:0;color:var(--green-deep);}
-  .help-card p{color:var(--ink-2);line-height:1.75;}
-  .help-card ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;}
-  .help-card li{position:relative;padding-left:20px;color:var(--muted);line-height:1.75;}
-  .help-card li::before{content:'•';position:absolute;left:0;top:2px;color:var(--gold);font-size:18px;line-height:1;}
-  .help-card a{margin-top:auto;}
-  .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px;}
-  @media(max-width:980px){.who-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:640px){.who-grid{grid-template-columns:1fr;}}
-  .who-card{background:var(--white);border:1px solid rgba(11,20,16,.08);border-radius:18px;padding:24px;font-family:'Fraunces',serif;font-size:15.5px;color:var(--ink);box-shadow:var(--shadow-1);}
-  .ref-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px;}
-  @media(max-width:780px){.ref-grid{grid-template-columns:1fr;}}
-  .ref-card{background:var(--white);border:1px solid rgba(11,20,16,.08);border-radius:22px;padding:26px;box-shadow:var(--shadow-1);}
-  .ref-card h4{font-family:'Fraunces',serif;font-size:18px;margin-bottom:12px;color:var(--green-deep);}
-  .ref-card p{color:var(--ink-2);line-height:1.75;font-size:14.5px;}
-  .contact-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
-  .contact-cta .btn{min-width:220px;}
-
-  /* Hero visual */
-  .hero-visual{
-    position:relative;aspect-ratio:1/1;max-width:540px;justify-self:end;width:100%;
-    display:flex;align-items:center;justify-content:center;
-  }
-  @media(max-width:960px){.hero-visual{justify-self:center;max-width:460px;}}
-  .hero-visual::before,
-  .hero-visual::after{
-    content:'';position:absolute;border-radius:50%;pointer-events:none;
-  }
-  .hero-visual::before{
-    inset:-2%;border:2px dashed rgba(212,162,74,.75);
-  }
-  .hero-visual::after{
-    inset:4%;border:10px solid rgba(31,93,73,.16);
-    box-shadow:0 0 0 1px rgba(212,162,74,.45), 0 0 0 16px rgba(212,162,74,.08), 0 0 0 30px rgba(31,93,73,.06);
-  }
-  .portrait{
-    position:relative;width:88%;height:88%;
-    background:var(--grad-hero);
-    border-radius:50%;
-    overflow:hidden;
-    box-shadow:var(--shadow-2);
-    z-index:1;
-    border:8px solid var(--paper);
-  }
-  .hero-featured{
-    padding:44px 0 54px;
-    background:linear-gradient(180deg,#f8f8f2,#eef6ef);
-    border-bottom:1px solid rgba(11,20,16,.06);
-  }
-  .featured-card{
-    display:grid;
-    grid-template-columns:1.15fr .85fr;
-    gap:28px;
-    background:var(--white);
-    border:1px solid rgba(11,20,16,.08);
-    border-radius:28px;
-    padding:34px;
-    box-shadow:var(--shadow-1);
-  }
-  @media(max-width:960px){.featured-card{grid-template-columns:1fr;}}
-  .hero-featured .eyebrow{margin-bottom:14px;color:var(--green-deep);}
-  .hero-featured h2{font-family:'Fraunces',serif;font-size:clamp(30px,4vw,42px);line-height:1.05;margin-bottom:22px;color:var(--ink);}
-  .hero-featured p{font-size:16px;color:var(--ink-2);max-width:680px;margin-bottom:24px;}
-  .featured-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:10px;}
-  @media(max-width:720px){.featured-list{grid-template-columns:1fr;}}
-  .featured-item{padding:20px;background:rgba(31,93,73,.05);border-radius:18px;}
-  .featured-item strong{display:block;margin-bottom:12px;font-size:14px;color:var(--green-deep);}
-  .featured-item ul{list-style:none;padding:0;margin:0;}
-  .featured-item li{font-size:14px;color:var(--ink-2);line-height:1.7;margin-bottom:10px;padding-left:18px;position:relative;}
-  .featured-item li::before{content:'•';position:absolute;left:0;top:0;color:var(--gold);font-size:18px;line-height:1;}
-  .featured-cta{display:flex;flex-wrap:wrap;gap:12px;}
-  .featured-cta .btn{min-width:220px;}
-  .hero-visual::after{
-    inset:4%;border:10px solid rgba(31,93,73,.16);
-    box-shadow:0 0 0 1px rgba(212,162,74,.45), 0 0 0 16px rgba(212,162,74,.08), 0 0 0 30px rgba(31,93,73,.06);
-  }
-  .portrait::before{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(180deg,transparent 45%,rgba(11,20,16,.24) 100%);
-    z-index:1;
-  }
-  .portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;}
-  .orbit-line{position:absolute;border-radius:50%;pointer-events:none;z-index:0;}
-  .orbit-line.o1{inset:10%;border:3px solid rgba(31,93,73,.28);}
-  .orbit-line.o2{inset:-5%;border:1px solid rgba(31,93,73,.38);}
-  .orbit-line.o3{inset:17%;border:6px solid rgba(31,93,73,.09);}
-  .portrait-logo{
-    position:absolute;right:12%;top:8%;z-index:3;
-    width:58px;height:58px;border-radius:50%;
-    background:var(--green-deep);color:var(--paper);
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Fraunces',serif;font-weight:800;font-size:22px;
-    border:3px solid var(--paper);
-    box-shadow:0 12px 28px rgba(11,20,16,.2);
-  }
-  .portrait-logo::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px dashed var(--gold);}
-  .portrait-mark{
-    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    font-family:'Fraunces',serif;font-weight:700;font-size:clamp(120px,20vw,200px);
-    color:rgba(255,255,255,.96);letter-spacing:-.06em;line-height:1;
-    text-shadow:0 8px 30px rgba(0,0,0,.3);
-  }
-  .portrait-mark sup{font-size:.3em;font-weight:400;color:var(--gold);vertical-align:top;margin-left:8px;font-style:italic;}
-
-  .float-card{
-    position:absolute;background:var(--white);border-radius:20px;padding:14px 18px;
-    box-shadow:0 18px 40px rgba(11,20,16,.14);border:1px solid rgba(11,20,16,.05);
-    animation:float 6s ease-in-out infinite;
-  }
-  .float-card.fc-1{top:6%;left:-8%;animation-delay:0s;}
-  .float-card.fc-2{bottom:14%;right:-10%;animation-delay:1.5s;}
-  .float-card.fc-3{bottom:-6%;left:8%;animation-delay:3s;}
-  .float-card .label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
-  .float-card .value{font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:var(--ink);line-height:1;}
-  .float-card .value sub{font-size:14px;color:var(--green-mid);font-weight:500;font-family:'Inter',sans-serif;font-style:normal;}
-  @media(max-width:960px){.float-card.fc-1{left:-2%;}.float-card.fc-2{right:-2%;}}
-
-  /* Marquee */
-  .marquee-wrap{
-    padding:44px 0;
-    background:var(--ink);
-    color:var(--paper);
-    overflow:hidden;
-    position:relative;
-  }
-  .marquee-label{
-    position:absolute;left:28px;top:50%;transform:translateY(-50%);
-    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
-  }
-  .marquee{
-    display:flex;min-width:100%;width:max-content;animation:marquee 30s linear infinite;
-  }
-  .marquee:hover{animation-play-state:paused;}
-  .marquee span{display:inline-flex;align-items:center;font-family:'Fraunces',serif;font-size:20px;font-weight:500;padding:0 22px;color:var(--paper);white-space:nowrap;}
-  .marquee span::after{content:'·';color:var(--gold);margin-left:22px;font-size:28px;line-height:0;}
-  .marquee span:last-child::after{content:'';}
-  @media(max-width:760px){.marquee{animation-duration:40s;}.marquee span{font-size:18px;padding:0 16px;}}
-
-  /* Sections */
-  .section-head{
-    margin-bottom:48px;
-  }
-  .section-head .eyebrow{margin-bottom:14px;}
-  .section-title{font-family:'Fraunces',serif;font-size:clamp(30px,4vw,46px);line-height:1.05;margin-bottom:22px;color:var(--ink);}
-  .section-lede{font-size:16px;color:var(--ink-2);max-width:680px;margin-bottom:24px;}
-
-  /* Content styles */
-  .content p{margin-bottom:24px;}
-  .content h2{font-family:'Fraunces',serif;font-size:28px;margin:48px 0 24px 0;color:var(--green-deep);}
-  .content h3{font-family:'Fraunces',serif;font-size:24px;margin:36px 0 18px 0;color:var(--ink);}
-  .content ul{list-style:none;padding:0;margin:0;}
-  .content li{margin-bottom:12px;padding-left:20px;position:relative;}
-  .content li::before{content:'•';position:absolute;left:0;top:0;color:var(--gold);font-size:18px;line-height:1;}
-  .content table{width:100%;border-collapse:collapse;margin:24px 0;}
-  .content th, .content td{padding:12px;border:1px solid rgba(11,20,16,.1);text-align:left;}
-  .content th{background:var(--green-soft);font-weight:600;}
-  .content blockquote{background:var(--blush);border-left:4px solid var(--gold);padding:20px;margin:24px 0;font-style:italic;}
-  .content .highlight{background:var(--gold-soft);padding:4px 8px;border-radius:4px;}
-
-  /* Contact */
-  .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:48px;margin-top:48px;}
-  @media(max-width:780px){.contact-grid{grid-template-columns:1fr;}}
-  .contact-item{display:flex;gap:16px;align-items:flex-start;}
-  .contact-item .ico{width:48px;height:48px;border-radius:16px;background:var(--green-soft);color:var(--green-deep);display:flex;align-items:center;justify-content:center;font-size:24px;}
-  .contact-item h4{font-family:'Fraunces',serif;font-size:18px;margin-bottom:8px;color:var(--green-deep);}
-  .contact-item p{color:var(--ink-2);line-height:1.6;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programa completo para Centros de Referencia Nacional | Isabel Fernández Solo de Zaldívar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#0b1410;--muted:#5a6b62;--forest:#0d3a2c;--accent:#3d8a72;--accent-soft:#e8f1ec;--paper:#fbf8f2;--white:#fffefb;--line:rgba(16,23,19,.12);--wash:#edf6f1;--gold:#d4a24a;--shadow:0 22px 70px rgba(13,58,44,.14);--radius:8px;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{min-height:100vh;background:linear-gradient(180deg,rgba(232,241,236,.9),rgba(251,248,242,0) 420px),var(--paper);font-family:Inter,system-ui,sans-serif;line-height:1.65;color:var(--ink)} a{color:inherit}.wrap{width:min(1120px,calc(100% - 40px));margin:0 auto}.topbar{position:sticky;top:0;z-index:10;background:rgba(251,248,242,.86);backdrop-filter:blur(18px);border-bottom:1px solid rgba(16,23,19,.08)}.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--forest);font-weight:900}.brand-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--forest);color:var(--accent-soft);font-family:Fraunces,serif}.nav-links{display:flex;gap:6px;flex-wrap:wrap}.nav-links a{text-decoration:none;border-radius:999px;padding:8px 12px;color:var(--muted);font-size:13px;font-weight:800}.nav-links a:hover{background:var(--wash);color:var(--forest)}.hero{padding:78px 0 54px;overflow:hidden}.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.72fr);gap:42px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;border:1px solid rgba(18,61,50,.16);border-radius:999px;background:rgba(255,254,251,.7);padding:7px 12px;color:var(--forest);font-size:13px;font-weight:900}.eyebrow::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:16px 0 0 var(--forest),32px 0 0 var(--gold)}h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.04;color:var(--ink)}h1{font-size:clamp(42px,6vw,74px);text-wrap:balance}h1 span{color:var(--forest)}.hero-lede{max-width:700px;margin-top:22px;color:var(--muted);font-size:18px;line-height:1.75}.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;border:0;border-radius:999px;background:var(--forest);color:#fff;padding:13px 22px;font-weight:900;text-decoration:none;box-shadow:0 12px 26px rgba(18,61,50,.22)}.btn:hover{background:#0d3027;transform:translateY(-2px)}.ghost-link{color:var(--forest);font-weight:900;text-decoration:none}.panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);box-shadow:var(--shadow);overflow:hidden}.panel-top{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}.metric{min-height:120px;background:rgba(255,254,251,.95);padding:22px}.metric strong{display:block;color:var(--forest);font-family:Fraunces,serif;font-size:32px;line-height:1}.metric span{display:block;margin-top:8px;color:var(--muted);font-size:13px;font-weight:800;line-height:1.35}.contact-form{display:grid;gap:12px;padding:24px}.field{display:grid;gap:6px}.field span{color:var(--forest);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}input,textarea{width:100%;border:1px solid rgba(16,23,19,.16);border-radius:var(--radius);background:var(--white);padding:12px 14px;color:var(--ink);font:inherit;outline:none}textarea{min-height:110px;resize:vertical}.form-note{color:var(--muted);font-size:13px;line-height:1.45}section{padding:58px 0}.section-head{display:grid;grid-template-columns:minmax(240px,.72fr) minmax(0,1fr);gap:34px;align-items:end;margin-bottom:28px}.section-kicker{display:block;margin-bottom:10px;color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.section-title{font-size:clamp(31px,5vw,50px);font-weight:700;text-wrap:balance}.section-lede{max-width:700px;color:var(--muted);font-size:17px;line-height:1.72}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.card{border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,254,251,.88);padding:26px;box-shadow:0 10px 30px rgba(16,23,19,.07)}.card.accent{background:linear-gradient(180deg,var(--wash),var(--white));border-color:rgba(18,61,50,.2)}.card h3{margin-bottom:14px;font-size:25px}.card p{color:var(--muted)}.tag{display:inline-flex;margin-bottom:16px;border-radius:999px;background:var(--accent-soft);padding:6px 10px;color:var(--forest);font-size:12px;font-weight:900;letter-spacing:.04em;text-transform:uppercase}.checks{display:grid;gap:10px;list-style:none}.checks li{position:relative;padding-left:28px;color:var(--muted)}.checks li::before{content:"";position:absolute;left:0;top:.42em;width:16px;height:16px;border-radius:50%;background:var(--accent-soft);box-shadow:inset 0 0 0 5px var(--accent)}.steps{display:grid;gap:16px}.step{display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:24px;box-shadow:0 10px 30px rgba(16,23,19,.07)}.num{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--forest);color:var(--accent-soft);font-family:Fraunces,serif;font-size:25px;font-weight:800}.step h3{font-size:27px;margin-bottom:10px}.step p{color:var(--muted)}.band{background:linear-gradient(135deg,var(--forest),#244f42);color:#fff}.band h2,.band h3{color:#fff}.band .section-lede,.band .card p,.band .checks li{color:rgba(255,255,255,.78)}.band .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);box-shadow:none}.band .checks li::before{background:var(--accent-soft);box-shadow:inset 0 0 0 5px var(--accent)}.note{margin-top:18px;color:var(--muted);font-size:14px}.footer{padding:34px 0;background:#101915;color:rgba(255,255,255,.62);text-align:center;font-size:14px}@media(max-width:900px){.nav{align-items:flex-start;flex-direction:column}.hero-grid,.section-head{grid-template-columns:1fr}.grid,.grid.two{grid-template-columns:1fr}.hero{padding-top:48px}}@media(max-width:620px){.wrap{width:min(100% - 28px,1120px)}.nav-links{display:none}.panel-top{grid-template-columns:1fr}h1{font-size:40px}.step{grid-template-columns:1fr}.card,.panel,.step{border-radius:8px}}
+  </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <a href="index.html" class="brand">
-    <div class="brand-mark">IF</div>
-    <div class="brand-name">Isabel Fernández<span>Solo de Zaldívar</span></div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="index.html#servicios">Servicios</a></li>
-    <li><a href="index.html#publicaciones">Publicaciones</a></li>
-    <li><a href="#contacto" class="nav-cta">Contacto</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <div class="eyebrow">PROPUESTA DE COLABORACIÓN</div>
-        <h1>Centros de Referencia Nacional</h1>
-        <p class="hero-sub">Docentes que investigan<br>Programa piloto de investigación aplicada, transferencia y apoyo con IA para Formación Profesional</p>
-        <p class="hero-authority">Isabel Fernández Solo de Zaldívar<br>Doctora · Investigadora · Formadora de profesorado · Consultora docente</p>
-        <div class="hero-meta">
-          <span class="chip">Formar no es llenar horas</span>
-          <span class="chip">Consultar no es entregar informes</span>
-          <span class="chip">Es lograr que el lunes algo cambie en el aula</span>
-        </div>
-        <p class="hero-statement">Esta propuesta convierte la innovación cotidiana del profesorado de FP en método, evidencias, materiales transferibles y conocimiento útil para otros centros.</p>
-        <div class="cta-row">
-          <a href="#contacto" class="btn btn-primary">Solicitar información <span class="arrow">→</span></a>
-          <a href="mailto:isabelfernandezsolo@gmail.com" class="btn btn-ghost">Contactar</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="portrait">
-          <div class="portrait-mark">IF</div>
-        </div>
-        <div class="orbit-line o1"></div>
-        <div class="orbit-line o2"></div>
-        <div class="orbit-line o3"></div>
-        <div class="portrait-logo">IF</div>
-      </div>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="innovacion-investigacion.html" aria-label="Volver a innovación e investigación">
+        <span class="brand-mark">CRN</span>
+        <span>Programa CRN investigador</span>
+      </a>
+      <nav class="nav-links">
+        <a href="innovacion-investigacion.html">Servicios</a>
+        <a href="#incluye">Incluye</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- CONTENT -->
-<section id="contenido">
-  <div class="wrap">
-    <div class="content">
-
-      <h2>Entidad destinataria</h2>
-      <p>Centro de Referencia Nacional de Formación Profesional</p>
-
-      <h2>Duración recomendada</h2>
-      <p>4 meses para el piloto · 6-8 meses si se escala con prototipo IA</p>
-
-      <h2>Modalidad</h2>
-      <p>Mixta: sesiones online/presenciales + acompañamiento técnico</p>
-
-      <h2>Presupuesto piloto recomendado</h2>
-      <p>19.500 € + IVA</p>
-
-      <h2>Versión con prototipo IA</h2>
-      <p>34.500 € + IVA</p>
-
-      <h2>Resumen ejecutivo</h2>
-      <p>La Formación Profesional genera diariamente conocimiento práctico de alto valor: metodologías que funcionan, experiencias centro-empresa, ajustes en la evaluación, acompañamiento al alumnado, proyectos de innovación y soluciones docentes nacidas de problemas reales. Sin embargo, gran parte de ese conocimiento se pierde porque no se documenta, no se convierte en evidencia y no se transfiere a otros centros.</p>
-      <p>Esta propuesta plantea un programa piloto para que un Centro de Referencia Nacional impulse una línea propia de investigación aplicada y transferencia docente en FP. El enfoque es deliberadamente práctico: seleccionar un grupo reducido de docentes, acompañarles paso a paso, usar inteligencia artificial como apoyo metodológico y terminar con productos concretos: buenas prácticas documentadas, instrumentos, materiales, una guía transferible, una memoria técnica y una posible jornada de difusión.</p>
-      <p>La inteligencia artificial no se plantea como sustituto del criterio docente, sino como un asistente para reducir barreras: ayudar a formular preguntas de investigación, diseñar instrumentos, ordenar evidencias, sintetizar resultados y adaptar la experiencia a formatos de transferencia.</p>
-
-      <h2>Resultados esperados del piloto</h2>
-      <ul>
-        <li>5 docentes acompañados desde una experiencia de aula hasta una buena práctica documentada.</li>
-        <li>5 buenas prácticas fichas transferibles, revisadas y listas para difundir desde el CRN.</li>
-        <li>1 guía metodológica documento útil para replicar el proceso en otros centros y convocatorias.</li>
-        <li>1 memoria técnica evidencias, indicadores, resultados, límites y propuesta de continuidad.</li>
-        <li>1 banco inicial estructura para recopilar experiencias, instrumentos y recursos aplicables.</li>
-        <li>1 hoja de ruta IA diseño funcional para evolucionar hacia un asistente digital propio del CRN.</li>
-      </ul>
-
-      <h2>1. Punto de partida: una oportunidad para los CRN</h2>
-      <p>Los Centros de Referencia Nacional ocupan una posición privilegiada para conectar sectores productivos, profesorado, innovación metodológica, actualización profesional y transferencia al conjunto del sistema de FP. Su valor no reside únicamente en organizar acciones formativas, sino en actuar como nodos de referencia que observan, experimentan, generan conocimiento y lo hacen circular.</p>
-      <p>En ese contexto, existe una oportunidad especialmente clara: ayudar al profesorado de FP a investigar desde su propia práctica. No se trata de pedir al docente que actúe como un investigador universitario tradicional, sino de ofrecerle un método accesible para transformar lo que ya hace en el aula en evidencia útil y compartible.</p>
-      <p>El CRN puede liderar ese proceso como estructura de apoyo, validación y difusión. Con un programa bien diseñado, puede demostrar que no solo forma, sino que impulsa cultura investigadora, genera recursos transferibles y aporta conocimiento al sector profesional que representa.</p>
-
-      <h3>Encaje normativo y estratégico</h3>
-      <table>
-        <tr><th>Función estratégica</th><th>Cómo se traduce en esta propuesta</th></tr>
-        <tr><td>Referencia estatal y sectorial</td><td>Los CRN son centros de ámbito estatal y referencia para el conjunto del sistema de FP en una familia profesional.</td></tr>
-        <tr><td>Innovación y experimentación</td><td>Su naturaleza se vincula a acciones de innovación y experimentación en materia de formación profesional.</td></tr>
-        <tr><td>Observación de necesidades</td><td>Pueden observar la evolución de los sectores productivos y detectar necesidades de cualificación.</td></tr>
-        <tr><td>Formación y actualización</td><td>Pueden diseñar acciones de perfeccionamiento técnico y metodológico para docentes, formadores y orientadores.</td></tr>
-        <tr><td>Transferencia</td><td>Pueden generar información, criterios, materiales, calidad y mejora para el sistema de FP.</td></tr>
-      </table>
-
-      <h2>2. Problema que resuelve</h2>
-      <ul>
-        <li>Innovación poco documentada. Muchos docentes de FP desarrollan experiencias valiosas, pero quedan en el aula y no se convierten en conocimiento compartible.</li>
-        <li>Barrera metodológica. El profesorado no siempre domina cómo formular una pregunta, recoger evidencias, analizar resultados o redactar una memoria.</li>
-        <li>Falta de tiempo. La investigación se percibe como una carga adicional, no como una forma de ordenar lo que ya ocurre en la práctica.</li>
-        <li>Escasa transferencia. Las buenas prácticas no se sistematizan en formatos replicables: guías, fichas, comunicaciones, jornadas o repositorios.</li>
-        <li>Poca voz científica propia de la FP. La FP produce conocimiento aplicado, pero con frecuencia queda fuera de los circuitos habituales de publicación y divulgación educativa.</li>
-      </ul>
-
-      <h3>Solución propuesta</h3>
-      <p>Crear un programa piloto, liderado por el CRN y acompañado técnicamente por Isabel Fernández, que ayude a un grupo reducido de docentes a convertir experiencias reales en investigación aplicada y transferencia, con apoyo de IA y supervisión humana.</p>
-
-      <h2>3. Metodología: de la práctica docente a la transferencia</h2>
-      <table>
-        <tr><th>Fase</th><th>Qué se trabaja</th><th>Resultado</th></tr>
-        <tr><td>1. Identificar</td><td>Detectar prácticas reales del aula o del contacto centro-empresa con potencial investigador.</td><td>Idea investigable</td></tr>
-        <tr><td>2. Formular</td><td>Convertir una intuición docente en una pregunta viable, clara y medible.</td><td>Pregunta de investigación</td></tr>
-        <tr><td>3. Diseñar</td><td>Definir objetivos, evidencias, instrumentos, calendario y criterios de calidad.</td><td>Mini diseño metodológico</td></tr>
-        <tr><td>4. Recoger</td><td>Aplicar cuestionarios, rúbricas, registros, entrevistas breves o diarios de aula sin sobrecargar al docente.</td><td>Instrumentos y evidencias</td></tr>
-        <tr><td>5. Analizar</td><td>Ordenar resultados, detectar patrones y distinguir evidencias, interpretación y límites.</td><td>Resultados ordenados</td></tr>
-        <tr><td>6. Transferir</td><td>Convertir la experiencia en ficha de buena práctica, guía, comunicación, memoria o material replicable.</td><td>Producto transferible</td></tr>
-        <tr><td>7. Difundir</td><td>Presentar resultados en jornada, repositorio, publicación, boletín o memoria institucional del CRN.</td><td>Impacto visible</td></tr>
-      </table>
-
-      <h2>4. Papel de la inteligencia artificial</h2>
-      <p>La IA se incorpora como una herramienta de apoyo para hacer más accesible la investigación aplicada al profesorado de FP. No sustituye el criterio pedagógico, la validación metodológica ni la revisión ética; ayuda a estructurar el proceso y a reducir la carga inicial.</p>
-      <p>El valor principal no está en automatizar la investigación, sino en acompañar al docente cuando no sabe por dónde empezar: cómo transformar una práctica en pregunta, qué evidencias recoger, cómo organizar los resultados y qué formato de transferencia elegir.</p>
-
-      <h3>Módulo IA</h3>
-      <table>
-        <tr><th>Función práctica</th></tr>
-        <tr><td>Tengo una idea: El docente describe una práctica o problema. La IA ayuda a convertirlo en una pregunta de investigación viable.</td></tr>
-        <tr><td>Diseña mi mini estudio: Guía para definir objetivos, muestra, evidencias, instrumentos, calendario y limitaciones.</td></tr>
-        <tr><td>Crea mis instrumentos: Borradores de cuestionarios, rúbricas, guiones de entrevista, diarios de aula y listas de observación.</td></tr>
-        <tr><td>Ordena mis evidencias: Síntesis de respuestas abiertas, agrupación por categorías, patrones y citas representativas.</td></tr>
-        <tr><td>Convierte mi experiencia: Transformación del proyecto en ficha de buena práctica, memoria, comunicación o guía.</td></tr>
-        <tr><td>Revisa calidad y ética: Checklist de coherencia, evidencias, protección de datos, replicabilidad y supervisión humana.</td></tr>
-      </table>
-
-      <h2>5. Propuesta por fases</h2>
-
-      <h3>Fase 1. Diagnóstico inicial y diseño del piloto</h3>
-      <p><strong>Duración:</strong> 3-4 semanas</p>
-      <p><strong>Objetivo:</strong> Identificar una línea prioritaria del CRN y diseñar un piloto viable con docentes participantes.</p>
-      <p><strong>Actuaciones:</strong> Reunión inicial, revisión documental, selección de familia/problema, definición de criterios de participación, indicadores de éxito, cronograma y plan de comunicación interna.</p>
-      <p><strong>Entregables:</strong> Informe de diagnóstico, diseño del piloto, matriz de indicadores, calendario y propuesta de continuidad.</p>
-      <p><strong>Presupuesto:</strong> 2.500 € + IVA</p>
-
-      <h3>Fase 2. Formación inicial: investigar y transferir desde FP</h3>
-      <p><strong>Duración:</strong> 2 semanas</p>
-      <p><strong>Objetivo:</strong> Dotar a los docentes de un lenguaje común y un método sencillo de investigación aplicada.</p>
-      <p><strong>Actuaciones:</strong> Sesiones prácticas sobre investigación-acción, preguntas viables, evidencias, instrumentos, ética, IA como apoyo y formatos de transferencia.</p>
-      <p><strong>Entregables:</strong> Programa formativo, presentación, plantillas, banco de prompts y guía breve para docentes.</p>
-      <p><strong>Presupuesto:</strong> 3.500 € + IVA</p>
-
-      <h3>Fase 3. Acompañamiento a 5 docentes</h3>
-      <p><strong>Duración:</strong> 8-10 semanas</p>
-      <p><strong>Objetivo:</strong> Acompañar a cada participante desde su idea inicial hasta una experiencia documentada.</p>
-      <p><strong>Actuaciones:</strong> Tutorías individuales/grupales, revisión de preguntas, diseño de instrumentos, apoyo en recogida de evidencias y seguimiento de avances.</p>
-      <p><strong>Entregables:</strong> 5 diseños de mini investigación, 5 paquetes de instrumentos y registro de seguimiento.</p>
-      <p><strong>Presupuesto:</strong> 4.500 € + IVA</p>
-
-      <h3>Fase 4. Plantillas, prompts y flujo de trabajo IA</h3>
-      <p><strong>Duración:</strong> 3 semanas</p>
-      <p><strong>Objetivo:</strong> Crear un sistema reutilizable para que el CRN pueda repetir el proceso con nuevos docentes.</p>
-      <p><strong>Actuaciones:</strong> Diseño de prompts supervisados, plantillas de pregunta de investigación, instrumentos, análisis, ficha de buena práctica y memoria breve.</p>
-      <p><strong>Entregables:</strong> Kit IA-docente: prompts, plantillas editables, checklist de calidad y guía de uso.</p>
-      <p><strong>Presupuesto:</strong> 2.000 € + IVA</p>
-
-      <h3>Fase 5. Revisión de 5 buenas prácticas y productos transferibles</h3>
-      <p><strong>Duración:</strong> 4 semanas</p>
-      <p><strong>Objetivo:</strong> Transformar los proyectos docentes en materiales claros y compartibles.</p>
-      <p><strong>Actuaciones:</strong> Revisión pedagógica y metodológica, edición de fichas, homogeneización del formato y preparación para difusión.</p>
-      <p><strong>Entregables:</strong> 5 fichas de buenas prácticas transferibles y pack de instrumentos anexos.</p>
-      <p><strong>Presupuesto:</strong> 2.500 € + IVA</p>
-
-      <h3>Fase 6. Guía metodológica final</h3>
-      <p><strong>Duración:</strong> 3 semanas</p>
-      <p><strong>Objetivo:</strong> Dejar al CRN un documento de referencia para replicar el proceso.</p>
-      <p><strong>Actuaciones:</strong> Redacción de una guía que explique el método, fases, instrumentos, ejemplos, criterios de calidad y recomendaciones.</p>
-      <p><strong>Entregables:</strong> Guía metodológica del programa en PDF y editable.</p>
-      <p><strong>Presupuesto:</strong> 2.500 € + IVA</p>
-
-      <h3>Fase 7. Memoria, jornada y transferencia</h3>
-      <p><strong>Duración:</strong> 3 semanas</p>
-      <p><strong>Objetivo:</strong> Cerrar el piloto con evidencias, visibilidad y hoja de ruta de continuidad.</p>
-      <p><strong>Actuaciones:</strong> Memoria técnica, resumen ejecutivo, presentación de resultados y propuesta de jornada o seminario.</p>
-      <p><strong>Entregables:</strong> Memoria final, resumen ejecutivo, presentación y propuesta de escalado.</p>
-      <p><strong>Presupuesto:</strong> 2.000 € + IVA</p>
-
-      <h2>6. Presupuesto y opciones de contratación</h2>
-      <p>La propuesta se estructura de forma progresiva para reducir el riesgo de entrada. El CRN puede comenzar con un piloto acotado, comprobar resultados y decidir después si escala hacia una herramienta digital propia.</p>
-
-      <h3>Opción</h3>
-      <table>
-        <tr><th>Incluye</th><th>Duración</th><th>Presupuesto</th><th>Cuándo elegirla</th></tr>
-        <tr><td>Paquete A. Diagnóstico de oportunidad</td><td>Fase 1</td><td>3-4 semanas</td><td>2.500 € + IVA</td></tr>
-        <tr><td>Para valorar viabilidad antes de iniciar un piloto.</td><td></td><td></td><td></td></tr>
-        <tr><td>Paquete B. Piloto recomendado: 5 docentes, 5 buenas prácticas</td><td>Fases 1 a 7</td><td>4 meses</td><td>19.500 € + IVA</td></tr>
-        <tr><td>Opción más equilibrada: deja evidencias, productos y visibilidad.</td><td></td><td></td><td></td></tr>
-        <tr><td>Paquete C. Piloto + prototipo IA básico</td><td>Fases 1 a 7 + MVP IA</td><td>6-7 meses</td><td>34.500 € + IVA</td></tr>
-        <tr><td>Añade una herramienta digital inicial para sistematizar el proceso.</td><td></td><td></td><td></td></tr>
-        <tr><td>Paquete D. Escalado anual CRN investigador</td><td>Programa anual</td><td>12 meses</td><td>A determinar: desde 48.000 € + IVA</td></tr>
-        <tr><td>Extensión a más docentes, centros colaboradores, jornadas y repositorio estable.</td><td></td><td></td><td></td></tr>
-      </table>
-
-      <h3>Desglose del paquete B. Piloto recomendado</h3>
-      <table>
-        <tr><th>Concepto</th><th>Importe</th></tr>
-        <tr><td>Diagnóstico y diseño del piloto</td><td>2.500 €</td></tr>
-        <tr><td>Formación inicial a docentes</td><td>3.500 €</td></tr>
-        <tr><td>Acompañamiento a 5 docentes</td><td>4.500 €</td></tr>
-        <tr><td>Plantillas y prompts IA</td><td>2.000 €</td></tr>
-        <tr><td>Revisión de 5 buenas prácticas</td><td>2.500 €</td></tr>
-        <tr><td>Guía metodológica final</td><td>2.500 €</td></tr>
-        <tr><td>Memoria y jornada de transferencia</td><td>2.000 €</td></tr>
-        <tr><td><strong>TOTAL</strong></td><td><strong>19.500 € + IVA</strong></td></tr>
-      </table>
-
-      <h2>7. Opción de prototipo digital con IA</h2>
-      <p>Como fase de escalado, el piloto puede evolucionar hacia un prototipo digital propio del CRN: un asistente que guíe a docentes en investigación aplicada y transferencia. La recomendación es no desarrollar la plataforma antes de validar el proceso con docentes reales. Primero se prueba el método; después se digitaliza lo que funciona.</p>
-      <p>El prototipo no tendría que ser una plataforma compleja. Un MVP viable puede incluir autenticación básica, formularios guiados, generador de preguntas de investigación, generador de instrumentos, análisis de evidencias con IA, ficha de buena práctica y exportación a Word/PDF.</p>
-
-      <h3>Elemento</h3>
-      <table>
-        <tr><th>Descripción</th></tr>
-        <tr><td>Usuarios: Administrador CRN, docente participante y revisor.</td></tr>
-        <tr><td>Flujo guiado: Idea inicial -> pregunta -> diseño -> instrumentos -> evidencias -> transferencia.</td></tr>
-        <tr><td>IA supervisada: Prompts cerrados y plantillas validadas para evitar respuestas genéricas.</td></tr>
-        <tr><td>Exportación: Fichas, memorias breves, instrumentos y resúmenes en formato editable.</td></tr>
-        <tr><td>Repositorio: Banco interno de buenas prácticas y materiales clasificados.</td></tr>
-        <tr><td>Calidad: Checklist ético, metodológico y de replicabilidad antes de difusión.</td></tr>
-      </table>
-
-      <h2>8. Indicadores de éxito</h2>
-      <ul>
-        <li>Participación: Al menos 5 docentes completan el itinerario.</li>
-        <li>Producción: Al menos 5 fichas de buenas prácticas quedan revisadas y listas para difusión.</li>
-        <li>Transferencia: Al menos una jornada, repositorio o publicación institucional presenta resultados.</li>
-        <li>Capacidad instalada: El CRN dispone de plantillas, prompts, guía metodológica y flujo replicable.</li>
-        <li>Satisfacción: Valoración media igual o superior a 8/10 por parte de docentes participantes.</li>
-        <li>Escalabilidad: El CRN dispone de una propuesta de continuidad para ampliar a más centros o familias.</li>
-      </ul>
-
-      <h2>9. Condiciones de trabajo y gobernanza</h2>
-      <p>La propuesta requiere una persona interlocutora del CRN para coordinación, selección de docentes, validación de materiales y calendario. Las sesiones podrán realizarse online o en modalidad mixta, adaptándose a la agenda del centro.</p>
-      <p>Los materiales se entregarán en formato editable y PDF. Las buenas prácticas se publicarán o difundirán únicamente si el CRN y los docentes participantes validan su contenido. Cualquier tratamiento de datos personales deberá ajustarse a las políticas del centro y a la normativa vigente.</p>
-      <p>La IA se utilizará con un enfoque de apoyo metodológico. No se introducirán datos personales sensibles en herramientas externas sin autorización expresa y sin definir previamente las condiciones de uso.</p>
-
-      <h2>10. Perfil de la responsable técnica</h2>
-      <ul>
-        <li>Doctora por la UNED, investigadora y consultora docente con 25 años de experiencia en Formación Profesional.</li>
-        <li>Docente funcionaria de carrera desde 2000 y jefa de departamento en ESTNA.</li>
-        <li>Formadora de profesorado en la UNIR desde 2010, en el Máster de Secundaria y FP.</li>
-        <li>Experiencia en calidad, innovación, FP Dual, investigación aplicada, publicaciones científicas y divulgación educativa.</li>
-        <li>Especialización en convertir problemas reales de aula en procesos formativos, evidencias, materiales y transferencia.</li>
-      </ul>
-
-      <h2>Propuesta de valor final</h2>
-      <p>El CRN no solo organiza formación: lidera una cultura de investigación aplicada en FP. Esta propuesta permite empezar con un piloto concreto, demostrar valor y escalar hacia una herramienta de transferencia con IA.</p>
-
-      <h2>Anexo. Referencias normativas y fuentes</h2>
-      <ul>
-        <li>Real Decreto 229/2008, de 15 de febrero, por el que se regulan los Centros de Referencia Nacional en el ámbito de la formación profesional. https://www.boe.es/buscar/act.php?id=BOE-A-2008-3526</li>
-        <li>TodoFP. Centros de Referencia Nacional. https://todofp.es/como-cuando-y-donde-estudiar/donde-estudiar/centros-referencia-nacional.html</li>
-        <li>TodoFP. Características de los Centros de Referencia Nacional. https://www.todofp.es/como-cuando-y-donde-estudiar/donde-estudiar/centros-referencia-nacional/caracteristicas.html</li>
-        <li>TodoFP. Funciones de los Centros de Referencia Nacional. https://www.todofp.es/como-cuando-y-donde-estudiar/donde-estudiar/centros-referencia-nacional/funciones.html</li>
-        <li>Ley Orgánica 3/2022, de 31 de marzo, de ordenación e integración de la Formación Profesional. https://www.boe.es/buscar/act.php?id=BOE-A-2022-5139</li>
-        <li>Landing profesional de Isabel Fernández Solo de Zaldívar. https://isabelfernandezsolo.github.io/landing-page/</li>
-      </ul>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACTO -->
-<section id="contacto">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Contacto</div>
-        <h2 class="section-title">¿Interesado en esta propuesta?</h2>
-      </div>
-      <p class="section-lede">Póngase en contacto para discutir cómo implementar este programa piloto en su Centro de Referencia Nacional.</p>
-    </div>
-
-    <div class="contact-grid">
-      <div>
-        <div class="contact-item">
-          <div class="ico">✉</div>
-          <div>
-            <h4>Email</h4>
-            <p>isabelfernandezsolo@gmail.com</p>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Producto estrella · Investigación aplicada en FP</div>
+          <h1>Programa completo para <span>Centros de Referencia Nacional</span></h1>
+          <p class="hero-lede">Piloto de investigación aplicada con cinco docentes acompañados de inicio a fin: desde la idea hasta la buena práctica transferible, con apoyo de IA, guía metodológica, memoria y jornada de transferencia.</p>
+          <div class="actions">
+            <a class="btn" href="#contacto">Solicitar propuesta CRN</a>
+            <a class="ghost-link" href="#proceso">Ver proceso de trabajo</a>
           </div>
         </div>
-        <div class="contact-item">
-          <div class="ico">📞</div>
-          <div>
-            <h4>Teléfono</h4>
-            <p>629 489 015</p>
+
+        <aside class="panel" aria-label="Datos clave del programa">
+          <div class="panel-top">
+            <div class="metric"><strong>15.500 €</strong><span>+ IVA</span></div>
+            <div class="metric"><strong>4 meses</strong><span>Duración del piloto</span></div>
+            <div class="metric"><strong>Mixta</strong><span>Online + sesiones presenciales</span></div>
+            <div class="metric"><strong>5</strong><span>Docentes acompañados</span></div>
           </div>
+          <form id="contacto" action="mailto:isabelfernandezsolo@gmail.com" method="post" enctype="text/plain" class="contact-form">
+            <label class="field"><span>Email</span><input type="email" name="email" placeholder="tu@email.com" required></label>
+            <label class="field"><span>Nombre</span><input type="text" name="nombre" placeholder="Tu nombre" required></label>
+            <input type="hidden" name="servicio" value="Programa completo para Centros de Referencia Nacional">
+            <label class="field"><span>Mensaje</span><textarea name="mensaje" placeholder="Cuéntame qué CRN, familia profesional o línea de innovación queréis impulsar."></textarea></label>
+            <button type="submit" class="btn">Enviar consulta</button>
+            <p class="form-note">El formulario abre tu cliente de correo para enviar la solicitud.</p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section id="incluye">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-kicker">Qué incluye</span><h2 class="section-title">Un piloto completo para crear cultura investigadora en FP.</h2></div>
+          <p class="section-lede">El CRN lidera el proceso y el profesorado transforma experiencias reales de aula, centro o empresa en evidencias, buenas prácticas y materiales transferibles.</p>
         </div>
-        <div class="contact-item">
-          <div class="ico">🌐</div>
-          <div>
-            <h4>Web</h4>
-            <p>https://isabelfernandezsolo.github.io/landing-page/</p>
+        <div class="grid two">
+          <div class="card accent">
+            <span class="tag">Entregables</span>
+            <ul class="checks">
+              <li>5 fichas de buenas prácticas revisadas y listas para difundir.</li>
+              <li>Guía metodológica para replicar el proceso en el CRN.</li>
+              <li>Kit IA-docente con prompts, plantillas y checklist de calidad.</li>
+              <li>Memoria técnica del piloto con evidencias y propuesta de continuidad.</li>
+              <li>Jornada o sesión de transferencia de resultados.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="tag">Resultados esperados</span>
+            <ul class="checks">
+              <li>5 docentes acompañados desde la idea inicial hasta el producto final.</li>
+              <li>Una metodología accesible para investigar desde la práctica docente.</li>
+              <li>Instrumentos y evidencias ordenadas sin sobrecargar al profesorado.</li>
+              <li>Capacidad instalada para repetir el modelo con nuevos equipos.</li>
+              <li>Visibilidad institucional del CRN como nodo de investigación aplicada.</li>
+            </ul>
           </div>
         </div>
       </div>
-      <div>
-        <p>Esta propuesta está diseñada para ayudar a los Centros de Referencia Nacional a liderar la investigación aplicada en Formación Profesional, convirtiendo la experiencia docente en conocimiento transferible.</p>
-        <a href="mailto:isabelfernandezsolo@gmail.com" class="btn btn-primary">Enviar consulta <span class="arrow">→</span></a>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-kicker">Para quién</span><h2 class="section-title">Pensado para CRN que quieren demostrar impacto, no solo actividad.</h2></div>
+          <p class="section-lede">Especialmente útil para Centros de Referencia Nacional que quieren activar una línea de investigación aplicada, documentar innovación docente y generar materiales útiles para su sector profesional.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>Equipos directivos</h3><p>Obtienen una propuesta ordenada, con fases, calendario, evidencias, memoria y transferencia pública de resultados.</p></div>
+          <div class="card"><h3>Docentes participantes</h3><p>Reciben acompañamiento metodológico para convertir una práctica real en una buena práctica documentada.</p></div>
+          <div class="card"><h3>CRN y sector</h3><p>El centro gana un modelo replicable para observar, experimentar y transferir conocimiento aplicado a otros centros.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-kicker">Producto final</span><h2 class="section-title">Lo que recibe el Centro de Referencia Nacional.</h2></div>
+          <p class="section-lede">Una entrega compacta, útil y presentable ante equipos, administraciones, jornadas o memorias institucionales.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>Transferencia docente</h3>
+            <ul class="checks">
+              <li>5 buenas prácticas documentadas.</li>
+              <li>Pack de instrumentos anexos.</li>
+              <li>Presentación para jornada o seminario.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Metodo replicable</h3>
+            <ul class="checks">
+              <li>Guía metodológica del programa.</li>
+              <li>Plantillas editables.</li>
+              <li>Banco de prompts para investigar y transferir.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Memoria e impacto</h3>
+            <ul class="checks">
+              <li>Memoria final del piloto.</li>
+              <li>Indicadores de participación y producción.</li>
+              <li>Hoja de ruta para continuidad o escalado.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-kicker">Proceso</span><h2 class="section-title">Siete fases para pasar de la experiencia de aula a la transferencia.</h2></div>
+          <p class="section-lede">El programa acompaña al CRN y a los docentes con un método sencillo: identificar, formular, diseñar, recoger evidencias, analizar, transferir y difundir.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><div class="num">1</div><div><h3>Diagnóstico y diseño del piloto</h3><p>Definimos línea prioritaria, docentes participantes, indicadores de éxito, cronograma y criterios de transferencia.</p></div></article>
+          <article class="step"><div class="num">2</div><div><h3>Formación inicial</h3><p>Sesiones prácticas para compartir método: pregunta investigable, evidencias, instrumentos, ética, IA y formatos de difusión.</p></div></article>
+          <article class="step"><div class="num">3</div><div><h3>Acompañamiento a 5 docentes</h3><p>Tutorías individuales o grupales para diseñar mini investigaciones, recoger evidencias y revisar avances.</p></div></article>
+          <article class="step"><div class="num">4</div><div><h3>Kit IA-docente</h3><p>Plantillas, prompts supervisados y checklist para formular preguntas, crear instrumentos, ordenar evidencias y redactar fichas.</p></div></article>
+          <article class="step"><div class="num">5</div><div><h3>Buenas prácticas transferibles</h3><p>Edición y homogeneización de las 5 experiencias para convertirlas en fichas claras, útiles y compartibles.</p></div></article>
+          <article class="step"><div class="num">6</div><div><h3>Guía metodológica final</h3><p>Documento de referencia para que el CRN pueda repetir el proceso con otros docentes, centros o convocatorias.</p></div></article>
+          <article class="step"><div class="num">7</div><div><h3>Memoria y jornada</h3><p>Cierre con memoria técnica, resumen ejecutivo, presentación de resultados y propuesta de continuidad.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="section-kicker">IA con criterio</span><h2 class="section-title">La IA ayuda a ordenar el proceso, pero no sustituye el criterio docente.</h2></div>
+          <p class="section-lede">Se utiliza como apoyo metodológico para reducir barreras: transformar prácticas en preguntas, diseñar instrumentos, ordenar evidencias, sintetizar resultados y adaptar la experiencia a formatos de transferencia.</p>
+        </div>
+        <div class="grid">
+          <div class="card accent"><h3>Diseño</h3><p>Prompts para pasar de una idea docente a una pregunta de investigación viable, objetivos y evidencias.</p></div>
+          <div class="card accent"><h3>Instrumentos</h3><p>Borradores de cuestionarios, rubricas, guiones de entrevista, diarios de aula y listas de observación.</p></div>
+          <div class="card accent"><h3>Transferencia</h3><p>Apoyo para convertir resultados en ficha de buena práctica, memoria, comunicación o guía replicable.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap"><p>&copy; 2026 Isabel Fernández Solo de Zaldívar. Todos los derechos reservados.</p></div>
+  </footer>
 </body>
 </html>
